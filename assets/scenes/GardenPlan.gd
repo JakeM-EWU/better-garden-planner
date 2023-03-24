@@ -23,25 +23,23 @@ func _ready():
 
 
 func _process(delta):
-	var tile = local_to_map(get_local_mouse_position())
 	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
-		var mouse_coords = get_local_mouse_position()
-		if (cell_is_placeable(mouse_coords)):
+		var tile = local_to_map(get_local_mouse_position())	
+		if (tile_is_placeable(tile)):
 			set_cell(object_layer_id, tile, test_object_source_id, Vector2(0,0))
 
 
-func generate_garden():
-	set_garden_size()
-	center_garden()
-
-
-func cell_is_placeable(coords: Vector2) -> bool:
-	var tile = local_to_map(coords)
+func tile_is_placeable(tile: Vector2i) -> bool:
 	var data = get_cell_tile_data(0, tile)
 	if data:
 		return data.get_custom_data("placeable")
 	return false
 	
+
+func generate_garden():
+	set_garden_size()
+	center_garden()
+
 
 func set_garden_size():
 	for r in rows:
