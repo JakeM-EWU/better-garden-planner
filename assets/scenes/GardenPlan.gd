@@ -3,7 +3,11 @@ extends TileMap
 @export var rows: int = 4
 @export var columns: int = 5
 
-var placeable_tile
+var placeable_tile_source_id = 0
+var test_object_source_id = 1
+
+var garden_layer_id = 0
+var object_layer_id = 1
 
 var garden_height_in_pixels: int:
 	get:
@@ -15,7 +19,6 @@ var garden_width_in_pixels: int:
 
 
 func _ready():
-	placeable_tile = tile_set.get_source_id(0)
 	generate_garden()
 
 
@@ -24,7 +27,7 @@ func _process(delta):
 	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 		var mouse_coords = get_local_mouse_position()
 		if (cell_is_placeable(mouse_coords)):
-			set_cell(1, tile, 2, Vector2(0,0))
+			set_cell(object_layer_id, tile, test_object_source_id, Vector2(0,0))
 
 
 func generate_garden():
@@ -43,7 +46,7 @@ func cell_is_placeable(coords: Vector2) -> bool:
 func set_garden_size():
 	for r in rows:
 		for c in columns:
-			set_cell(0, Vector2i(r, c), 0, Vector2i(0,0))
+			set_cell(garden_layer_id, Vector2i(r, c), placeable_tile_source_id, Vector2i(0,0))
 
 
 func center_garden():

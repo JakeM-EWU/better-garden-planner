@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=7 format=3 uid="uid://bdw7atgboe6is"]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bdw7atgboe6is"]
 
 [ext_resource type="Texture2D" uid="uid://b0ug80oac8008" path="res://assets/images/Placeable.png" id="1_856l8"]
 [ext_resource type="Texture2D" uid="uid://0rp33g1slpip" path="res://assets/images/Potato.png" id="2_1x7mh"]
@@ -7,12 +7,6 @@
 texture = ExtResource("1_856l8")
 0:0/0 = 0
 0:0/0/custom_data_0 = true
-
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e6gd2"]
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ofmu8"]
-texture = SubResource("CompressedTexture2D_e6gd2")
-0:0/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uox53"]
 texture = ExtResource("2_1x7mh")
@@ -28,5 +22,4 @@ custom_data_layer_0/type = 1
 custom_data_layer_1/name = "is_occupied"
 custom_data_layer_1/type = 0
 sources/0 = SubResource("TileSetAtlasSource_er8ly")
-sources/1 = SubResource("TileSetAtlasSource_ofmu8")
-sources/2 = SubResource("TileSetAtlasSource_uox53")
+sources/1 = SubResource("TileSetAtlasSource_uox53")
