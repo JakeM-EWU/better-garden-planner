@@ -1,15 +1,18 @@
 extends Node
 
-var garden_data
+var garden_data = {}
+
+# singleton that runs at launch, creates a nested dictionary of garden objects
+# print statements are just to verify that it's working and to show format of each object for now
 
 func _ready():
-	var file = FileAccess.open("res://assets/data/test.json", FileAccess.READ)
-	var garden_data_json = JSON.parse_string(file.get_as_text())
-	garden_data = garden_data_json
-	file.close()
-
-	for object in garden_data:
-		print(garden_data[object]["Start Seeds Indoors"])
-		print(garden_data[object]["Plant Seedlings or Transplants"])
-		print(garden_data[object]["Start Seeds Outdoors"])
+	var file = FileAccess.open("res://assets/data/plant_data.json", FileAccess.READ)
+	var json_object = JSON.new()
+	var parse_err = json_object.parse(file.get_as_text())
+	garden_data = json_object.get_data()
+	
+	for obj in garden_data:
+		print(obj)
+		for ind in garden_data[obj]:
+			print(ind, ": ", garden_data[obj][ind])
 

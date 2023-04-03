@@ -15,6 +15,10 @@ run/main_scene="res://assets/scenes/Controller.tscn"
 config/features=PackedStringArray("4.0", "GL Compatibility")
 config/icon="res://icon.svg"
 
+[autoload]
+
+JsonParser="*res://assets/scripts/json_parser.gd"
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
