@@ -1,18 +1,19 @@
-[gd_resource type="TileSet" load_steps=5 format=3]
+[gd_resource type="TileSet" load_steps=5 format=3 uid="uid://bdw7atgboe6is"]
 
 [ext_resource type="Texture2D" uid="uid://b0ug80oac8008" path="res://assets/images/Placeable.png" id="1_856l8"]
+[ext_resource type="Texture2D" uid="uid://0rp33g1slpip" path="res://assets/images/Potato.png" id="2_1x7mh"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_er8ly"]
 texture = ExtResource("1_856l8")
 0:0/0 = 0
 0:0/0/custom_data_0 = true
 
-[sub_resource type="CompressedTexture2D" id="CompressedTexture2D_e6gd2"]
-load_path = "res://.godot/imported/Red.png-36ef8ab4688dd9b13d340a0385958b3f.ctex"
-
-[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ofmu8"]
-texture = SubResource("CompressedTexture2D_e6gd2")
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_uox53"]
+texture = ExtResource("2_1x7mh")
 0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
 
 [resource]
 uv_clipping = true
@@ -21,4 +22,4 @@ custom_data_layer_0/type = 1
 custom_data_layer_1/name = "is_occupied"
 custom_data_layer_1/type = 0
 sources/0 = SubResource("TileSetAtlasSource_er8ly")
-sources/1 = SubResource("TileSetAtlasSource_ofmu8")
+sources/1 = SubResource("TileSetAtlasSource_uox53")

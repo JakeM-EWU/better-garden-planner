@@ -1,6 +1,6 @@
 [gd_scene load_steps=3 format=3 uid="uid://c3k8jbs66w7st"]
 
-[ext_resource type="TileSet" uid="uid://cle418q3dpcl3" path="res://assets/resources/Garden.tres" id="1_ldxhk"]
+[ext_resource type="TileSet" uid="uid://bdw7atgboe6is" path="res://assets/resources/Garden.tres" id="1_ldxhk"]
 [ext_resource type="Script" path="res://assets/scenes/GardenPlan.gd" id="3_1v6bu"]
 
 [node name="Garden" type="Node2D"]
