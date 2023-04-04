@@ -23,10 +23,9 @@ func _ready():
 
 
 func _process(delta):
-	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
-		var tile = local_to_map(get_local_mouse_position())	
-		if (tile_is_placeable(tile)):
-			set_cell(object_layer_id, tile, test_object_source_id, Vector2(0,0))
+	var tile = local_to_map(get_local_mouse_position())	
+	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT) and tile_is_placeable(tile)):
+		place_object(tile, test_object_source_id, Vector2(0,0))
 
 
 func tile_is_placeable(tile: Vector2i) -> bool:
@@ -55,3 +54,7 @@ func center_garden():
 	self.position.y = y_pos
 	
 
+
+func place_object(tile: Vector2i, tilemap_spritesheet_id: int, sprite_coords: Vector2):
+		set_cell(object_layer_id, tile, tilemap_spritesheet_id, sprite_coords)
+	
