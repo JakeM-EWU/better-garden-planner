@@ -5,10 +5,9 @@ custom_minimum_size = Vector2(400, 300)
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -31.0
-offset_top = 211.0
-offset_right = 369.0
-offset_bottom = 511.0
+offset_left = -576.0
+offset_right = -176.0
+offset_bottom = 300.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
@@ -55,7 +54,6 @@ vertical_alignment = 1
 
 [node name="GardenName" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
-
 [node name="DimensionsLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Dimensions (X, Y):"
