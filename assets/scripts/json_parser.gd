@@ -1,6 +1,6 @@
 extends Node
 
-var garden_data = {}
+var garden_data: Dictionary = {}
 
 # singleton that runs at launch, creates a nested dictionary of garden objects
 # print statements are just to verify that it's working and to show format of each object for now

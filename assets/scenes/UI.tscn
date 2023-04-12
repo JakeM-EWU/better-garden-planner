@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://brvs5io7sbwm0"]
+[gd_scene load_steps=3 format=3]
 
-[ext_resource type="Theme" path="res://assets/themes/UITheme.tres" id="1_tv37f"]
+[ext_resource type="Theme" uid="uid://cbbm8hxc72p1e" path="res://assets/themes/UITheme.tres" id="1_tv37f"]
+[ext_resource type="PackedScene" uid="uid://dnnio24vng18k" path="res://object_library.tscn" id="2_7y7k0"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -12,6 +13,23 @@ grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = ExtResource("1_tv37f")
+
+[node name="LeftBarPanel" type="PanelContainer" parent="."]
+layout_mode = 2
+offset_top = 31.0
+offset_right = 300.0
+offset_bottom = 648.0
+size_flags_horizontal = 3
+
+[node name="TabContainer" type="TabContainer" parent="LeftBarPanel"]
+layout_mode = 2
+
+[node name="Garden Library" parent="LeftBarPanel/TabContainer" instance=ExtResource("2_7y7k0")]
+layout_mode = 2
+
+[node name="Notes" type="VBoxContainer" parent="LeftBarPanel/TabContainer"]
+visible = false
+layout_mode = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -42,20 +60,6 @@ item_1/id = 1
 [node name="HBoxContainer" type="HBoxContainer" parent="VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-
-[node name="LeftBarPanel" type="PanelContainer" parent="VBoxContainer/HBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 3
-
-[node name="TabContainer" type="TabContainer" parent="VBoxContainer/HBoxContainer/LeftBarPanel"]
-layout_mode = 2
-
-[node name="Garden Library" type="GridContainer" parent="VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer"]
-layout_mode = 2
-
-[node name="Notes" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer"]
-visible = false
-layout_mode = 2
 
 [node name="Spacer" type="Control" parent="VBoxContainer/HBoxContainer"]
 layout_mode = 2

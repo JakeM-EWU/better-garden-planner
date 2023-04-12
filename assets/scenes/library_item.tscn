@@ -1,0 +1,36 @@
+[gd_scene load_steps=3 format=3 uid="uid://bwlfx37cr88ij"]
+
+[ext_resource type="Script" path="res://assets/scenes/library_item.gd" id="1_4ahl2"]
+[ext_resource type="Texture2D" uid="uid://b4crw0isyuk57" path="res://icon64x64.svg" id="2_24106"]
+
+[node name="LibraryItem" type="Panel"]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -48.0
+offset_top = -48.0
+offset_right = -1104.0
+offset_bottom = -600.0
+grow_horizontal = 2
+grow_vertical = 2
+script = ExtResource("1_4ahl2")
+
+[node name="VBoxContainer" type="VBoxContainer" parent="."]
+layout_mode = 0
+offset_top = 1.0
+offset_right = 96.0
+offset_bottom = 95.0
+metadata/_edit_group_ = true
+
+[node name="ItemIcon" type="TextureRect" parent="VBoxContainer"]
+layout_mode = 2
+texture = ExtResource("2_24106")
+stretch_mode = 3
+
+[node name="ItemName" type="Label" parent="VBoxContainer"]
+layout_mode = 2
+text = "ITEM_NAME"
+horizontal_alignment = 1
+vertical_alignment = 1
+clip_text = true
+text_overrun_behavior = 3

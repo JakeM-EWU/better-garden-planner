@@ -1,0 +1,16 @@
+[gd_scene load_steps=2 format=3 uid="uid://y271o836jxhg"]
+
+[ext_resource type="Script" path="res://assets/scenes/object_library.gd" id="1_am5lk"]
+
+[node name="Control" type="ScrollContainer"]
+offset_right = 300.0
+offset_bottom = 612.0
+horizontal_scroll_mode = 0
+vertical_scroll_mode = 2
+
+[node name="Garden Library" type="GridContainer" parent="."]
+layout_mode = 2
+theme_override_constants/h_separation = 96
+theme_override_constants/v_separation = 96
+columns = 3
+script = ExtResource("1_am5lk")
