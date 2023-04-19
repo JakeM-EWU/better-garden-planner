@@ -1,12 +1,15 @@
 extends Node
-var _file_menu_exit_id:int=1
 var _garden_scene = preload("res://assets/scenes/Garden.tscn")
 var _garden
+
+enum File_Menu_Options {
+	EXIT = 1
+}
 ##[method _on_file_id_pressed]:
 ##Connected to the file menu's [signal PopupMenu.index_pressed]
 func _on_file_id_pressed(id):
-	match  id:
-		_file_menu_exit_id:
+	match id:
+		File_Menu_Options.EXIT:
 			get_tree().get_root().propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 			get_tree().quit()
 		_:
