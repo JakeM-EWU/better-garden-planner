@@ -1,6 +1,11 @@
 class_name GardenPlan
 extends TileMap
 
+enum Layers{
+	GARDEN = 0,
+	OBJECTS = 1,
+}
+
 ##The number of rows in the garden's grid.
 @export var rows: int = 4
 ##The number of columns in the garden's grid.
@@ -9,10 +14,6 @@ extends TileMap
 var _placeable_tile_source_id = 0
 
 var _test_object_source_id = 1
-#The layer where background tiles are placed
-var _garden_layer_id = 0
-#The layer where garden objects are placed
-var _object_layer_id = 1
 ##The height of the garden in pixels
 var garden_height_in_pixels: int:
 	get:
@@ -23,7 +24,9 @@ var garden_width_in_pixels: int:
 		return columns * cell_quadrant_size
 
 
-func _ready():
+func create_garden(rows:int, columns: int)->void:
+	self.rows = rows
+	self.columns = columns
 	_init_garden()
 
 
@@ -37,7 +40,7 @@ func _ready():
 ##[method tile_is_placeable]:
 ##Returns true if the location [param tile] can have an object placed in it.
 func tile_is_placeable(tile: Vector2i) -> bool:
-	var garden_id = get_cell_source_id(_garden_layer_id, tile)
+	var garden_id = get_cell_source_id(Layers.GARDEN, tile)
 	
 	if garden_id == _placeable_tile_source_id && tile_is_empty(tile):
 		return true
@@ -47,7 +50,7 @@ func tile_is_placeable(tile: Vector2i) -> bool:
 ##[method tile_is_empty]:
 ##Returns true if the location [param tile] doesn't have an object.
 func tile_is_empty(tile: Vector2i) -> bool:
-	var object_id = get_cell_source_id(_object_layer_id, tile)
+	var object_id = get_cell_source_id(Layers.OBJECTS, tile)
 	return object_id == -1
 
 
@@ -83,7 +86,7 @@ func _center_garden():
 func place_object(tile: Vector2i, tilemap_spritesheet_id: int, sprite_coords: Vector2)->bool:
 		var out = tile_is_placeable(tile)
 		if 	out:
-			set_cell(_object_layer_id, tile, tilemap_spritesheet_id, sprite_coords)
+			set_cell(Layers.OBJECTS, tile, tilemap_spritesheet_id, sprite_coords)
 		return out
 
 
@@ -93,5 +96,26 @@ func place_object(tile: Vector2i, tilemap_spritesheet_id: int, sprite_coords: Ve
 func remove_object(tile: Vector2i)->bool:
 		var out = !tile_is_empty(tile)
 		if 	out:
-			set_cell(_object_layer_id, tile, -1)
+			set_cell(Layers.OBJECTS, tile, -1)
 		return out
+
+##[method save_to_file]:
+##Saves the Garden plan to a file
+##The file must already be open for writing.
+func save_to_file(file:FileAccess)->void:
+	var used_cells = get_used_cells(Layers.OBJECTS)
+	var pattern = get_pattern(Layers.OBJECTS,used_cells)
+	file.store_64(rows)
+	file.store_64(columns)
+	file.store_var(pattern, true)
+
+
+##[method save_to_file]:
+##loads a Garden plan from a file
+##The file must already be open for reading.
+func load_from_file(file:FileAccess)->void:
+	var rows = file.get_64()
+	var columns = file.get_64()
+	var pattern = file.get_var(true)
+	self.create_garden(rows,columns)
+	self.set_pattern(Layers.OBJECTS,Vector2i(0,0),pattern)

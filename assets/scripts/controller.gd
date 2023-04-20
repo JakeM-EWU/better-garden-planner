@@ -32,9 +32,9 @@ func _on_file_id_pressed(id):
 func create_garden(rows:int, columns:int):
 	_garden = _garden_scene.instantiate()
 	_garden_plan = _garden.get_node("GardenPlan")
-	_garden_plan.rows=rows
-	_garden_plan.columns=columns
+	_garden_plan.create_garden(rows, columns)
 	add_child(_garden)
+	
 
 
 #for testing
