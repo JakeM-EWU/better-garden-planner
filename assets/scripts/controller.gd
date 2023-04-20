@@ -1,7 +1,7 @@
 extends Node
 var _garden_scene = preload("res://assets/scenes/Garden.tscn")
 var _garden
-
+var _garden_plan:GardenPlan
 enum File_Menu_Options {
 	EXIT = 1
 }
@@ -18,8 +18,9 @@ func _on_file_id_pressed(id):
 ##Creates a garden scene and adds it to the tree
 func create_garden(rows:int, columns:int):
 	_garden = _garden_scene.instantiate()
-	_garden.get_child(0).rows=rows
-	_garden.get_child(0).columns=columns
+	_garden_plan = _garden.get_node("GardenPlan")
+	_garden_plan.rows=rows
+	_garden_plan.columns=columns
 	add_child(_garden)
 
 #for testing

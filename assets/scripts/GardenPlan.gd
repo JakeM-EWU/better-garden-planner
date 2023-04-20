@@ -1,4 +1,6 @@
 extends TileMap
+
+class_name GardenPlan
 ##The number of rows in the garden's grid.
 @export var rows: int = 4
 ##The number of columns in the garden's grid.
