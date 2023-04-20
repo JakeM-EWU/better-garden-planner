@@ -26,6 +26,6 @@ func create_garden(rows:int, columns:int):
 #for testing
 func _ready():
 	create_garden(4,4)
-	_garden.get_child(0).place_object(Vector2i(1,2),1,Vector2i(0,0))
-	_garden.get_child(0).place_object(Vector2i(2,2),1,Vector2i(3,0))
+	_garden_plan.place_object(Vector2i(1,2),1,Vector2i(0,0))
+	_garden_plan.place_object(Vector2i(2,2),1,Vector2i(3,0))
 
