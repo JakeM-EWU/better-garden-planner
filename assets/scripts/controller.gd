@@ -40,6 +40,7 @@ func create_and_load_garden(file:FileAccess):
 	_garden_plan = _garden.get_node("GardenPlan")
 	_garden.load_from_file(file)
 	add_child(_garden)
+	
 
 func save_garden(file:FileAccess):
 	if _garden == null:
