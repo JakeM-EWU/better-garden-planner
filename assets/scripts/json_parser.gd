@@ -11,8 +11,8 @@ func _ready():
 	var parse_err = json_object.parse(file.get_as_text())
 	garden_data = json_object.get_data()
 	
-	for obj in garden_data:
-		print(obj)
-		for ind in garden_data[obj]:
-			print(ind, ": ", garden_data[obj][ind])
+#	for obj in garden_data:
+#		print(obj)
+#		for ind in garden_data[obj]:
+#			print(ind, ": ", garden_data[obj][ind])
 

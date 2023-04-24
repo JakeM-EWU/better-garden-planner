@@ -63,3 +63,5 @@ layout_mode = 2
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.14
+mouse_filter = 2
+mouse_force_pass_scroll_events = false
