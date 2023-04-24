@@ -3,6 +3,8 @@ extends Control
 
 @onready var object_list: ItemList = get_node("Object List")
 
+signal object_selected(name)
+
 func _ready():
 	populate_library("")
 	pass
@@ -20,3 +22,9 @@ func populate_library(filter: String):
 func _on_object_filter_text_changed(new_text):
 	object_list.clear()
 	populate_library(new_text)
+
+
+func _on_object_list_item_selected(index):
+	var name = object_list.get_item_text(index)
+	object_selected.emit(name)
+	pass # Replace with function body.

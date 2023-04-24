@@ -5,6 +5,8 @@ var _garden_plan:GardenPlan
 enum File_Menu_Options {
 	EXIT = 1
 }
+
+
 ##[method _on_file_id_pressed]:
 ##Connected to the file menu's [signal PopupMenu.index_pressed]
 func _on_file_id_pressed(id):
@@ -28,4 +30,9 @@ func _ready():
 	create_garden(4,4)
 	_garden_plan.place_object(Vector2i(1,2),1,Vector2i(0,0))
 	_garden_plan.place_object(Vector2i(2,2),1,Vector2i(3,0))
+	var object_library = get_node("CanvasLayer/UI/VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer/Object Library")
+	object_library.object_selected.connect(_on_object_selected)
 
+
+func _on_object_selected(name):
+	print("I am printing this from the controller: " + str(name))

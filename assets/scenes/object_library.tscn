@@ -21,4 +21,5 @@ layout_mode = 0
 offset_right = 200.0
 offset_bottom = 31.0
 
+[connection signal="item_selected" from="Object List" to="." method="_on_object_list_item_selected"]
 [connection signal="text_changed" from="Object Filter" to="." method="_on_object_filter_text_changed"]
