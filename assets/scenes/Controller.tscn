@@ -1,7 +1,7 @@
 [gd_scene load_steps=3 format=3 uid="uid://dx5q7j3ep82tb"]
 
 [ext_resource type="Script" path="res://assets/scripts/controller.gd" id="1_kecc1"]
-[ext_resource type="PackedScene" uid="uid://brvs5io7sbwm0" path="res://assets/scenes/UI.tscn" id="2_qofps"]
+[ext_resource type="PackedScene" uid="uid://m0tn3dw40ux1" path="res://assets/scenes/UI.tscn" id="2_qofps"]
 
 [node name="Controller" type="Node2D"]
 script = ExtResource("1_kecc1")

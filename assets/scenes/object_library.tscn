@@ -1,0 +1,24 @@
+[gd_scene load_steps=2 format=3 uid="uid://xumj2v55a65e"]
+
+[ext_resource type="Script" path="res://assets/scenes/object_library.gd" id="1_am5lk"]
+
+[node name="Object Library" type="Control"]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+script = ExtResource("1_am5lk")
+
+[node name="Object List" type="ItemList" parent="."]
+layout_mode = 0
+offset_left = 1.0
+offset_top = 33.0
+offset_right = 201.0
+offset_bottom = 645.0
+
+[node name="Object Filter" type="LineEdit" parent="."]
+layout_mode = 0
+offset_right = 200.0
+offset_bottom = 31.0
+
+[connection signal="text_changed" from="Object Filter" to="." method="_on_object_filter_text_changed"]
