@@ -19,6 +19,14 @@ config/icon="res://icon.svg"
 
 JsonParser="*res://assets/scripts/json_parser.gd"
 
+[display]
+
+window/size/viewport_width=2500
+window/size/viewport_height=1400
+window/size/mode=2
+window/size/initial_position_type=0
+window/size/resizable=false
+
 [editor]
 
 version_control/plugin_name="GitPlugin"
@@ -26,5 +34,6 @@ version_control/autoload_on_startup=true
 
 [rendering]
 
+textures/canvas_textures/default_texture_filter=0
 renderer/rendering_method="gl_compatibility"
 renderer/rendering_method.mobile="gl_compatibility"
