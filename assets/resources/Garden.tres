@@ -6,7 +6,6 @@
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_er8ly"]
 texture = ExtResource("1_856l8")
 0:0/0 = 0
-0:0/0/custom_data_0 = true
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_ryotr"]
 texture = ExtResource("2_1cy6d")
