@@ -66,7 +66,8 @@ func _init_garden():
 func _generate_tiles():
 	for r in rows:
 		for c in columns:
-			set_cell(_garden_layer_id, Vector2i(c, r), _placeable_tile_source_id, Vector2i(0,0))
+			set_cell(Layers.GARDEN, Vector2i(c, r), _placeable_tile_source_id, Vector2i(0,0))
+
 
 
 ##[method center_garden]:
