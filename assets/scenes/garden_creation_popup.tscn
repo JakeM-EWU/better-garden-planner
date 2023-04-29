@@ -1,4 +1,6 @@
-[gd_scene format=3 uid="uid://gs2mfyu8ou4j"]
+[gd_scene load_steps=2 format=3 uid="uid://gs2mfyu8ou4j"]
+
+[ext_resource type="Script" path="res://assets/scripts/garden_creation_popup.gd" id="1_y4s4t"]
 
 [node name="GardenCreationPopup" type="Panel"]
 custom_minimum_size = Vector2(400, 300)
@@ -11,6 +13,7 @@ offset_bottom = 300.0
 grow_horizontal = 2
 size_flags_horizontal = 4
 size_flags_vertical = 4
+script = ExtResource("1_y4s4t")
 
 [node name="CreateButton" type="Button" parent="."]
 layout_mode = 2
@@ -54,6 +57,7 @@ vertical_alignment = 1
 
 [node name="GardenName" type="LineEdit" parent="VBoxContainer"]
 layout_mode = 2
+
 [node name="DimensionsLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 text = "Dimensions (X, Y):"
@@ -91,3 +95,9 @@ layout_mode = 2
 min_value = 1.0
 value = 1.0
 alignment = 1
+
+[connection signal="pressed" from="CreateButton" to="." method="on_create_button_pressed"]
+[connection signal="value_changed" from="VBoxContainer/DimensionsContainer/XDimensionSlider" to="." method="on_x_slider_change"]
+[connection signal="value_changed" from="VBoxContainer/DimensionsContainer/XDimensionSpinBox" to="." method="on_x_spin_box_change"]
+[connection signal="value_changed" from="VBoxContainer/YDimensionsContainer/YDimensionSlider" to="." method="on_y_slider_change"]
+[connection signal="value_changed" from="VBoxContainer/YDimensionsContainer/YDimensionSpinBox" to="." method="on_y_spin_box_change"]
