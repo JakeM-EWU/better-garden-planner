@@ -1,12 +1,17 @@
+class_name Controller
 extends Node
+
+
 var _garden_scene = preload("res://assets/scenes/Garden.tscn")
 var _garden_creation_popup_scene = preload("res://assets/scenes/garden_creation_popup.tscn")
 var _garden
 var _garden_plan:GardenPlan
+
 enum File_Menu_Options {
 	EXIT = 1,
 	CREATE_GARDEN = 2,
 }
+
 ##[method _on_file_id_pressed]:
 ##Connected to the file menu's [signal PopupMenu.index_pressed]
 func _on_file_id_pressed(id):

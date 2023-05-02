@@ -1,3 +1,4 @@
+class_name GardenCreationPanel
 extends Panel
 
 # Declare the custom signal with the desired arguments.
