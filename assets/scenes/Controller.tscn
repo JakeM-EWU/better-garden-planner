@@ -13,6 +13,6 @@ zoom = Vector2(2, 2)
 
 [node name="UI" parent="CanvasLayer" instance=ExtResource("2_tx6a1")]
 
-[connection signal="index_pressed" from="CanvasLayer/UI/VBoxContainer/MenuBarPanel/MenuBar/File" to="." method="_on_file_id_pressed"]
+[connection signal="id_pressed" from="CanvasLayer/UI/VBoxContainer/MenuBarPanel/MenuBar/File" to="." method="_on_file_id_pressed"]
 
 [editable path="CanvasLayer/UI"]
