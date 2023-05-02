@@ -1,12 +1,12 @@
-[gd_scene load_steps=3 format=3 uid="uid://c3k8jbs66w7st"]
+[gd_scene load_steps=3 format=3 uid="uid://csqnyuy17to6g"]
 
-[ext_resource type="TileSet" uid="uid://bdw7atgboe6is" path="res://assets/resources/Garden.tres" id="1_ldxhk"]
-[ext_resource type="Script" path="res://assets/scripts/GardenPlan.gd" id="3_1v6bu"]
+[ext_resource type="TileSet" uid="uid://bdw7atgboe6is" path="res://assets/resources/Garden.tres" id="1_48hxf"]
+[ext_resource type="Script" path="res://assets/scripts/garden_plan.gd" id="2_3h32t"]
 
 [node name="Garden" type="Node2D"]
 
 [node name="GardenPlan" type="TileMap" parent="."]
-tile_set = ExtResource("1_ldxhk")
+tile_set = ExtResource("1_48hxf")
 format = 2
 layer_0/name = "Garden"
 layer_1/name = "Objects"
@@ -16,4 +16,4 @@ layer_1/y_sort_enabled = false
 layer_1/y_sort_origin = 0
 layer_1/z_index = 0
 layer_1/tile_data = PackedInt32Array()
-script = ExtResource("3_1v6bu")
+script = ExtResource("2_3h32t")

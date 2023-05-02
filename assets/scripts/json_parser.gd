@@ -15,4 +15,3 @@ func _ready():
 #		print(obj)
 #		for ind in garden_data[obj]:
 #			print(ind, ": ", garden_data[obj][ind])
-

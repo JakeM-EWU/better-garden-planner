@@ -1,13 +1,13 @@
-[gd_scene load_steps=2 format=3 uid="uid://xumj2v55a65e"]
+[gd_scene load_steps=2 format=3 uid="uid://bab60pp4rwsdn"]
 
-[ext_resource type="Script" path="res://assets/scenes/object_library.gd" id="1_am5lk"]
+[ext_resource type="Script" path="res://assets/scripts/object_library.gd" id="1_dyppb"]
 
 [node name="Object Library" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-script = ExtResource("1_am5lk")
+script = ExtResource("1_dyppb")
 
 [node name="Object List" type="ItemList" parent="."]
 layout_mode = 0

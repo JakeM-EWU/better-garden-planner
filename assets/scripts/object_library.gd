@@ -1,7 +1,6 @@
 class_name ObjectLibrary
 extends Control
 
-
 @onready var object_list: ItemList = get_node("Object List")
 
 func _ready():
