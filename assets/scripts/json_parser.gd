@@ -15,3 +15,34 @@ func _ready():
 #		print(obj)
 #		for ind in garden_data[obj]:
 #			print(ind, ": ", garden_data[obj][ind])
+
+
+## Returns a dictionary containing the Indoor Planting dates for Frost and Moon for the given key. Returns an empty dictionary if N/A.
+func get_start_seeds_indoors(object: String) -> Dictionary:
+	var item_data: Dictionary = garden_data[object]
+	if (contains_dictionary(item_data, "Start Seeds Indoors")):
+		return item_data["Start Seeds Indoors"] as Dictionary
+	else:
+		return {}
+
+## Returns a dictionary containing the Plant Seedlings or Transplants dates for Frost and Moon for the given key. Returns an empty dictionary if N/A.
+func get_plant_seedlings_or_transplants_data(object: String) -> Dictionary:
+	var item_data: Dictionary = garden_data[object]
+	if (contains_dictionary(item_data, "Plant Seedlings or Transplants")):
+		return item_data["Plant Seedlings or Transplants"] as Dictionary
+	else:
+		return {}
+
+## Returns a dictionary containing the Outdoor Planting dates for Frost and Moon for the given key. Returns an empty dictionary if N/A.
+func get_start_seeds_outdoors_data(object: String) -> Dictionary:
+	var item_data: Dictionary = garden_data[object]
+	if (contains_dictionary(item_data, "Start Seeds Outdoors")):
+		return item_data["Start Seeds Outdoors"] as Dictionary
+	else:
+		return {}
+
+
+## Checks if an item has a field, and if so, whether or it contains content.
+func contains_dictionary(item_data: Dictionary, entry: String) -> bool:
+	return item_data.has(entry) and item_data[entry] is Dictionary
+	
