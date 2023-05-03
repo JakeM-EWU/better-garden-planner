@@ -8,11 +8,13 @@ extends TileMap
 #The spritesheet for background tiles
 var _placeable_tile_source_id = 0
 
-var _test_object_source_id = 1
+var _currently_selected_source_id = 1
 #The layer where background tiles are placed
 var _garden_layer_id = 0
 #The layer where garden objects are placed
 var _object_layer_id = 1
+
+
 ##The height of the garden in pixels
 var garden_height_in_pixels: int:
 	get:
@@ -28,10 +30,14 @@ func _ready():
 
 
 #for testing purposes
-#func _process(delta):
-#	var tile = local_to_map(get_local_mouse_position())	
-#	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
-#		place_object(tile, test_object_source_id, Vector2(0,0))
+func _process(delta):
+	var tile = local_to_map(get_local_mouse_position())	
+	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
+		place_object(tile, _currently_selected_source_id, Vector2(0,0))
+
+
+func set_source_id(id: int):
+	_currently_selected_source_id = id
 
 
 ##[method tile_is_placeable]:
@@ -48,6 +54,7 @@ func tile_is_placeable(tile: Vector2i) -> bool:
 ##Returns true if the location [param tile] doesn't have an object.
 func tile_is_empty(tile: Vector2i) -> bool:
 	var object_id = get_cell_source_id(_object_layer_id, tile)
+
 	return object_id == -1
 
 

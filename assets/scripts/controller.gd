@@ -46,5 +46,7 @@ func _ready():
 	object_library.object_selected.connect(_on_object_selected)
 
 
-func _on_object_selected(name):
-	print("I am printing this from the controller: " + str(name))
+func _on_object_selected(name: String):
+	var selected_id = JsonParser.get_sprite_source_id(name)
+	_garden_plan.set_source_id(selected_id)
+	

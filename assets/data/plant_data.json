@@ -68,7 +68,8 @@
 		 "Frost":"Apr 3-17",
 		 "Moon":"Apr 3-5"
 	  },
-	  "Start Seeds Outdoors":"N/A"
+	  "Start Seeds Outdoors":"N/A",
+	"Sprite Source ID": "10"
    },
    "Cantaloupes":{
 	  "Start Seeds Indoors":{
@@ -87,7 +88,8 @@
 	  "Start Seeds Outdoors":{
 		 "Frost":"Mar 27-Apr 10",
 		 "Moon":"Apr 6-10"
-	  }
+	  },
+	"Sprite Source ID": "203"
    },
    "Cauliflower":{
 	  "Start Seeds Indoors":{
