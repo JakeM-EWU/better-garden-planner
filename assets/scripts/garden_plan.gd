@@ -22,6 +22,7 @@ var garden_width_in_pixels: int:
 enum Layer {
 	GARDEN = 0,
 	OBJECT = 1,
+	GHOST = 2,
 }
 
 func _ready():
@@ -40,6 +41,10 @@ func _process(delta):
 	var tile = local_to_map(get_local_mouse_position())	
 	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 		place_object(tile, _currently_selected_source_id, Vector2(0,0))
+	clear_layer(Layer.GHOST)
+	if (tile_is_placeable(tile)):
+		show_ghost(tile, _currently_selected_source_id, Vector2(0,0))
+	
 
 
 func set_source_id(id: int):
@@ -64,6 +69,11 @@ func remove_object(tile: Vector2i)->bool:
 		if 	out:
 			set_cell(Layer.OBJECT, tile, -1)
 		return out
+
+
+func show_ghost(tile: Vector2i, tilemap_spritesheet_id: int, sprite_coords: Vector2):
+	set_cell(Layer.GHOST, tile, tilemap_spritesheet_id, sprite_coords)
+	pass
 
 
 ##[method tile_is_placeable]:
