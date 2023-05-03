@@ -10,9 +10,6 @@ var _garden_scene = preload("res://assets/scenes/garden.tscn")
 var _garden_creation_popup_scene = preload("res://assets/scenes/garden_creation_popup.tscn")
 var _garden
 var _garden_plan:GardenPlan
-enum File_Menu_Options {
-	EXIT = 1
-}
 
 
 ##[method _on_file_id_pressed]:
