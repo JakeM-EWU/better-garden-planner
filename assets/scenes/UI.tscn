@@ -1,7 +1,7 @@
-[gd_scene load_steps=3 format=3 uid="uid://m0tn3dw40ux1"]
+[gd_scene load_steps=3 format=3 uid="uid://brvs5io7sbwm0"]
 
-[ext_resource type="Theme" uid="uid://cbbm8hxc72p1e" path="res://assets/Themes/UITheme.tres" id="1_tv37f"]
-[ext_resource type="PackedScene" uid="uid://xumj2v55a65e" path="res://assets/scenes/object_library.tscn" id="2_1b0wp"]
+[ext_resource type="Theme" uid="uid://cbbm8hxc72p1e" path="res://assets/Themes/UITheme.tres" id="1_o4767"]
+[ext_resource type="PackedScene" uid="uid://bab60pp4rwsdn" path="res://assets/scenes/object_library.tscn" id="2_bjlp1"]
 
 [node name="UI" type="Control"]
 layout_mode = 3
@@ -12,7 +12,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("1_tv37f")
+theme = ExtResource("1_o4767")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 2
@@ -29,12 +29,14 @@ layout_mode = 2
 layout_mode = 2
 
 [node name="File" type="PopupMenu" parent="VBoxContainer/MenuBarPanel/MenuBar"]
-item_count = 2
-item_0/text = ""
-item_0/id = 0
-item_0/separator = true
-item_1/text = "Exit"
-item_1/id = 1
+item_count = 3
+item_0/text = "Create Garden"
+item_0/id = 2
+item_1/text = ""
+item_1/id = 0
+item_1/separator = true
+item_2/text = "Exit"
+item_2/id = 1
 
 [node name="Edit" type="PopupMenu" parent="VBoxContainer/MenuBarPanel/MenuBar"]
 
@@ -52,7 +54,7 @@ size_flags_horizontal = 3
 layout_mode = 2
 all_tabs_in_front = true
 
-[node name="Object Library" parent="VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer" instance=ExtResource("2_1b0wp")]
+[node name="Object Library" parent="VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer" instance=ExtResource("2_bjlp1")]
 layout_mode = 2
 
 [node name="Notes" type="VBoxContainer" parent="VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer"]

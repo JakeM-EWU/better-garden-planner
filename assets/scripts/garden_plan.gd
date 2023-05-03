@@ -1,6 +1,6 @@
+class_name GardenPlan
 extends TileMap
 
-class_name GardenPlan
 ##The number of rows in the garden's grid.
 @export var rows: int = 4
 ##The number of columns in the garden's grid.
@@ -26,11 +26,13 @@ var garden_width_in_pixels: int:
 func _ready():
 	_init_garden()
 
+
 #for testing purposes
 #func _process(delta):
 #	var tile = local_to_map(get_local_mouse_position())	
 #	if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 #		place_object(tile, test_object_source_id, Vector2(0,0))
+
 
 ##[method tile_is_placeable]:
 ##Returns true if the location [param tile] can have an object placed in it.
@@ -40,12 +42,14 @@ func tile_is_placeable(tile: Vector2i) -> bool:
 	if garden_id == _placeable_tile_source_id && tile_is_empty(tile):
 		return true
 	return false
-	
+
+
 ##[method tile_is_empty]:
 ##Returns true if the location [param tile] doesn't have an object.
 func tile_is_empty(tile: Vector2i) -> bool:
 	var object_id = get_cell_source_id(_object_layer_id, tile)
 	return object_id == -1
+
 
 ##[method _init_garden]:
 ##Creates the tiles for the garden and centers it.
@@ -53,13 +57,14 @@ func _init_garden():
 	_generate_tiles()
 	_center_garden()
 
+
 ##[method _generate_tiles]:
 ##Creates the tiles for the garden.
 func _generate_tiles():
 	for r in rows:
 		for c in columns:
-			set_cell(_garden_layer_id, Vector2i(r, c), _placeable_tile_source_id, Vector2i(0,0))
-			
+			set_cell(_garden_layer_id, Vector2i(c, r), _placeable_tile_source_id, Vector2i(0,0))
+
 
 ##[method center_garden]:
 ##Centers the garden.
@@ -69,7 +74,7 @@ func _center_garden():
 	
 	self.position.x = x_pos
 	self.position.y = y_pos
-	
+
 
 ##[method place_object]:
 ##Attempts to place an object at the location [param tile].
@@ -80,6 +85,8 @@ func place_object(tile: Vector2i, tilemap_spritesheet_id: int, sprite_coords: Ve
 		if 	out:
 			set_cell(_object_layer_id, tile, tilemap_spritesheet_id, sprite_coords)
 		return out
+
+
 ##[method remove_object]:
 ##Attempts to remove an object at the location [param tile].
 ##Returns [code]true[/code] if an object was removed or [code]false[/code] if not.
@@ -88,4 +95,3 @@ func remove_object(tile: Vector2i)->bool:
 		if 	out:
 			set_cell(_object_layer_id, tile, -1)
 		return out
-

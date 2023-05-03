@@ -1,5 +1,5 @@
+class_name ObjectLibrary
 extends Control
-
 
 @onready var object_list: ItemList = get_node("Object List")
 
@@ -15,7 +15,7 @@ func populate_library(filter: String):
 	for s in keys:
 		if filter.is_empty():
 			object_list.add_item(s)
-		if filter in s.to_lower():
+		if filter.to_lower() in s.to_lower():
 			object_list.add_item(s)
 
 
