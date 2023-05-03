@@ -9,7 +9,9 @@ func _ready():
 ## [signal file_selected_or_cancelled] wraps the underlying file_dialog's
 ## file_selected and cancelled signals 
 signal file_selected_or_cancelled(path:String)
+
 func on_file_selected(path:String):
 	file_selected_or_cancelled.emit(path)
+
 func on_cancelled():
 	file_selected_or_cancelled.emit("")
