@@ -44,7 +44,7 @@ func create_and_load_garden(file:FileAccess):
 func save_garden(file:FileAccess):
 	if _garden == null:
 		return ERR_DOES_NOT_EXIST
-	_garden.load_from_file(file)
+	_garden.save_to_file(file)
 	add_child(_garden)
 	
 	
@@ -71,10 +71,6 @@ func open_file_and_save(file_name:String):
 		if error:
 			printerr(error_string(error))
 		file.close()
-	
-
-
-
 
 
 func _ready():
@@ -87,4 +83,7 @@ func _ready():
 
 	# this code is for testing
 	var str = await(_ui.prompt_save_file())
+	print("User selected:",str)
+	
+	str = await(_ui.prompt_load_file())
 	print("User selected:",str)
