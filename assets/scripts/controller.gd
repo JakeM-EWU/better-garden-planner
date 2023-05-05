@@ -83,8 +83,7 @@ func _ready():
 			printerr(error_string(project_folder_creation_error))
 
 	# this code is for testing
-	var str = await(_ui.prompt_save_file())
-	print("User selected:",str)
+
 	
-	str = await(_ui.prompt_load_file())
+	var str = await(_ui.prompt_load_file())
 	print("User selected:",str)
