@@ -4,6 +4,8 @@ extends Node
 enum File_Menu_Options {
 	EXIT = 1,
 	CREATE_GARDEN = 2,
+	SAVE_AS = 3,
+	LOAD = 4,
 }
 
 var _garden_scene = preload("res://assets/scenes/garden.tscn")
@@ -22,7 +24,12 @@ func _on_file_id_pressed(id):
 		#File_Menu_Options.CREATE_GARDEN:
 			#var garden_creation_popup = _garden_creation_popup_scene.instantiate()
 			#self.add_child(garden_creation_popup)
-			
+		File_Menu_Options.SAVE_AS:
+			var str = await(_ui.prompt_save_file())
+			open_file_and_save(str)
+		File_Menu_Options.LOAD:
+			var str = await(_ui.prompt_load_file())
+			open_file_and_load(str)
 		_:
 			push_warning("Menu Item not found")
 
@@ -37,19 +44,23 @@ func create_garden(rows:int, columns:int):
 	
 func create_and_load_garden(file:FileAccess):
 	_garden = _garden_scene.instantiate()
+	add_child(_garden)
 	_garden_plan = _garden.get_node("GardenPlan")
 	_garden.load_from_file(file)
-	add_child(_garden)
+	
 	
 
 func save_garden(file:FileAccess):
 	if _garden == null:
 		return ERR_DOES_NOT_EXIST
 	_garden.save_to_file(file)
-	add_child(_garden)
 	
 	
 func open_file_and_load(file_name:String):
+	if _garden != null:
+		_garden.queue_free()
+		_garden = null
+
 	var file = FileAccess.open(file_name,FileAccess.READ)
 	var open_error = FileAccess.get_open_error()
 	if open_error != OK:
@@ -62,17 +73,20 @@ func open_file_and_load(file_name:String):
 		file.close()
 
 func open_file_and_save(file_name:String):
-	var file = FileAccess.open(file_name,FileAccess.WRITE)
-	var open_error = FileAccess.get_open_error()
-	if open_error != OK:
-		printerr(error_string(open_error))
+	if _garden !=  null:
+		var file = FileAccess.open(file_name,FileAccess.WRITE)
+		var open_error = FileAccess.get_open_error()
+		if open_error != OK:
+			printerr(error_string(open_error))
+		else:
+			save_garden(file)
+			var error = file.get_error()
+			if error:
+				printerr(error_string(error))
+			file.close()
 	else:
-		save_garden(file)
-		var error = file.get_error()
-		if error:
-			printerr(error_string(error))
-		file.close()
-
+		#might be better to make a popup for this error.
+		printerr("Can't save a non-existant garden")
 
 func _ready():
 	# this if statement creates a save folder if one does not already exist
@@ -82,8 +96,11 @@ func _ready():
 			printerr("Couldn't create the project folder to save files. Error is below")
 			printerr(error_string(project_folder_creation_error))
 
-	# this code is for testing
-
-	
-	var str = await(_ui.prompt_load_file())
-	print("User selected:",str)
+	# this code is for testing. Makes a garden with(up to) 10 random plants in random locations.
+	create_garden(10,10)
+	for i in range(10):
+		var sprite_coord = Vector2i(randi_range(0,38),randi_range(0,6))
+		var tile = Vector2i(randi_range(0,10),randi_range(0,10))
+		
+		_garden_plan.place_object(tile,1,sprite_coord)
+		
