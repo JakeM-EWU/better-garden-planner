@@ -26,12 +26,6 @@ enum Layer {
 }
 
 func _ready():
-	_init_garden()
-
-
-##[method _init_garden]:
-##Creates the tiles for the garden and centers it.
-func _init_garden():
 	_generate_tiles()
 	_center_garden()
 
