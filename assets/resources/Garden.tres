@@ -1,9 +1,10 @@
-[gd_resource type="TileSet" load_steps=9 format=3 uid="uid://bdw7atgboe6is"]
+[gd_resource type="TileSet" load_steps=11 format=3 uid="uid://bdw7atgboe6is"]
 
 [ext_resource type="Texture2D" uid="uid://b0ug80oac8008" path="res://assets/images/Placeable.png" id="1_856l8"]
 [ext_resource type="Texture2D" uid="uid://c2rnepv66s2lv" path="res://assets/images/Fruit+.png" id="2_1cy6d"]
 [ext_resource type="Texture2D" uid="uid://cenx8qaxj8n3" path="res://assets/images/Cabbage.png" id="3_01iys"]
 [ext_resource type="Texture2D" uid="uid://7ccpmeys04q" path="res://assets/images/Carrot.png" id="4_35ajk"]
+[ext_resource type="Texture2D" uid="uid://0rp33g1slpip" path="res://assets/images/Potato.png" id="5_s0ewo"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_er8ly"]
 texture = ExtResource("1_856l8")
@@ -241,6 +242,7 @@ texture = ExtResource("2_1cy6d")
 37:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pop3w"]
+resource_name = "Cabbage"
 texture = ExtResource("3_01iys")
 0:0/0 = 0
 1:0/0 = 0
@@ -248,7 +250,16 @@ texture = ExtResource("3_01iys")
 1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cvaw3"]
+resource_name = "Carrot"
 texture = ExtResource("4_35ajk")
+0:0/0 = 0
+1:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lj2o"]
+resource_name = "Potato"
+texture = ExtResource("5_s0ewo")
 0:0/0 = 0
 1:0/0 = 0
 0:1/0 = 0
@@ -264,3 +275,4 @@ sources/0 = SubResource("TileSetAtlasSource_er8ly")
 sources/1 = SubResource("TileSetAtlasSource_ryotr")
 sources/203 = SubResource("TileSetAtlasSource_cvaw3")
 sources/10 = SubResource("TileSetAtlasSource_pop3w")
+sources/32767 = SubResource("TileSetAtlasSource_2lj2o")

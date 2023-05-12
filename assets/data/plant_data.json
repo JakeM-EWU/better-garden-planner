@@ -6,7 +6,7 @@
 	  "Frost": "Apr 17-May 1",
 	  "Moon": "Apr 19-May 1"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Basil": {
 	"Start Seeds Indoors": {
@@ -18,7 +18,7 @@
 	  "Moon": "May 1-5, May 19-22"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Beets": {
 	"Start Seeds Indoors": "N/A",
@@ -27,7 +27,7 @@
 	  "Frost": "Apr 17-May 8",
 	  "Moon": "Apr 17-18, May 6-8"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Bell Peppers": {
 	"Start Seeds Indoors": {
@@ -39,7 +39,7 @@
 	  "Moon": "May 19-22"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Bok Choy": {
 	"Start Seeds Indoors": {
@@ -51,7 +51,7 @@
 	  "Moon": "May 19-22"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Broccoli": {
 	"Start Seeds Indoors": {
@@ -63,7 +63,7 @@
 	  "Moon": "Apr 3-5, Apr 19-24"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Cabbage": {
 	"Start Seeds Indoors": {
@@ -87,7 +87,7 @@
 	  "Moon": "May 19-29"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Carrots": {
 	"Start Seeds Indoors": "N/A",
@@ -96,8 +96,7 @@
 	  "Frost": "Mar 27-Apr 10",
 	  "Moon": "Apr 6-10"
 	},
-	"Sprite Source ID": "203",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "203"
   },
   "Cauliflower": {
 	"Start Seeds Indoors": {
@@ -109,7 +108,7 @@
 	  "Moon": "Apr 3-5, Apr 19-24"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Celery": {
 	"Start Seeds Indoors": {
@@ -121,7 +120,7 @@
 	  "Moon": "May 19-22"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Chives": {
 	"Start Seeds Indoors": "N/A",
@@ -130,7 +129,7 @@
 	  "Frost": "Apr 3-10",
 	  "Moon": "Apr 3-5"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Cilantro (Coriander)": {
 	"Start Seeds Indoors": "N/A",
@@ -139,7 +138,7 @@
 	  "Frost": "May 1-15",
 	  "Moon": "May 1-5"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Corn": {
 	"Start Seeds Indoors": "N/A",
@@ -148,7 +147,7 @@
 	  "Frost": "May 15-Jun 5",
 	  "Moon": "May 19-Jun 3"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Cucumbers": {
 	"Start Seeds Indoors": {
@@ -160,7 +159,7 @@
 	  "Moon": "May 19-29"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Dill": {
 	"Start Seeds Indoors": "N/A",
@@ -169,7 +168,7 @@
 	  "Frost": "May 1-Jun 5",
 	  "Moon": "May 1-5, May 19-Jun 3"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Eggplants": {
 	"Start Seeds Indoors": {
@@ -181,7 +180,7 @@
 	  "Moon": "May 19-29"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Fava Beans (Broad Beans)": {
 	"Start Seeds Indoors": {
@@ -193,7 +192,7 @@
 	  "Moon": "Mar 21-Apr 3"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Green Beans": {
 	"Start Seeds Indoors": "N/A",
@@ -202,7 +201,7 @@
 	  "Frost": "May 8-29",
 	  "Moon": "May 19-29"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Jalapeño Peppers": {
 	"Start Seeds Indoors": {
@@ -214,7 +213,7 @@
 	  "Moon": "May 19-22"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Kale": {
 	"Start Seeds Indoors": {
@@ -226,7 +225,7 @@
 	  "Moon": "Apr 3-5, Apr 19-24"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Kohlrabi": {
 	"Start Seeds Indoors": {
@@ -237,7 +236,7 @@
 	  "Frost": "Apr 10-17"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Lettuce": {
 	"Start Seeds Indoors": {
@@ -249,7 +248,7 @@
 	  "Moon": "Apr 19-May 5"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Okra": {
 	"Start Seeds Indoors": "N/A",
@@ -258,7 +257,7 @@
 	  "Frost": "May 15-29",
 	  "Moon": "May 19-29"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Onions": {
 	"Start Seeds Indoors": "N/A",
@@ -267,7 +266,7 @@
 	  "Frost": "Apr 3-24",
 	  "Moon": "Apr 6-18"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Oregano": {
 	"Start Seeds Indoors": {
@@ -279,7 +278,7 @@
 	  "Moon": "May 1-5, May 19-22"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Parsley": {
 	"Start Seeds Indoors": "N/A",
@@ -288,7 +287,7 @@
 	  "Frost": "Apr 3-17",
 	  "Moon": "Apr 3-5"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Parsnips": {
 	"Start Seeds Indoors": "N/A",
@@ -297,7 +296,7 @@
 	  "Frost": "Apr 10-May 1",
 	  "Moon": "Apr 10-18"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Peas": {
 	"Start Seeds Indoors": "N/A",
@@ -306,7 +305,7 @@
 	  "Frost": "Mar 20-Apr 10",
 	  "Moon": "Mar 21-Apr 5"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Potatoes": {
 	"Start Seeds Indoors": "N/A",
@@ -315,7 +314,7 @@
 	  "Frost": "Apr 3-17",
 	  "Moon": "Apr 6-17"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Pumpkins": {
 	"Start Seeds Indoors": {
@@ -327,7 +326,7 @@
 	  "Moon": "May 19-29"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Radishes": {
 	"Start Seeds Indoors": "N/A",
@@ -336,7 +335,7 @@
 	  "Frost": "Mar 5-27",
 	  "Moon": "Mar 8-20"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Rosemary": {
 	"Start Seeds Indoors": {
@@ -348,7 +347,7 @@
 	  "Moon": "May 19-29"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Sage": {
 	"Start Seeds Indoors": {
@@ -360,7 +359,7 @@
 	  "Moon": "May 1-5"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Spinach": {
 	"Start Seeds Indoors": "N/A",
@@ -369,7 +368,7 @@
 	  "Frost": "Mar 20-Apr 10",
 	  "Moon": "Mar 21-Apr 5"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Sweet Potatoes": {
 	"Start Seeds Indoors": "N/A",
@@ -378,7 +377,7 @@
 	  "Frost": "May 22-Jun 5",
 	  "Moon": "Jun 4-5"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Swiss Chard": {
 	"Start Seeds Indoors": {
@@ -389,7 +388,7 @@
 	  "Frost": "Apr 10-17"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Thyme": {
 	"Start Seeds Indoors": {
@@ -401,7 +400,7 @@
 	  "Moon": "May 1-5, May 19-22"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Tomatillos": {
 	"Start Seeds Indoors": {
@@ -413,7 +412,7 @@
 	  "Moon": "May 22-Jun 3"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Tomatoes": {
 	"Start Seeds Indoors": {
@@ -425,7 +424,7 @@
 	  "Moon": "May 19-29"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Turnips": {
 	"Start Seeds Indoors": "N/A",
@@ -434,7 +433,7 @@
 	  "Frost": "Apr 3-24",
 	  "Moon": "Apr 6-18"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Watermelons": {
 	"Start Seeds Indoors": {
@@ -446,7 +445,7 @@
 	  "Moon": "May 19-29"
 	},
 	"Start Seeds Outdoors": "N/A",
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Winter Squash": {
 	"Start Seeds Indoors": "N/A",
@@ -455,7 +454,7 @@
 	  "Frost": "May 15-Jun 12",
 	  "Moon": "May 19-Jun 3"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   },
   "Zucchini": {
 	"Start Seeds Indoors": "N/A",
@@ -464,6 +463,6 @@
 	  "Frost": "May 15-Jun 12",
 	  "Moon": "May 19-Jun 3"
 	},
-	"Sprite Source ID": "2147483647"
+	"Sprite Source ID": "32767"
   }
 }
