@@ -67,7 +67,6 @@ func remove_object(tile: Vector2i)->bool:
 
 func show_ghost(tile: Vector2i, tilemap_spritesheet_id: int, sprite_coords: Vector2):
 	set_cell(Layer.GHOST, tile, tilemap_spritesheet_id, sprite_coords)
-	pass
 
 
 ##[method tile_is_placeable]:
@@ -84,7 +83,6 @@ func tile_is_placeable(tile: Vector2i) -> bool:
 ##Returns true if the location [param tile] doesn't have an object.
 func tile_is_empty(tile: Vector2i) -> bool:
 	var object_id = get_cell_source_id(Layer.OBJECT, tile)
-
 	return object_id == -1
 
 
