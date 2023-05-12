@@ -25,11 +25,12 @@ func _on_file_id_pressed(id):
 			#var garden_creation_popup = _garden_creation_popup_scene.instantiate()
 			#self.add_child(garden_creation_popup)
 		File_Menu_Options.SAVE_AS:
-			var string = await(_ui.prompt_save_file())
-			open_file_and_save(string)
+			var path = await(_ui.prompt_save_file())
+			open_file_and_save(path)
 		File_Menu_Options.LOAD:
-			var string = await(_ui.prompt_load_file())
-			open_file_and_load(string)
+			var path:String = await(_ui.prompt_load_file())
+			if !path.is_empty():
+				open_file_and_load(path)
 		_:
 			push_warning("Menu Item not found")
 
