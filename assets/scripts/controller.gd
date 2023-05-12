@@ -25,23 +25,26 @@ func _on_file_id_pressed(id):
 			#var garden_creation_popup = _garden_creation_popup_scene.instantiate()
 			#self.add_child(garden_creation_popup)
 		File_Menu_Options.SAVE_AS:
-			var str = await(_ui.prompt_save_file())
-			open_file_and_save(str)
+			var string = await(_ui.prompt_save_file())
+			open_file_and_save(string)
 		File_Menu_Options.LOAD:
-			var str = await(_ui.prompt_load_file())
-			open_file_and_load(str)
+			var string = await(_ui.prompt_load_file())
+			open_file_and_load(string)
 		_:
 			push_warning("Menu Item not found")
 
 
 ##[method create_garden]:
-##Creates a garden scene and adds it to the tree
+##Creates a [param rows] by [param columns] garden scene and adds it to the tree
 func create_garden(rows:int, columns:int):
 	_garden = _garden_scene.instantiate()
 	_garden_plan = _garden.get_node("GardenPlan")
 	_garden_plan.create_garden(rows, columns)
 	add_child(_garden)
-	
+
+##[method create_and_load_garden]:
+##loads a garden from [param file].
+#TODO deal with errors in this clause.
 func create_and_load_garden(file:FileAccess):
 	_garden = _garden_scene.instantiate()
 	add_child(_garden)
@@ -49,19 +52,26 @@ func create_and_load_garden(file:FileAccess):
 	_garden.load_from_file(file)
 	
 	
-
+##[method save_garden]:
+##Attempts to save a garden to [param file].
+##If there is no garden currently open. Nothing is saved, it returns an error message.
+##Otherwise it returns OK.
 func save_garden(file:FileAccess):
 	if _garden == null:
 		return ERR_DOES_NOT_EXIST
 	_garden.save_to_file(file)
-	
-	
-func open_file_and_load(file_name:String):
+	return OK
+##[method open_file_and_load]:
+##Attempts to save a garden at the path [param path].
+##If there is no garden currently open. Nothing is saved, it prints an error message.
+##May return an error in the future to allow for an error popup.
+##Returns nothing.
+func open_file_and_load(path:String):
 	if _garden != null:
 		_garden.queue_free()
 		_garden = null
 
-	var file = FileAccess.open(file_name,FileAccess.READ)
+	var file = FileAccess.open(path,FileAccess.READ)
 	var open_error = FileAccess.get_open_error()
 	if open_error != OK:
 		printerr(error_string(open_error))
@@ -72,9 +82,14 @@ func open_file_and_load(file_name:String):
 			printerr(error_string(error))
 		file.close()
 
-func open_file_and_save(file_name:String):
+##[method open_file_and_save]:
+##Attempts to save a garden at the path [param path].
+##If there is no garden currently open. Nothing is saved, it prints an error message.
+##May return an error in the future to allow for an error popup.
+##Returns nothing.
+func open_file_and_save(path:String):
 	if _garden !=  null:
-		var file = FileAccess.open(file_name,FileAccess.WRITE)
+		var file = FileAccess.open(path,FileAccess.WRITE)
 		var open_error = FileAccess.get_open_error()
 		if open_error != OK:
 			printerr(error_string(open_error))
@@ -103,4 +118,3 @@ func _ready():
 		var tile = Vector2i(randi_range(0,10),randi_range(0,10))
 		
 		_garden_plan.place_object(tile,1,sprite_coord)
-		
