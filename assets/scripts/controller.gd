@@ -113,9 +113,15 @@ func _ready():
 			printerr(error_string(project_folder_creation_error))
 
 	# this code is for testing. Makes a garden with(up to) 10 random plants in random locations.
-	create_garden(10,10)
-	for i in range(10):
-		var sprite_coord = Vector2i(randi_range(0,38),randi_range(0,6))
-		var tile = Vector2i(randi_range(0,10),randi_range(0,10))
+	# create_garden(10,10)
+	# for i in range(10):
+		# var sprite_coord = Vector2i(randi_range(0,38),randi_range(0,6))
+		# var tile = Vector2i(randi_range(0,10),randi_range(0,10))
 		
-		_garden_plan.place_object(tile,1,sprite_coord)
+		# _garden_plan.place_object(tile,1,sprite_coord)
+
+
+func _on_object_selected(name: String):
+	var selected_id = JsonParser.get_sprite_source_id(name)
+	_garden_plan.set_source_id(selected_id)
+	

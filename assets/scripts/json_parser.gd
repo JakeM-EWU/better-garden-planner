@@ -42,6 +42,14 @@ func get_start_seeds_outdoors_data(object: String) -> Dictionary:
 		return {}
 
 
+func get_sprite_source_id(object: String) -> int:
+	var item_data: Dictionary = garden_data[object]
+	if (item_data.has("Sprite Source ID")):
+		return item_data["Sprite Source ID"] as int
+	else:
+		return -1
+
+
 ## Checks if an item has a field, and if so, whether or it contains content.
 func contains_dictionary(item_data: Dictionary, entry: String) -> bool:
 	return item_data.has(entry) and item_data[entry] is Dictionary
