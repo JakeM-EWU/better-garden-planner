@@ -117,31 +117,11 @@ func _center_garden():
 
 
 
-##[method place_object]:
-##Attempts to place an object at the location [param tile].
-##The sprite of the object is selected using [param tilemap_spritesheet_id] and [param sprite_coords].
-##Returns [code]true[/code] if an object was placed or [code]false[/code] if not.
-func place_object(tile: Vector2i, tilemap_spritesheet_id: int, sprite_coords: Vector2)->bool:
-		var out = tile_is_placeable(tile)
-		if 	out:
-			set_cell(Layer.OBJECTS, tile, tilemap_spritesheet_id, sprite_coords)
-		return out
-
-
-##[method remove_object]:
-##Attempts to remove an object at the location [param tile].
-##Returns [code]true[/code] if an object was removed or [code]false[/code] if not.
-func remove_object(tile: Vector2i)->bool:
-		var out = !tile_is_empty(tile)
-		if 	out:
-			set_cell(Layer.OBJECTS, tile, -1)
-		return out
-
 ##[method save_to_file]:
 ##Saves the Garden plan to a file
 ##The file must already be open for writing.
 func save_to_file(file:FileAccess)->void:
-	var used_cells = get_used_cells(Layer.OBJECTS)
+	var used_cells = get_used_cells(Layer.OBJECT)
 	
 	var min_x = -1
 	var min_y = -1
@@ -152,7 +132,7 @@ func save_to_file(file:FileAccess)->void:
 			min_y = used_cells[i].y 
 			
 	var position = Vector2i(min_x,min_y)
-	var pattern = get_pattern(Layer.OBJECTS,used_cells)
+	var pattern = get_pattern(Layer.OBJECT,used_cells)
 	
 	file.store_64(rows)
 	file.store_64(columns)
@@ -171,4 +151,4 @@ func load_from_file(file:FileAccess)->void:
 	var pattern = file.get_var(true)
 	
 	self.create_garden(rows,columns)
-	self.set_pattern(Layers.OBJECTS,position,pattern)
+	self.set_pattern(Layer.OBJECT,position,pattern)
