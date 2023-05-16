@@ -42,3 +42,11 @@ func _ready():
 	create_garden(4,4)
 	_garden_plan.place_object(Vector2i(1,2),1,Vector2i(0,0))
 	_garden_plan.place_object(Vector2i(2,2),1,Vector2i(3,0))
+	var object_library = get_node("CanvasLayer/UI/VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer/Object Library")
+	object_library.object_selected.connect(_on_object_selected)
+
+
+func _on_object_selected(name: String):
+	var selected_id = JsonParser.get_sprite_source_id(name)
+	_garden_plan.set_source_id(selected_id)
+	

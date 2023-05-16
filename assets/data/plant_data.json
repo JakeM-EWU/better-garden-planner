@@ -1,424 +1,468 @@
 {
-   "Arugula":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"Apr 17-May 1",
-		 "Moon":"Apr 19-May 1"
-	  }
-   },
-   "Basil":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Mar 5-20",
-		 "Moon":"Mar 5-7"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"May 1-22",
-		 "Moon":"May 1-5, May 19-22"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Beets":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"Apr 17-May 8",
-		 "Moon":"Apr 17-18, May 6-8"
-	  }
-   },
-   "Bell Peppers":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Feb 19-Mar 5",
-		 "Moon":"Feb 20-Mar 5"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"May 8-22",
-		 "Moon":"May 19-22"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Bok Choy":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Mar 20-Apr 3",
-		 "Moon":"Mar 21-Apr 3"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"May 8-22",
-		 "Moon":"May 19-22"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Broccoli":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Mar 5-20",
-		 "Moon":"Mar 5-7"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"Apr 3-24",
-		 "Moon":"Apr 3-5, Apr 19-24"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Cabbage":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Mar 5-20",
-		 "Moon":"Mar 5-7"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"Apr 3-17",
-		 "Moon":"Apr 3-5"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Cantaloupes":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Apr 3-10",
-		 "Moon":"Apr 3-5"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"May 15-29",
-		 "Moon":"May 19-29"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Carrots":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"Mar 27-Apr 10",
-		 "Moon":"Apr 6-10"
-	  }
-   },
-   "Cauliflower":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Mar 5-20",
-		 "Moon":"Mar 5-7"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"Apr 3-24",
-		 "Moon":"Apr 3-5, Apr 19-24"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Celery":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Feb 19-Mar 5",
-		 "Moon":"Feb 20-Mar 5"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"May 8-22",
-		 "Moon":"May 19-22"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Chives":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"Apr 3-10",
-		 "Moon":"Apr 3-5"
-	  }
-   },
-   "Cilantro (Coriander)":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"May 1-15",
-		 "Moon":"May 1-5"
-	  }
-   },
-   "Corn":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"May 15-Jun 5",
-		 "Moon":"May 19-Jun 3"
-	  }
-   },
-   "Cucumbers":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Apr 3-10",
-		 "Moon":"Apr 3-5"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"May 15-29",
-		 "Moon":"May 19-29"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Dill":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"May 1-Jun 5",
-		 "Moon":"May 1-5, May 19-Jun 3"
-	  }
-   },
-   "Eggplants":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Mar 5-20",
-		 "Moon":"Mar 5-7"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"May 15-29",
-		 "Moon":"May 19-29"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Fava Beans (Broad Beans)":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Feb 5-19",
-		 "Moon":"Feb 5"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"Mar 13-Apr 3",
-		 "Moon":"Mar 21-Apr 3"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Green Beans":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"May 8-29",
-		 "Moon":"May 19-29"
-	  }
-   },
-   "Jalapeño Peppers":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Feb 19-Mar 5",
-		 "Moon":"Feb 20-Mar 5"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"May 8-22",
-		 "Moon":"May 19-22"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Kale":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Mar 5-20",
-		 "Moon":"Mar 5-7"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"Apr 3-24",
-		 "Moon":"Apr 3-5, Apr 19-24"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Kohlrabi":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Mar 20-Apr 3",
-		 "Moon":"Mar 21-Apr 3"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"Apr 10-17"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Lettuce":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Mar 20-Apr 3",
-		 "Moon":"Mar 21-Apr 3"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"Apr 17-May 15",
-		 "Moon":"Apr 19-May 5"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Okra":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"May 15-29",
-		 "Moon":"May 19-29"
-	  }
-   },
-   "Onions":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"Apr 3-24",
-		 "Moon":"Apr 6-18"
-	  }
-   },
-   "Oregano":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Feb 19-Mar 20",
-		 "Moon":"Feb 20-Mar 7"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"May 1-22",
-		 "Moon":"May 1-5, May 19-22"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Parsley":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"Apr 3-17",
-		 "Moon":"Apr 3-5"
-	  }
-   },
-   "Parsnips":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"Apr 10-May 1",
-		 "Moon":"Apr 10-18"
-	  }
-   },
-   "Peas":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"Mar 20-Apr 10",
-		 "Moon":"Mar 21-Apr 5"
-	  }
-   },
-   "Potatoes":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"Apr 3-17",
-		 "Moon":"Apr 6-17"
-	  }
-   },
-   "Pumpkins":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Apr 10-24",
-		 "Moon":"Apr 19-24"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"May 15-29",
-		 "Moon":"May 19-29"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Radishes":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"Mar 5-27",
-		 "Moon":"Mar 8-20"
-	  }
-   },
-   "Rosemary":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Feb 19-Mar 5",
-		 "Moon":"Feb 20-Mar 5"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"May 8-29",
-		 "Moon":"May 19-29"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Sage":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Mar 5-20",
-		 "Moon":"Mar 5-7"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"May 1-15",
-		 "Moon":"May 1-5"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Spinach":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"Mar 20-Apr 10",
-		 "Moon":"Mar 21-Apr 5"
-	  }
-   },
-   "Sweet Potatoes":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"May 22-Jun 5",
-		 "Moon":"Jun 4-5"
-	  }
-   },
-   "Swiss Chard":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Mar 20-Apr 3",
-		 "Moon":"Mar 21-Apr 3"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"Apr 10-17"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Thyme":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Feb 19-Mar 20",
-		 "Moon":"Feb 20-Mar 7"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"May 1-22",
-		 "Moon":"May 1-5, May 19-22"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Tomatillos":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Mar 5-20",
-		 "Moon":"Mar 5-7"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"May 22-Jun 5",
-		 "Moon":"May 22-Jun 3"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Tomatoes":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Mar 5-20",
-		 "Moon":"Mar 5-7"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"May 8-29",
-		 "Moon":"May 19-29"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Turnips":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"Apr 3-24",
-		 "Moon":"Apr 6-18"
-	  }
-   },
-   "Watermelons":{
-	  "Start Seeds Indoors":{
-		 "Frost":"Apr 3-10",
-		 "Moon":"Apr 3-5"
-	  },
-	  "Plant Seedlings or Transplants":{
-		 "Frost":"May 15-29",
-		 "Moon":"May 19-29"
-	  },
-	  "Start Seeds Outdoors":"N/A"
-   },
-   "Winter Squash":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"May 15-Jun 12",
-		 "Moon":"May 19-Jun 3"
-	  }
-   },
-   "Zucchini":{
-	  "Start Seeds Indoors":"N/A",
-	  "Plant Seedlings or Transplants":"N/A",
-	  "Start Seeds Outdoors":{
-		 "Frost":"May 15-Jun 12",
-		 "Moon":"May 19-Jun 3"
-	  }
-   }
+  "Arugula": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "Apr 17-May 1",
+	  "Moon": "Apr 19-May 1"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Basil": {
+	"Start Seeds Indoors": {
+	  "Frost": "Mar 5-20",
+	  "Moon": "Mar 5-7"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "May 1-22",
+	  "Moon": "May 1-5, May 19-22"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Beets": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "Apr 17-May 8",
+	  "Moon": "Apr 17-18, May 6-8"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Bell Peppers": {
+	"Start Seeds Indoors": {
+	  "Frost": "Feb 19-Mar 5",
+	  "Moon": "Feb 20-Mar 5"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "May 8-22",
+	  "Moon": "May 19-22"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Bok Choy": {
+	"Start Seeds Indoors": {
+	  "Frost": "Mar 20-Apr 3",
+	  "Moon": "Mar 21-Apr 3"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "May 8-22",
+	  "Moon": "May 19-22"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Broccoli": {
+	"Start Seeds Indoors": {
+	  "Frost": "Mar 5-20",
+	  "Moon": "Mar 5-7"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "Apr 3-24",
+	  "Moon": "Apr 3-5, Apr 19-24"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Cabbage": {
+	"Start Seeds Indoors": {
+	  "Frost": "Mar 5-20",
+	  "Moon": "Mar 5-7"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "Apr 3-17",
+	  "Moon": "Apr 3-5"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "10"
+  },
+  "Cantaloupes": {
+	"Start Seeds Indoors": {
+	  "Frost": "Apr 3-10",
+	  "Moon": "Apr 3-5"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "May 15-29",
+	  "Moon": "May 19-29"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Carrots": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "Mar 27-Apr 10",
+	  "Moon": "Apr 6-10"
+	},
+	"Sprite Source ID": "203"
+  },
+  "Cauliflower": {
+	"Start Seeds Indoors": {
+	  "Frost": "Mar 5-20",
+	  "Moon": "Mar 5-7"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "Apr 3-24",
+	  "Moon": "Apr 3-5, Apr 19-24"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Celery": {
+	"Start Seeds Indoors": {
+	  "Frost": "Feb 19-Mar 5",
+	  "Moon": "Feb 20-Mar 5"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "May 8-22",
+	  "Moon": "May 19-22"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Chives": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "Apr 3-10",
+	  "Moon": "Apr 3-5"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Cilantro (Coriander)": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "May 1-15",
+	  "Moon": "May 1-5"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Corn": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "May 15-Jun 5",
+	  "Moon": "May 19-Jun 3"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Cucumbers": {
+	"Start Seeds Indoors": {
+	  "Frost": "Apr 3-10",
+	  "Moon": "Apr 3-5"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "May 15-29",
+	  "Moon": "May 19-29"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Dill": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "May 1-Jun 5",
+	  "Moon": "May 1-5, May 19-Jun 3"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Eggplants": {
+	"Start Seeds Indoors": {
+	  "Frost": "Mar 5-20",
+	  "Moon": "Mar 5-7"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "May 15-29",
+	  "Moon": "May 19-29"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Fava Beans (Broad Beans)": {
+	"Start Seeds Indoors": {
+	  "Frost": "Feb 5-19",
+	  "Moon": "Feb 5"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "Mar 13-Apr 3",
+	  "Moon": "Mar 21-Apr 3"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Green Beans": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "May 8-29",
+	  "Moon": "May 19-29"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Jalapeño Peppers": {
+	"Start Seeds Indoors": {
+	  "Frost": "Feb 19-Mar 5",
+	  "Moon": "Feb 20-Mar 5"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "May 8-22",
+	  "Moon": "May 19-22"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Kale": {
+	"Start Seeds Indoors": {
+	  "Frost": "Mar 5-20",
+	  "Moon": "Mar 5-7"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "Apr 3-24",
+	  "Moon": "Apr 3-5, Apr 19-24"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Kohlrabi": {
+	"Start Seeds Indoors": {
+	  "Frost": "Mar 20-Apr 3",
+	  "Moon": "Mar 21-Apr 3"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "Apr 10-17"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Lettuce": {
+	"Start Seeds Indoors": {
+	  "Frost": "Mar 20-Apr 3",
+	  "Moon": "Mar 21-Apr 3"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "Apr 17-May 15",
+	  "Moon": "Apr 19-May 5"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Okra": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "May 15-29",
+	  "Moon": "May 19-29"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Onions": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "Apr 3-24",
+	  "Moon": "Apr 6-18"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Oregano": {
+	"Start Seeds Indoors": {
+	  "Frost": "Feb 19-Mar 20",
+	  "Moon": "Feb 20-Mar 7"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "May 1-22",
+	  "Moon": "May 1-5, May 19-22"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Parsley": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "Apr 3-17",
+	  "Moon": "Apr 3-5"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Parsnips": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "Apr 10-May 1",
+	  "Moon": "Apr 10-18"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Peas": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "Mar 20-Apr 10",
+	  "Moon": "Mar 21-Apr 5"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Potatoes": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "Apr 3-17",
+	  "Moon": "Apr 6-17"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Pumpkins": {
+	"Start Seeds Indoors": {
+	  "Frost": "Apr 10-24",
+	  "Moon": "Apr 19-24"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "May 15-29",
+	  "Moon": "May 19-29"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Radishes": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "Mar 5-27",
+	  "Moon": "Mar 8-20"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Rosemary": {
+	"Start Seeds Indoors": {
+	  "Frost": "Feb 19-Mar 5",
+	  "Moon": "Feb 20-Mar 5"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "May 8-29",
+	  "Moon": "May 19-29"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Sage": {
+	"Start Seeds Indoors": {
+	  "Frost": "Mar 5-20",
+	  "Moon": "Mar 5-7"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "May 1-15",
+	  "Moon": "May 1-5"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Spinach": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "Mar 20-Apr 10",
+	  "Moon": "Mar 21-Apr 5"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Sweet Potatoes": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "May 22-Jun 5",
+	  "Moon": "Jun 4-5"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Swiss Chard": {
+	"Start Seeds Indoors": {
+	  "Frost": "Mar 20-Apr 3",
+	  "Moon": "Mar 21-Apr 3"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "Apr 10-17"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Thyme": {
+	"Start Seeds Indoors": {
+	  "Frost": "Feb 19-Mar 20",
+	  "Moon": "Feb 20-Mar 7"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "May 1-22",
+	  "Moon": "May 1-5, May 19-22"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Tomatillos": {
+	"Start Seeds Indoors": {
+	  "Frost": "Mar 5-20",
+	  "Moon": "Mar 5-7"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "May 22-Jun 5",
+	  "Moon": "May 22-Jun 3"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Tomatoes": {
+	"Start Seeds Indoors": {
+	  "Frost": "Mar 5-20",
+	  "Moon": "Mar 5-7"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "May 8-29",
+	  "Moon": "May 19-29"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Turnips": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "Apr 3-24",
+	  "Moon": "Apr 6-18"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Watermelons": {
+	"Start Seeds Indoors": {
+	  "Frost": "Apr 3-10",
+	  "Moon": "Apr 3-5"
+	},
+	"Plant Seedlings or Transplants": {
+	  "Frost": "May 15-29",
+	  "Moon": "May 19-29"
+	},
+	"Start Seeds Outdoors": "N/A",
+	"Sprite Source ID": "32767"
+  },
+  "Winter Squash": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "May 15-Jun 12",
+	  "Moon": "May 19-Jun 3"
+	},
+	"Sprite Source ID": "32767"
+  },
+  "Zucchini": {
+	"Start Seeds Indoors": "N/A",
+	"Plant Seedlings or Transplants": "N/A",
+	"Start Seeds Outdoors": {
+	  "Frost": "May 15-Jun 12",
+	  "Moon": "May 19-Jun 3"
+	},
+	"Sprite Source ID": "32767"
+  }
 }
