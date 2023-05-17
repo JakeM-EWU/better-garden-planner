@@ -10,7 +10,7 @@ signal dimensions_selected(x_dimension, y_dimension)
 @onready var y_slider = $VBoxContainer/YDimensionsContainer/YDimensionSlider
 @onready var y_spin_box = $VBoxContainer/YDimensionsContainer/YDimensionSpinBox
 @onready var create_button = $CreateButton
-
+@onready var project_name = $VBoxContainer/GardenName
 
 # Function called when the x_slider value changes.
 func on_x_slider_change(value):
@@ -49,3 +49,12 @@ func on_create_button_pressed():
 #	self.dimensions_selected.connect(self.on_dimensions_selected)
 #func on_dimensions_selected(x,y):
 #	print("X:",x,"Y:",y)
+
+
+func _on_new_button_pressed():
+	visible = true
+	
+
+
+func _on_exit_button_pressed():
+	visible = false

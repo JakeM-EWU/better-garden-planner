@@ -1,48 +1,131 @@
-[gd_scene load_steps=2 format=3 uid="uid://gs2mfyu8ou4j"]
+[gd_scene load_steps=11 format=3 uid="uid://gs2mfyu8ou4j"]
 
 [ext_resource type="Script" path="res://assets/scripts/garden_creation_popup.gd" id="1_y4s4t"]
+[ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="2_sow8u"]
+[ext_resource type="FontFile" uid="uid://dordcixmxodmx" path="res://assets/fonts/Stardew_Valley.ttf" id="3_utub7"]
+
+[sub_resource type="Theme" id="Theme_f3336"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltb0g"]
+bg_color = Color(1.58831e-06, 0.501083, 0.455193, 1)
+border_width_left = 40
+border_width_top = 40
+border_width_right = 40
+border_width_bottom = 40
+border_color = Color(2.01548e-07, 0.122212, 0.107587, 1)
+border_blend = true
+corner_detail = 1
+
+[sub_resource type="Theme" id="Theme_3qc5n"]
+default_font = ExtResource("2_sow8u")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d16bh"]
+bg_color = Color(0.513726, 0.270588, 0.458824, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.219608, 0.0352941, 0.172549, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7ado"]
+bg_color = Color(0.218896, 0.0356678, 0.173486, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.514022, 0.270778, 0.459094, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvr8c"]
+bg_color = Color(0.611767, 0.12315, 0.257011, 1)
+border_width_left = 12
+border_width_top = 12
+border_width_right = 12
+border_width_bottom = 12
+border_color = Color(0.854902, 0.764706, 0.909804, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="Theme" id="Theme_plpsx"]
+default_font_size = 20
 
 [node name="GardenCreationPopup" type="Panel"]
 custom_minimum_size = Vector2(400, 300)
-anchors_preset = 5
-anchor_left = 0.5
-anchor_right = 0.5
-offset_left = -576.0
-offset_right = -176.0
-offset_bottom = 300.0
-grow_horizontal = 2
-size_flags_horizontal = 4
-size_flags_vertical = 4
+offset_left = -23.0
+offset_right = 548.0
+offset_bottom = 356.0
+size_flags_horizontal = 6
+size_flags_vertical = 6
+theme = SubResource("Theme_f3336")
+theme_override_styles/panel = SubResource("StyleBoxFlat_ltb0g")
 script = ExtResource("1_y4s4t")
 
 [node name="CreateButton" type="Button" parent="."]
-layout_mode = 2
-offset_left = 140.0
-offset_top = 250.0
-offset_right = 270.0
-offset_bottom = 281.0
+clip_contents = true
+layout_mode = 1
+anchors_preset = 3
+anchor_left = 1.0
+anchor_top = 1.0
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -228.0
+offset_top = -72.0
+offset_right = -18.0
+offset_bottom = -13.0
+grow_horizontal = 0
+grow_vertical = 0
+mouse_default_cursor_shape = 2
+theme = SubResource("Theme_3qc5n")
+theme_override_fonts/font = ExtResource("2_sow8u")
+theme_override_font_sizes/font_size = 35
+theme_override_styles/normal = SubResource("StyleBoxFlat_d16bh")
+theme_override_styles/hover = SubResource("StyleBoxFlat_i7ado")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_cvr8c")
 text = "Create Garden"
 
-[node name="ExitButton" type="OptionButton" parent="."]
-layout_mode = 2
-offset_left = 360.0
-offset_top = 20.0
-offset_right = 380.0
-offset_bottom = 40.0
+[node name="ExitButton" type="Button" parent="."]
+layout_mode = 1
+anchors_preset = 1
+anchor_left = 1.0
+anchor_right = 1.0
+offset_left = -26.0
+offset_bottom = 31.0
+grow_horizontal = 0
+theme = SubResource("Theme_plpsx")
+text = "X"
+icon_alignment = 2
 
 [node name="VBoxContainer" type="VBoxContainer" parent="."]
 layout_mode = 1
 anchors_preset = 5
 anchor_left = 0.5
 anchor_right = 0.5
-offset_left = -143.5
-offset_right = 143.5
-offset_bottom = 161.0
+offset_left = -228.5
+offset_top = 22.0
+offset_right = 211.5
+offset_bottom = 269.0
 grow_horizontal = 2
 
 [node name="Title" type="Label" parent="VBoxContainer"]
 custom_minimum_size = Vector2(50, 60)
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sow8u")
+theme_override_font_sizes/font_size = 60
 text = "Create a new Garden"
 horizontal_alignment = 1
 vertical_alignment = 1
@@ -52,6 +135,8 @@ uppercase = true
 layout_mode = 2
 size_flags_horizontal = 0
 size_flags_vertical = 10
+theme_override_fonts/font = ExtResource("3_utub7")
+theme_override_font_sizes/font_size = 35
 text = "Garden Name:"
 vertical_alignment = 1
 
@@ -60,6 +145,8 @@ layout_mode = 2
 
 [node name="DimensionsLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
+theme_override_fonts/font = ExtResource("2_sow8u")
+theme_override_font_sizes/font_size = 35
 text = "Dimensions (X, Y):"
 
 [node name="DimensionsContainer" type="HBoxContainer" parent="VBoxContainer"]
@@ -97,6 +184,7 @@ value = 1.0
 alignment = 1
 
 [connection signal="pressed" from="CreateButton" to="." method="on_create_button_pressed"]
+[connection signal="pressed" from="ExitButton" to="." method="_on_exit_button_pressed"]
 [connection signal="value_changed" from="VBoxContainer/DimensionsContainer/XDimensionSlider" to="." method="on_x_slider_change"]
 [connection signal="value_changed" from="VBoxContainer/DimensionsContainer/XDimensionSpinBox" to="." method="on_x_spin_box_change"]
 [connection signal="value_changed" from="VBoxContainer/YDimensionsContainer/YDimensionSlider" to="." method="on_y_slider_change"]

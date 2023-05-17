@@ -24,3 +24,7 @@ func prompt_save_file()->String:
 	var output = await(save_file_dialog.file_selected_or_cancelled)
 	save_file_dialog.queue_free()
 	return output
+
+
+func _on_toggle_to_title_pressed():
+	get_tree().change_scene_to_file("res://assets/scenes/title_screen.tscn")
