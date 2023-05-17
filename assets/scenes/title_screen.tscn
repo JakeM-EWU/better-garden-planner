@@ -1,6 +1,7 @@
-[gd_scene load_steps=51 format=3 uid="uid://ccra33dcutoci"]
+[gd_scene load_steps=60 format=3 uid="uid://cu146r3ks35v6"]
 
 [ext_resource type="Texture2D" uid="uid://du1y1br7w0c6u" path="res://assets/images/Sprout Lands - Sprites - Basic pack/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png" id="1_37qin"]
+[ext_resource type="Script" path="res://assets/scripts/title_screen.gd" id="1_x58mg"]
 [ext_resource type="Texture2D" uid="uid://mfqpkliaifhe" path="res://assets/images/Sprout Lands - Sprites - Basic pack/Tilesets/ground tiles/new tiles/Grass tiles v.2.png" id="2_7xwpp"]
 [ext_resource type="Texture2D" uid="uid://5citp1davv24" path="res://assets/images/Sprout Lands - Sprites - Basic pack/Objects/Paths.png" id="3_4lurj"]
 [ext_resource type="Texture2D" uid="uid://cxs5a04v1rmkp" path="res://assets/images/Sprout Lands - Sprites - Basic pack/Objects/Simple Milk and grass item.png" id="4_wc15l"]
@@ -22,6 +23,7 @@
 [ext_resource type="Texture2D" uid="uid://buj4cjwy4cbkm" path="res://assets/images/chickens/Chicken_Sprite_Sheet_Light_Brown.png" id="20_owvxh"]
 [ext_resource type="Texture2D" uid="uid://c2dg4j1h5mrj0" path="res://assets/images/buttons/Buttons_all_01.png" id="22_e0oip"]
 [ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="23_07p7m"]
+[ext_resource type="PackedScene" uid="uid://gs2mfyu8ou4j" path="res://assets/scenes/garden_creation_popup.tscn" id="24_yv5f4"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yrwkl"]
 texture = ExtResource("1_37qin")
@@ -974,11 +976,118 @@ _data = {
 "RESET": SubResource("Animation_30cfi")
 }
 
-[node name="title_screen" type="Node2D"]
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_6svqm"]
+bg_color = Color(0.0470588, 0.168627, 0.168627, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.180392, 0.545098, 0.403922, 1)
+border_blend = true
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ovlay"]
+bg_color = Color(0.180392, 0.545098, 0.403922, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.0470588, 0.168627, 0.168627, 1)
+border_blend = true
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_hx7w5"]
+bg_color = Color(0.0156863, 0.188235, 0.192157, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.14902, 0.529412, 0.529412, 1)
+border_blend = true
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+corner_detail = 1
+
+[sub_resource type="Theme" id="Theme_h2ffn"]
+default_font = ExtResource("23_07p7m")
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_uc2dv"]
+bg_color = Color(0.0901961, 0.00392157, 0.278431, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.164706, 0.231373, 0.533333, 1)
+border_blend = true
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xlue7"]
+bg_color = Color(0.164706, 0.231373, 0.533333, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.0901961, 0.0627451, 0.321569, 1)
+border_blend = true
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+corner_detail = 1
+shadow_color = Color(0.0196078, 0.0196078, 0.0196078, 0.6)
+shadow_size = 8
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_jqv1h"]
+bg_color = Color(0.0901961, 0.0627451, 0.321569, 1)
+border_width_left = 15
+border_width_top = 15
+border_width_right = 15
+border_width_bottom = 15
+border_color = Color(0.235294, 0.278431, 0.639216, 1)
+border_blend = true
+corner_radius_top_left = 22
+corner_radius_top_right = 22
+corner_radius_bottom_right = 22
+corner_radius_bottom_left = 22
+corner_detail = 1
+shadow_size = 8
+shadow_offset = Vector2(4, 4)
+
+[node name="title_screen" type="Control"]
+clip_contents = true
+custom_minimum_size = Vector2(1700, 1000)
+layout_mode = 3
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+offset_left = -56.0
+offset_top = -8.0
+offset_right = 494.0
+offset_bottom = 272.0
+grow_horizontal = 2
+grow_vertical = 2
+scale = Vector2(0.75, 0.75)
+script = ExtResource("1_x58mg")
 metadata/_edit_horizontal_guides_ = []
 
 [node name="TileMap" type="TileMap" parent="."]
-scale = Vector2(4, 4)
+position = Vector2(35, 5)
+scale = Vector2(3.75, 3.75)
 tile_set = SubResource("TileSet_o00ui")
 format = 2
 layer_0/name = "BaseGround"
@@ -996,7 +1105,7 @@ layer_2/modulate = Color(1, 1, 1, 1)
 layer_2/y_sort_enabled = false
 layer_2/y_sort_origin = 0
 layer_2/z_index = 0
-layer_2/tile_data = PackedInt32Array(720896, 589830, 3, 786432, 589830, 4, 458753, 589830, 3, 524289, 589830, 4, 720897, 655366, 3, 786433, 655366, 4, 458754, 655366, 3, 524290, 655366, 4, 655370, 65540, 0, 720906, 4, 0, 786442, 4, 0, 851978, 4, 1, 917514, 65540, 3, 655371, 131076, 0, 655372, 131076, 0, 655373, 131076, 0, 655374, 131076, 0, 655375, 196613, 1, 131088, 131084, 0, 393232, 589830, 3, 458768, 589830, 4, 655376, 131076, 0, 131089, 196620, 0, 393233, 655366, 3, 458769, 655366, 4, 655377, 131076, 0, 131090, 196620, 0, 655378, 131076, 0, 131091, 196620, 0, 327699, 524302, 4, 524307, 65540, 0, 589843, 4, 1, 655379, 196612, 2, 131092, 262156, 0, 524308, 131076, 0, 524309, 131076, 0, 262166, 458766, 4, 524310, 131076, 0, 524311, 131076, 0, 65560, 589830, 3, 131096, 589830, 4, 524312, 196612, 0, 589848, 4, 1, 655384, 4, 1, 720920, 4, 1, 786456, 4, 1, 851992, 4, 1, 917528, 196612, 3, 65561, 655366, 3, 131097, 655366, 4, 917515, 131076, 0, 917516, 131076, 0, 917517, 131076, 0, 917518, 131076, 0, 917519, 131076, 0, 917520, 131076, 0, 917521, 131076, 0, 917522, 131076, 0, 917523, 131076, 0, 917524, 131076, 0, 917525, 131076, 0, 917526, 131076, 0, 917527, 131076, 0, 327683, 6, 4, 393219, 6, 5, 327684, 65542, 4, 393220, 65542, 5, 327685, 131078, 4, 393221, 131078, 5, 327686, 196614, 4, 393222, 196614, 5, 458755, 6, 6, 524291, 6, 7, 458756, 65542, 6, 524292, 65542, 7, 458757, 131078, 6, 524293, 131078, 7, 458758, 196614, 6, 524294, 196614, 7, 262148, 65542, 3, 262149, 131078, 3, 262150, 196614, 3, 262152, 589830, 3, 327688, 589830, 4, 262153, 655366, 3, 327689, 655366, 4)
+layer_2/tile_data = PackedInt32Array(458753, 589830, 3, 524289, 589830, 4, 458754, 655366, 3, 524290, 655366, 4, 655370, 65540, 0, 655371, 131076, 0, 655372, 131076, 0, 655373, 131076, 0, 655374, 131076, 0, 655375, 196613, 1, 131088, 131084, 0, 393232, 589830, 3, 458768, 589830, 4, 655376, 131076, 0, 131089, 196620, 0, 393233, 655366, 3, 458769, 655366, 4, 655377, 131076, 0, 131090, 196620, 0, 655378, 131076, 0, 131091, 196620, 0, 327699, 524302, 4, 524307, 65540, 0, 589843, 4, 1, 655379, 196612, 2, 131092, 262156, 0, 524308, 131076, 0, 524309, 131076, 0, 262166, 458766, 4, 524310, 131076, 0, 524311, 131076, 0, 65560, 589830, 3, 131096, 589830, 4, 524312, 196612, 0, 589848, 4, 1, 655384, 4, 1, 65561, 655366, 3, 131097, 655366, 4, 327683, 6, 4, 393219, 6, 5, 327684, 65542, 4, 393220, 65542, 5, 327685, 131078, 4, 393221, 131078, 5, 327686, 196614, 4, 393222, 196614, 5, 458755, 6, 6, 524291, 6, 7, 458756, 65542, 6, 524292, 65542, 7, 458757, 131078, 6, 524293, 131078, 7, 458758, 196614, 6, 524294, 196614, 7, 262148, 65542, 3, 262149, 131078, 3, 262150, 196614, 3, 262152, 589830, 3, 327688, 589830, 4, 262153, 655366, 3, 327689, 655366, 4, 720896, 589830, 3, 786432, 589830, 4, 720897, 655366, 3, 786433, 655366, 4, 720906, 4, 0, 786442, 4, 0, 851978, 4, 1, 917514, 65540, 3, 917515, 131076, 0, 917516, 131076, 0, 917517, 131076, 0, 917518, 131076, 0, 917519, 131076, 0, 917520, 131076, 0, 917521, 131076, 0, 917522, 131076, 0, 917523, 131076, 0, 917524, 131076, 0, 917525, 131076, 0, 917526, 131076, 0, 917527, 131076, 0, 720920, 4, 1, 786456, 4, 1, 851992, 4, 1, 917528, 196612, 3)
 layer_3/name = "Layer3"
 layer_3/enabled = true
 layer_3/modulate = Color(1, 1, 1, 1)
@@ -1013,15 +1122,14 @@ layer_4/z_index = 0
 layer_4/tile_data = PackedInt32Array(720896, 196622, 3, 524289, 65550, 2, 589825, 327694, 4, 720897, 196622, 3, 458754, 65550, 2, 655368, 131086, 3, 720904, 131086, 3, 786440, 131086, 3, 851976, 131086, 3, 917512, 131086, 3, 655369, 524302, 2, 720905, 524302, 3, 786441, 458766, 2, 851977, 458766, 3, 917513, 327694, 3, 393232, 65550, 2, 393233, 65550, 2, 458769, 65550, 2, 524306, 327694, 4, 131096, 65550, 2, 65561, 65550, 2)
 
 [node name="Cow" type="Node2D" parent="."]
-top_level = true
 light_mask = 5
-position = Vector2(1087.21, 778.064)
+position = Vector2(1018, 704)
 scale = Vector2(4, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="Cow"]
 top_level = true
-position = Vector2(1108, 727)
-scale = Vector2(6, 6)
+position = Vector2(744, 504)
+scale = Vector2(4, 4)
 texture = ExtResource("19_v3d8q")
 hframes = 3
 vframes = 2
@@ -1040,13 +1148,12 @@ libraries = {
 [node name="Chicken" type="Node2D" parent="."]
 top_level = true
 light_mask = 5
-position = Vector2(527.448, 454.857)
+position = Vector2(358.186, 394.169)
 scale = Vector2(4, 4)
 
 [node name="Sprite2D" type="Sprite2D" parent="Chicken"]
 top_level = true
-position = Vector2(531.741, 455.263)
-scale = Vector2(2, 2)
+position = Vector2(352, 392)
 texture = ExtResource("20_owvxh")
 hframes = 4
 vframes = 4
@@ -1063,22 +1170,6 @@ tree_root = SubResource("AnimationRootNode_kqgo5")
 anim_player = NodePath("../AnimationPlayer")
 active = true
 
-[node name="NewButton" type="Button" parent="."]
-offset_left = 659.0
-offset_top = 328.0
-offset_right = 1012.0
-offset_bottom = 434.0
-theme_override_font_sizes/font_size = 70
-text = "New Project"
-
-[node name="LoadButton" type="Button" parent="."]
-offset_left = 658.0
-offset_top = 454.0
-offset_right = 1012.0
-offset_bottom = 559.0
-theme_override_font_sizes/font_size = 65
-text = "Load Project"
-
 [node name="Title" type="Control" parent="."]
 layout_mode = 3
 anchors_preset = 0
@@ -1092,7 +1183,7 @@ position = Vector2(703, 118)
 scale = Vector2(27.7805, 13.9474)
 texture = ExtResource("22_e0oip")
 region_enabled = true
-region_rect = Rect2(717.097, 256.454, 38.4971, 16.7649)
+region_rect = Rect2(192, 195, 32, 13)
 
 [node name="Label" type="Label" parent="Title"]
 layout_mode = 0
@@ -1104,3 +1195,65 @@ pivot_offset = Vector2(4, 0)
 theme_override_fonts/font = ExtResource("23_07p7m")
 theme_override_font_sizes/font_size = 80
 text = "BETTER GARDEN PLANNER"
+
+[node name="Control" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+
+[node name="NewButton" type="Button" parent="Control"]
+layout_mode = 0
+offset_left = 658.0
+offset_top = 313.0
+offset_right = 1010.0
+offset_bottom = 423.0
+mouse_default_cursor_shape = 2
+theme_override_fonts/font = ExtResource("23_07p7m")
+theme_override_font_sizes/font_size = 70
+theme_override_styles/normal = SubResource("StyleBoxFlat_6svqm")
+theme_override_styles/hover = SubResource("StyleBoxFlat_ovlay")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_hx7w5")
+text = "New Project
+"
+
+[node name="Control2" type="Control" parent="."]
+layout_mode = 3
+anchors_preset = 0
+offset_right = 40.0
+offset_bottom = 40.0
+theme = SubResource("Theme_h2ffn")
+
+[node name="LoadButton" type="Button" parent="Control2"]
+layout_mode = 0
+offset_left = 658.0
+offset_top = 454.0
+offset_right = 1012.0
+offset_bottom = 559.0
+mouse_default_cursor_shape = 2
+theme_override_font_sizes/font_size = 65
+theme_override_styles/normal = SubResource("StyleBoxFlat_uc2dv")
+theme_override_styles/hover = SubResource("StyleBoxFlat_xlue7")
+theme_override_styles/pressed = SubResource("StyleBoxFlat_jqv1h")
+text = "Load Project"
+
+[node name="Jump to UI" type="Button" parent="."]
+layout_mode = 0
+offset_left = 1304.0
+offset_top = 744.0
+offset_right = 1470.0
+offset_bottom = 787.0
+theme_override_fonts/font = ExtResource("23_07p7m")
+theme_override_font_sizes/font_size = 35
+text = "Toggle to UI"
+
+[node name="GardenCreationPopup" parent="." instance=ExtResource("24_yv5f4")]
+visible = false
+layout_mode = 1
+offset_left = 578.0
+offset_top = 294.5
+offset_right = 1146.0
+offset_bottom = 614.5
+
+[connection signal="pressed" from="Control/NewButton" to="GardenCreationPopup" method="_on_new_button_pressed"]
+[connection signal="pressed" from="Jump to UI" to="." method="_on_jump_to_ui_pressed"]

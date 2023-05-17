@@ -1,6 +1,7 @@
-[gd_scene load_steps=2 format=3 uid="uid://bab60pp4rwsdn"]
+[gd_scene load_steps=3 format=3 uid="uid://bab60pp4rwsdn"]
 
 [ext_resource type="Script" path="res://assets/scripts/object_library.gd" id="1_dyppb"]
+[ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="2_7k2kq"]
 
 [node name="Object Library" type="Control"]
 layout_mode = 3
@@ -10,16 +11,23 @@ offset_bottom = 40.0
 script = ExtResource("1_dyppb")
 
 [node name="Object List" type="ItemList" parent="."]
+top_level = true
 layout_mode = 0
 offset_left = 1.0
-offset_top = 33.0
-offset_right = 201.0
-offset_bottom = 645.0
+offset_top = 103.0
+offset_right = 221.0
+offset_bottom = 715.0
+theme_override_fonts/font = ExtResource("2_7k2kq")
+theme_override_font_sizes/font_size = 25
 
 [node name="Object Filter" type="LineEdit" parent="."]
+clip_contents = true
 layout_mode = 0
-offset_right = 200.0
+offset_right = 220.0
 offset_bottom = 31.0
+theme_override_fonts/font = ExtResource("2_7k2kq")
+theme_override_font_sizes/font_size = 20
+placeholder_text = "Search"
 
 [connection signal="item_selected" from="Object List" to="." method="_on_object_list_item_selected"]
 [connection signal="text_changed" from="Object Filter" to="." method="_on_object_filter_text_changed"]

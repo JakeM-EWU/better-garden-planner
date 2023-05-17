@@ -21,18 +21,15 @@ JsonParser="*res://assets/scripts/json_parser.gd"
 
 [display]
 
-window/size/mode=3
-window/size/initial_position_type=0
-window/size/resizable=false
+window/size/viewport_width=1150
+window/size/viewport_height=720
+window/size/mode=2
+window/stretch/mode="canvas_items"
 
 [editor]
 
 version_control/plugin_name="GitPlugin"
 version_control/autoload_on_startup=true
-
-[gui]
-
-theme/custom_font="res://assets/fonts/Stardew_Valley.otf"
 
 [rendering]
 
