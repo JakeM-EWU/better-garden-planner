@@ -18,7 +18,7 @@ enum Layer {
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GardenSignalBus.connect("object_placed", _on_object_placed)
-	_generate_tiles(4, 5)
+	_generate_tiles(5, 5)
 	pass # Replace with function body.
 
 
