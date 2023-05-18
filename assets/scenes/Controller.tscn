@@ -1,7 +1,7 @@
 [gd_scene load_steps=5 format=3 uid="uid://jqajyk3c727c"]
 
 [ext_resource type="Script" path="res://assets/scripts/controller.gd" id="1_0n1by"]
-[ext_resource type="PackedScene" uid="uid://brvs5io7sbwm0" path="res://assets/scenes/UI.tscn" id="2_tx6a1"]
+[ext_resource type="PackedScene" uid="uid://cpb3vqjnxlsm2" path="res://assets/scenes/UI.tscn" id="2_tx6a1"]
 [ext_resource type="Script" path="res://assets/scripts/ui.gd" id="3_8htm6"]
 [ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="4_bftuu"]
 
