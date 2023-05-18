@@ -14,6 +14,8 @@ var _garden
 var _garden_plan:GardenPlan
 @onready var _ui = $CanvasLayer/UI
 
+@onready var _garden_view: GardenView = $"CanvasLayer/UI/Garden View"
+
 ##[method _on_file_id_pressed]:
 ##Connected to the file menu's [signal PopupMenu.index_pressed]
 func _on_file_id_pressed(id):
@@ -43,6 +45,7 @@ func create_garden(rows:int, columns:int):
 	_garden_plan.create_garden(rows, columns)
 	add_child(_garden)
 
+
 ##[method create_and_load_garden]:
 ##loads a garden from [param file].
 #TODO deal with errors in this clause.
@@ -51,8 +54,8 @@ func create_and_load_garden(file:FileAccess):
 	add_child(_garden)
 	_garden_plan = _garden.get_node("GardenPlan")
 	_garden.load_from_file(file)
-	
-	
+
+
 ##[method save_garden]:
 ##Attempts to save a garden to [param file].
 ##If there is no garden currently open. Nothing is saved, it returns an error message.
@@ -62,6 +65,8 @@ func save_garden(file:FileAccess):
 		return ERR_DOES_NOT_EXIST
 	_garden.save_to_file(file)
 	return OK
+
+
 ##[method open_file_and_load]:
 ##Attempts to save a garden at the path [param path].
 ##If there is no garden currently open. Nothing is saved, it prints an error message.
@@ -83,11 +88,11 @@ func open_file_and_load(path:String):
 			printerr(error_string(error))
 		file.close()
 
-##[method open_file_and_save]:
-##Attempts to save a garden at the path [param path].
-##If there is no garden currently open. Nothing is saved, it prints an error message.
-##May return an error in the future to allow for an error popup.
-##Returns nothing.
+## [method open_file_and_save]:
+## Attempts to save a garden at the path [param path].
+## If there is no garden currently open. Nothing is saved, it prints an error message.
+## May return an error in the future to allow for an error popup.
+## Returns nothing.
 func open_file_and_save(path:String):
 	if _garden !=  null:
 		var file = FileAccess.open(path,FileAccess.WRITE)
@@ -111,7 +116,7 @@ func _ready():
 		if(project_folder_creation_error !=OK):
 			printerr("Couldn't create the project folder to save files. Error is below")
 			printerr(error_string(project_folder_creation_error))
-
+	$"CanvasLayer/UI/Menu/VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer/Object Library".connect("object_selected", _on_object_selected)
 	# this code is for testing. Makes a garden with(up to) 10 random plants in random locations.
 	# create_garden(10,10)
 	# for i in range(10):
@@ -121,7 +126,8 @@ func _ready():
 		# _garden_plan.place_object(tile,1,sprite_coord)
 
 
-func _on_object_selected(name: String):
-	var selected_id = JsonParser.get_sprite_source_id(name)
-	_garden_plan.set_source_id(selected_id)
+func _on_object_selected(object_name: String):
+	print(object_name)
+	var selected_id = JsonParser.get_sprite_source_id(object_name)
+	_garden_view.set_currently_selected_source_id(selected_id)
 	
