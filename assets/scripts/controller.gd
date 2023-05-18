@@ -8,13 +8,14 @@ enum File_Menu_Options {
 	LOAD = 4,
 }
 
-var _garden_scene = preload("res://assets/scenes/garden.tscn")
 var _garden_creation_popup_scene = preload("res://assets/scenes/garden_creation_popup.tscn")
-var _garden
-var _garden_plan:GardenPlan
 @onready var _ui = $CanvasLayer/UI
 
+@onready var _garden = preload("res://assets/scenes/Garden.tscn")
+@onready var _garden_data: Garden
 @onready var _garden_view: GardenView = $"CanvasLayer/UI/Garden View"
+
+var current_key: String
 
 ##[method _on_file_id_pressed]:
 ##Connected to the file menu's [signal PopupMenu.index_pressed]
@@ -40,19 +41,18 @@ func _on_file_id_pressed(id):
 ##[method create_garden]:
 ##Creates a [param rows] by [param columns] garden scene and adds it to the tree
 func create_garden(rows:int, columns:int):
-	_garden = _garden_scene.instantiate()
-	_garden_plan = _garden.get_node("GardenPlan")
-	_garden_plan.create_garden(rows, columns)
-	add_child(_garden)
+	_garden_data = _garden.instantiate()
+	_garden_data.create_garden(rows, columns)
+	add_child(_garden_data)
 
 
 ##[method create_and_load_garden]:
 ##loads a garden from [param file].
 #TODO deal with errors in this clause.
 func create_and_load_garden(file:FileAccess):
-	_garden = _garden_scene.instantiate()
+	_garden_data = _garden.instantiate()
 	add_child(_garden)
-	_garden_plan = _garden.get_node("GardenPlan")
+	_garden_data = _garden.get_node("Garden")
 	_garden.load_from_file(file)
 
 
@@ -61,9 +61,9 @@ func create_and_load_garden(file:FileAccess):
 ##If there is no garden currently open. Nothing is saved, it returns an error message.
 ##Otherwise it returns OK.
 func save_garden(file:FileAccess):
-	if _garden == null:
+	if _garden_data == null:
 		return ERR_DOES_NOT_EXIST
-	_garden.save_to_file(file)
+	_garden_data.save_to_file(file)
 	return OK
 
 
@@ -73,9 +73,9 @@ func save_garden(file:FileAccess):
 ##May return an error in the future to allow for an error popup.
 ##Returns nothing.
 func open_file_and_load(path:String):
-	if _garden != null:
-		_garden.queue_free()
-		_garden = null
+	if _garden_data != null:
+		_garden_data.queue_free()
+		_garden_data = null
 
 	var file = FileAccess.open(path,FileAccess.READ)
 	var open_error = FileAccess.get_open_error()
@@ -125,14 +125,18 @@ func _ready():
 		# var tile = Vector2i(randi_range(0,10),randi_range(0,10))
 		
 		# _garden_plan.place_object(tile,1,sprite_coord)
+	create_garden(5,5)
 
 
 func _on_object_selected(object_name: String):
 	print(object_name)
 	var selected_id = JsonParser.get_sprite_source_id(object_name)
+	current_key = object_name
 	_garden_view.set_currently_selected_source_id(selected_id)
 	
 
 
 func _on_garden_view_tile_clicked(row: int, column: int):
+	_garden_data.place_object(row, column, current_key)
 	print("Row:{r}\nCol:{c}".format({"r":str(row),"c":str(column)}))
+	

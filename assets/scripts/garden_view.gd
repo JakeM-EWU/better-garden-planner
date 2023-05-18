@@ -17,6 +17,7 @@ enum Layer {
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
+	GardenSignalBus.connect("object_placed", _on_object_placed)
 	_generate_tiles(4, 5)
 	pass # Replace with function body.
 
@@ -61,3 +62,12 @@ func _generate_tiles(rows: int, columns: int):
 	for r in rows:
 		for c in columns:
 			set_cell(Layer.GARDEN, Vector2i(c, r), _placeable_tile_source_id, Vector2i(0,0))
+			
+			
+func _coords_to_map(row: int, column: int) -> Vector2i:
+	return Vector2i(column, row)
+
+func _on_object_placed(row: int, column: int, object_key: String):
+	var tile = _coords_to_map(row, column)
+	var source_id = JsonParser.get_sprite_source_id(object_key)
+	set_cell(Layer.OBJECT, tile, source_id, Vector2i(0,0))

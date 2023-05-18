@@ -57,38 +57,4 @@ func _process(delta):
 
 
 
-###[method save_to_file]:
-###Saves the Garden plan to a file
-###The file must already be open for writing.
-#func save_to_file(file:FileAccess)->void:
-#	var used_cells = get_used_cells(Layer.OBJECT)
-#
-#	var min_x = -1
-#	var min_y = -1
-#	for i in range(len(used_cells)):
-#		if used_cells[i].x < min_x or min_x==-1:
-#			min_x = used_cells[i].x 
-#		if used_cells[i].y < min_y or min_y==-1:
-#			min_y = used_cells[i].y 
-#
-#	var position = Vector2i(min_x,min_y)
-#	var pattern = get_pattern(Layer.OBJECT,used_cells)
-#
-#	file.store_64(rows)
-#	file.store_64(columns)
-#	file.store_var(position, true)
-#	file.store_var(pattern, true)
-#
-#
-###[method save_to_file]:
-###loads a Garden plan from a file
-###The file must already be open for reading.
-#func load_from_file(file:FileAccess)->void:
-#
-#	var rows = file.get_64()
-#	var columns = file.get_64()
-#	var position = file.get_var(true)
-#	var pattern = file.get_var(true)
-#
-#	self.create_garden(rows,columns)
-#	self.set_pattern(Layer.OBJECT,position,pattern)
+
