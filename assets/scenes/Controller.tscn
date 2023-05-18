@@ -11,47 +11,22 @@ script = ExtResource("1_0n1by")
 [node name="Camera2D" type="Camera2D" parent="."]
 zoom = Vector2(2, 2)
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
-
-[node name="UI" parent="CanvasLayer" instance=ExtResource("2_tx6a1")]
-offset_bottom = -20.0
-script = ExtResource("3_8htm6")
-
-[node name="MenuBar" parent="CanvasLayer/UI/VBoxContainer/MenuBarPanel" index="0"]
-theme_override_fonts/font = ExtResource("4_bftuu")
-theme_override_font_sizes/font_size = 35
-
-[node name="File" parent="CanvasLayer/UI/VBoxContainer/MenuBarPanel/MenuBar" index="0"]
-size = Vector2i(163, 128)
-theme_override_fonts/font = ExtResource("4_bftuu")
-theme_override_font_sizes/font_size = 25
-
-[node name="Edit" parent="CanvasLayer/UI/VBoxContainer/MenuBarPanel/MenuBar" index="1"]
-theme_override_fonts/font = ExtResource("4_bftuu")
-theme_override_font_sizes/font_size = 25
-
-[node name="Help" parent="CanvasLayer/UI/VBoxContainer/MenuBarPanel/MenuBar" index="2"]
-theme_override_fonts/font = ExtResource("4_bftuu")
-theme_override_font_sizes/font_size = 25
-
-[node name="TabContainer" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer/LeftBarPanel" index="0"]
-theme_override_fonts/font = ExtResource("4_bftuu")
-theme_override_font_sizes/font_size = 20
-
-[node name="Object Library" parent="CanvasLayer/UI/VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer" index="1"]
-clip_contents = true
-
-[node name="toggleToTitle" type="Button" parent="CanvasLayer/UI"]
-layout_mode = 0
+[node name="toggleToTitle" type="Button" parent="."]
 offset_left = 924.563
 offset_top = 548.746
-offset_right = 932.563
-offset_bottom = 556.746
+offset_right = 1066.56
+offset_bottom = 581.746
 theme_override_fonts/font = ExtResource("4_bftuu")
 theme_override_font_sizes/font_size = 25
 text = "Toggle to Title"
 
-[connection signal="id_pressed" from="CanvasLayer/UI/VBoxContainer/MenuBarPanel/MenuBar/File" to="." method="_on_file_id_pressed"]
-[connection signal="pressed" from="CanvasLayer/UI/toggleToTitle" to="CanvasLayer/UI" method="_on_toggle_to_title_pressed"]
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="UI" parent="CanvasLayer" instance=ExtResource("2_tx6a1")]
+
+[node name="Menu" parent="CanvasLayer/UI" index="1"]
+script = ExtResource("3_8htm6")
+
+[connection signal="pressed" from="toggleToTitle" to="CanvasLayer/UI" method="_on_toggle_to_title_pressed"]
 
 [editable path="CanvasLayer/UI"]
