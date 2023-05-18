@@ -28,7 +28,6 @@ func _process(delta):
 	if (tile_is_placeable(tile)):
 		show_ghost(tile, _currently_selected_source_id, Vector2(0,0))
 		if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
-			print(tile)
 			var row = tile.y
 			var column = tile.x
 			emit_signal("tile_clicked", row, column)

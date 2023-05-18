@@ -117,6 +117,7 @@ func _ready():
 			printerr("Couldn't create the project folder to save files. Error is below")
 			printerr(error_string(project_folder_creation_error))
 	$"CanvasLayer/UI/Menu/VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer/Object Library".connect("object_selected", _on_object_selected)
+	$"CanvasLayer/UI/Garden View".connect("tile_clicked", _on_garden_view_tile_clicked)
 	# this code is for testing. Makes a garden with(up to) 10 random plants in random locations.
 	# create_garden(10,10)
 	# for i in range(10):
@@ -131,3 +132,7 @@ func _on_object_selected(object_name: String):
 	var selected_id = JsonParser.get_sprite_source_id(object_name)
 	_garden_view.set_currently_selected_source_id(selected_id)
 	
+
+
+func _on_garden_view_tile_clicked(row: int, column: int):
+	print("Row:{r}\nCol:{c}".format({"r":str(row),"c":str(column)}))
