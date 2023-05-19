@@ -1,8 +1,6 @@
 class_name Garden
 extends Node2D
 
-@onready var _garden_plan: GardenPlan = $GardenPlan
-
 var rows: int
 var columns: int
 var placed_objects: Array
@@ -29,23 +27,7 @@ func remove_object(row: int, column: int):
 ##The file must already be open for writing.
 #For now this only saves the garden plan, but it can be extended
 #to save other parts of a project
-func save_to_file(file:FileAccess):
-	_garden_plan.save_to_file(file)
-	
-	
-##[method load_from_file]:
-##Loads a Garden from a file. 
-##The file must already be open for reading.
-#For now this only loads the garden plan, but it can be extended
-#to load other parts of a project
-func load_from_file(file:FileAccess):
-	_garden_plan.load_from_file(file)
-
-
-###[method save_to_file]:
-###Saves the Garden plan to a file
-###The file must already be open for writing.
-#func save_to_file(file:FileAccess)->void:
+#func save_to_file(file:FileAccess):
 #	var used_cells = get_used_cells(Layer.OBJECT)
 #
 #	var min_x = -1
@@ -63,13 +45,14 @@ func load_from_file(file:FileAccess):
 #	file.store_64(columns)
 #	file.store_var(position, true)
 #	file.store_var(pattern, true)
-#
-#
-###[method save_to_file]:
-###loads a Garden plan from a file
-###The file must already be open for reading.
-#func load_from_file(file:FileAccess)->void:
-#
+	
+	
+##[method load_from_file]:
+##Loads a Garden from a file. 
+##The file must already be open for reading.
+#For now this only loads the garden plan, but it can be extended
+#to load other parts of a project
+#func load_from_file(file:FileAccess):
 #	var rows = file.get_64()
 #	var columns = file.get_64()
 #	var position = file.get_var(true)
