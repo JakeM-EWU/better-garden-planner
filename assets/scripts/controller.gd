@@ -1,41 +1,62 @@
 class_name Controller
 extends Node
 
-enum File_Menu_Options {
-	EXIT = 1,
-	CREATE_GARDEN = 2,
-	SAVE_AS = 3,
-	LOAD = 4,
-}
+
+
+
 
 var _garden_creation_popup_scene = preload("res://assets/scenes/garden_creation_popup.tscn")
 @onready var _ui = $UI
-
-
 @onready var _garden_data: Garden = $Garden
-@onready var _garden_view: GardenView = $"UI/Garden View"
 
-var current_key: String
+func _ready():
+	connect_ui_signals()
+	# this if statement creates a save folder if one does not already exist
+	if(not DirAccess.dir_exists_absolute("user://projects")):
+		var project_folder_creation_error = DirAccess.make_dir_absolute("user://projects")
+		if(project_folder_creation_error !=OK):
+			printerr("Couldn't create the project folder to save files. Error is below")
+			printerr(error_string(project_folder_creation_error))
+	# this code is for testing. Makes a garden with(up to) 10 random plants in random locations.
+	# create_garden(10,10)
+	# for i in range(10):
+		# var sprite_coord = Vector2i(randi_range(0,38),randi_range(0,6))
+		# var tile = Vector2i(randi_range(0,10),randi_range(0,10))
+		
+		# _garden_plan.place_object(tile,1,sprite_coord)
+	create_garden(100,100)
 
-##[method _on_file_id_pressed]:
-##Connected to the file menu's [signal PopupMenu.index_pressed]
-func _on_file_id_pressed(id):
-	match id:
-		File_Menu_Options.EXIT:
-			get_tree().get_root().propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
-			get_tree().quit()
-		#File_Menu_Options.CREATE_GARDEN:
-			#var garden_creation_popup = _garden_creation_popup_scene.instantiate()
-			#self.add_child(garden_creation_popup)
-		File_Menu_Options.SAVE_AS:
-			var path = await(_ui.prompt_save_file())
-			open_file_and_save(path)
-		File_Menu_Options.LOAD:
-			var path:String = await(_ui.prompt_load_file())
-			if !path.is_empty():
-				open_file_and_load(path)
-		_:
-			push_warning("Menu Item not found")
+
+func connect_ui_signals():
+	_ui.object_place_requested.connect(_on_object_place_requested)
+	_ui.object_remove_requested.connect(_on_object_remove_requested)
+	_ui.load_file_requested.connect(_on_load_requested)
+	_ui.save_file_requested.connect(_on_save_requested)
+	_ui.exit_program_requested.connect(_on_exit_program_requested)
+
+func _on_object_place_requested(row:int,column:int,object_key:String):
+	_garden_data.place_object(row,column,object_key)
+	
+func _on_object_remove_requested(row:int, column:int):
+	pass
+
+
+
+func _on_load_requested():
+	var path:String = await(_ui.prompt_load_file())
+	if !path.is_empty():
+		open_file_and_load(path)
+	
+func _on_save_requested():
+	var path = await(_ui.prompt_save_file())
+	open_file_and_save(path)
+	
+func _on_exit_program_requested():
+	get_tree().get_root().propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
+	get_tree().quit()
+	
+
+
 
 
 ##[method create_garden]:
@@ -99,34 +120,6 @@ func open_file_and_save(path:String):
 		file.close()
 
 
-func _ready():
-	# this if statement creates a save folder if one does not already exist
-	if(not DirAccess.dir_exists_absolute("user://projects")):
-		var project_folder_creation_error = DirAccess.make_dir_absolute("user://projects")
-		if(project_folder_creation_error !=OK):
-			printerr("Couldn't create the project folder to save files. Error is below")
-			printerr(error_string(project_folder_creation_error))
-	$"UI/Menu/VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer/Object Library".connect("object_selected", _on_object_selected)
-	$"UI/Garden View".connect("tile_clicked", _on_garden_view_tile_clicked)
-	# this code is for testing. Makes a garden with(up to) 10 random plants in random locations.
-	# create_garden(10,10)
-	# for i in range(10):
-		# var sprite_coord = Vector2i(randi_range(0,38),randi_range(0,6))
-		# var tile = Vector2i(randi_range(0,10),randi_range(0,10))
-		
-		# _garden_plan.place_object(tile,1,sprite_coord)
-	create_garden(5,5)
-
-
-func _on_object_selected(object_name: String):
-	print(object_name)
-	var selected_id = JsonParser.get_sprite_source_id(object_name)
-	current_key = object_name
-	_garden_view.set_currently_selected_source_id(selected_id)
 	
 
 
-func _on_garden_view_tile_clicked(row: int, column: int):
-	_garden_data.place_object(row, column, current_key)
-	print("Row:{r}\nCol:{c}".format({"r":str(row),"c":str(column)}))
-	

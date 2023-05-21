@@ -7,6 +7,7 @@ var placed_objects: Array
 
 
 func create_garden(rows: int, columns: int) -> void:
+	GardenSignalBus.size_set.emit(rows,columns)
 	self.rows = rows
 	self.columns = columns
 	for r in rows:
@@ -45,6 +46,8 @@ func load_from_file(file:FileAccess):
 	rows = file.get_64()
 	columns = file.get_64()
 	placed_objects= file.get_var(true)
+	
+	GardenSignalBus.size_set.emit(rows,columns)
 	
 	for r in range(rows):
 		for c in range(columns):

@@ -97,3 +97,7 @@ size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.14
 mouse_filter = 2
 mouse_force_pass_scroll_events = false
+
+[connection signal="tile_clicked" from="Garden View" to="." method="_on_garden_view_tile_clicked"]
+[connection signal="id_pressed" from="Menu/VBoxContainer/MenuBarPanel/MenuBar/File" to="." method="_on_file_id_pressed"]
+[connection signal="object_selected" from="Menu/VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer/Object Library" to="." method="_on_object_library_object_selected"]

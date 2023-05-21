@@ -14,13 +14,27 @@ enum Layer {
 	OBJECT = 1,
 	GHOST = 2,
 }
-
+enum File_Menu_Options {
+	EXIT = 1,
+	CREATE_GARDEN = 2,
+	SAVE_AS = 3,
+	LOAD = 4,
+}
 # Called when the node enters the scene tree for the first time.
 func _ready():
-	GardenSignalBus.connect("object_placed", _on_object_placed)
-	_generate_tiles(5, 5)
+	GardenSignalBus.object_placed.connect( _on_object_placed)
+	GardenSignalBus.cleared.connect( _on_cleared)
+	GardenSignalBus.size_set.connect( _on_size_set)
 	pass # Replace with function body.
 
+func _on_size_set(rows:int,columns:int):
+	_generate_tiles(rows,columns)
+	
+	
+func _on_cleared():
+	clear_layer(Layer.GARDEN)
+	clear_layer(Layer.OBJECT)
+	clear_layer(Layer.GHOST)
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
