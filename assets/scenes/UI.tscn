@@ -81,7 +81,6 @@ size_flags_horizontal = 3
 
 [node name="TabContainer" type="TabContainer" parent="Menu/VBoxContainer/HBoxContainer/LeftBarPanel"]
 layout_mode = 2
-all_tabs_in_front = true
 
 [node name="Object Library" parent="Menu/VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer" instance=ExtResource("2_bjlp1")]
 layout_mode = 2
