@@ -76,12 +76,11 @@ func prompt_save_file()->String:
 	var output = await(save_file_dialog.file_selected_or_cancelled)
 	save_file_dialog.queue_free()
 	return output
-	
+
 
 func _on_object_library_object_selected(object_name: String):
-	print(object_name)
-	var selected_id = JsonParser.get_sprite_source_id(object_name)
 	current_key = object_name
+	var selected_id = JsonParser.get_sprite_source_id(object_name)
 	_garden_view.set_current_object_source_id(selected_id)
 
 
@@ -89,7 +88,6 @@ func _on_garden_view_tile_clicked(row: int, column: int):
 	match current_edit_state:
 		Enums.Garden_Edit_State.PLACE:
 			object_place_requested.emit(row, column, current_key)
-			print(current_key)
 		Enums.Garden_Edit_State.MOVE:
 			if (old_row < 0 and old_column < 0):
 				old_row = row
@@ -117,6 +115,7 @@ func _on_edit_id_pressed(id):
 				current_edit_state = Enums.Garden_Edit_State.PLACE
 				_garden_view.set_edit_state(current_edit_state)
 				_object_library.show()
+				_object_library.select_first_item()
 				_action_state_label.text = "In place mode - Press ESC to cancel"
 			Edit_Menu_Option.DELETE:
 				current_edit_state = Enums.Garden_Edit_State.DELETE

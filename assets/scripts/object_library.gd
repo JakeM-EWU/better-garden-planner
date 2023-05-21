@@ -26,3 +26,8 @@ func _on_object_filter_text_changed(new_text):
 func _on_object_list_item_selected(index):
 	var object_name = object_list.get_item_text(index)
 	object_selected.emit(object_name)
+
+
+func select_first_item():
+	object_list.select(0)
+	object_selected.emit(object_list.get_item_text(0))
