@@ -9,11 +9,11 @@ enum File_Menu_Options {
 }
 
 var _garden_creation_popup_scene = preload("res://assets/scenes/garden_creation_popup.tscn")
-@onready var _ui = $CanvasLayer/UI
+@onready var _ui = $UI
 
 
 @onready var _garden_data: Garden = $Garden
-@onready var _garden_view: GardenView = $"CanvasLayer/UI/Garden View"
+@onready var _garden_view: GardenView = $"UI/Garden View"
 
 var current_key: String
 
@@ -106,8 +106,8 @@ func _ready():
 		if(project_folder_creation_error !=OK):
 			printerr("Couldn't create the project folder to save files. Error is below")
 			printerr(error_string(project_folder_creation_error))
-	$"CanvasLayer/UI/Menu/VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer/Object Library".connect("object_selected", _on_object_selected)
-	$"CanvasLayer/UI/Garden View".connect("tile_clicked", _on_garden_view_tile_clicked)
+	$"UI/Menu/VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer/Object Library".connect("object_selected", _on_object_selected)
+	$"UI/Garden View".connect("tile_clicked", _on_garden_view_tile_clicked)
 	# this code is for testing. Makes a garden with(up to) 10 random plants in random locations.
 	# create_garden(10,10)
 	# for i in range(10):

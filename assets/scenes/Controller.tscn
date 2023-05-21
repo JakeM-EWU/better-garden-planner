@@ -11,9 +11,6 @@ script = ExtResource("1_0n1by")
 
 [node name="Garden" parent="." instance=ExtResource("2_b6xl7")]
 
-[node name="Camera2D" type="Camera2D" parent="."]
-zoom = Vector2(2, 2)
-
 [node name="toggleToTitle" type="Button" parent="."]
 offset_left = 924.563
 offset_top = 548.746
@@ -23,13 +20,11 @@ theme_override_fonts/font = ExtResource("4_bftuu")
 theme_override_font_sizes/font_size = 25
 text = "Toggle to Title"
 
-[node name="CanvasLayer" type="CanvasLayer" parent="."]
+[node name="UI" parent="." instance=ExtResource("2_tx6a1")]
 
-[node name="UI" parent="CanvasLayer" instance=ExtResource("2_tx6a1")]
-
-[node name="Menu" parent="CanvasLayer/UI" index="1"]
+[node name="Menu" parent="UI" index="1"]
 script = ExtResource("3_8htm6")
 
-[connection signal="pressed" from="toggleToTitle" to="CanvasLayer/UI" method="_on_toggle_to_title_pressed"]
+[connection signal="pressed" from="toggleToTitle" to="UI" method="_on_toggle_to_title_pressed"]
 
-[editable path="CanvasLayer/UI"]
+[editable path="UI"]
