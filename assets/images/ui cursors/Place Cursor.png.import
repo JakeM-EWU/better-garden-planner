@@ -2,16 +2,16 @@
 
 importer="texture"
 type="CompressedTexture2D"
-uid="uid://ctprxehhnfqcs"
-path="res://.godot/imported/Delete Ghost.png-4dfc5f8cba80cabfe4f0957d6ef57402.ctex"
+uid="uid://6swfp7cxgl4p"
+path="res://.godot/imported/Place Cursor.png-6543a44e056f726ce260db8fb9eb114b.ctex"
 metadata={
 "vram_texture": false
 }
 
 [deps]
 
-source_file="res://assets/images/ghost/Delete Ghost.png"
-dest_files=["res://.godot/imported/Delete Ghost.png-4dfc5f8cba80cabfe4f0957d6ef57402.ctex"]
+source_file="res://assets/images/ui cursors/Place Cursor.png"
+dest_files=["res://.godot/imported/Place Cursor.png-6543a44e056f726ce260db8fb9eb114b.ctex"]
 
 [params]
 

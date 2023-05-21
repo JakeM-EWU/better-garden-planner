@@ -8,19 +8,16 @@ signal load_file_requested()
 signal save_file_requested()
 signal exit_program_requested()
 
-@onready var _garden_view = $"Garden View"
+@onready var _garden_view: GardenView = $"Garden View"
+@onready var _object_library: ObjectLibrary = $"Menu/VBoxContainer/HBoxContainer/Object Library"
+@onready var _action_state_label: Label = $"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label"
 var save_file_dialog_scene = preload("res://assets/scenes/save_file_dialog.tscn")
 var load_file_dialog_scene = preload("res://assets/scenes/load_file_dialog.tscn")
 
 var current_key: String = ""
-var current_action: Tile_Action = Tile_Action.NONE
+var current_edit_state: Enums.Garden_Edit_State = Enums.Garden_Edit_State.NONE
 
-enum Tile_Action{
-	PLACE,
-	DELETE,
-	MOVE,
-	NONE,
-}
+
 
 enum File_Menu_Option{
 	EXIT = 1,
@@ -37,8 +34,7 @@ enum Edit_Menu_Option {
 
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_cancel")):
-		$"Menu/VBoxContainer/HBoxContainer/Object Library".hide()
-		$"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label".text = ""
+		_set_edit_state_to_none()
 
 
 ##[method _on_file_id_pressed]:
@@ -89,15 +85,15 @@ func _on_object_library_object_selected(object_name: String):
 
 
 func _on_garden_view_tile_clicked(row: int, column: int):
-	match current_action:
-		Tile_Action.PLACE:
+	match current_edit_state:
+		Enums.Garden_Edit_State.PLACE:
 			object_place_requested.emit(row, column, current_key)
 			print(current_key)
-		Tile_Action.MOVE:
+		Enums.Garden_Edit_State.MOVE:
 			pass
-		Tile_Action.DELETE:
+		Enums.Garden_Edit_State.DELETE:
 			pass
-		Tile_Action.NONE:
+		Enums.Garden_Edit_State.NONE:
 			pass
 
 
@@ -106,17 +102,29 @@ func _on_toggle_to_title_pressed():
 
 
 func _on_edit_id_pressed(id):
-	match id:
-		Edit_Menu_Option.PLACE:
-			print("Place me")
-			current_action = Tile_Action.PLACE
-			$"Menu/VBoxContainer/HBoxContainer/Object Library".show()
-			$"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label".text = "In place mode - Press ESC to cancel"
-		Edit_Menu_Option.DELETE:
-			print("Delete me")
-			$"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label".text = "In delete mode - Press ESC to cancel"
-		Edit_Menu_Option.MOVE:
-			print("Move me")
-			$"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label".text = "In move mode - Press ESC to cancel"
+	if current_edit_state == Enums.Garden_Edit_State.NONE:
+		match id:
+			Edit_Menu_Option.PLACE:
+				print("Place me")
+				current_edit_state = Enums.Garden_Edit_State.PLACE
+				_garden_view.set_edit_state(current_edit_state)
+				_object_library.show()
+				_action_state_label.text = "In place mode - Press ESC to cancel"
+			Edit_Menu_Option.DELETE:
+				print("Delete me")
+				current_edit_state = Enums.Garden_Edit_State.DELETE
+				_garden_view.set_edit_state(current_edit_state)
+				_action_state_label.text = "In delete mode - Press ESC to cancel"
+			Edit_Menu_Option.MOVE:
+				print("Move me")
+				current_edit_state = Enums.Garden_Edit_State.MOVE
+				_garden_view.set_edit_state(current_edit_state)
+				_action_state_label.text = "In move mode - Press ESC to cancel"
 		
 	pass # Replace with function body.
+
+func _set_edit_state_to_none():
+	_object_library.hide()
+	_action_state_label.text = ""
+	current_edit_state = Enums.Garden_Edit_State.NONE
+	_garden_view.set_edit_state(current_edit_state)
