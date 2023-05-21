@@ -88,11 +88,10 @@ item_2/id = 2
 [node name="Help" type="PopupMenu" parent="Menu/VBoxContainer/MenuBarPanel/MenuBar"]
 
 [node name="Action State Label" type="Label" parent="Menu/VBoxContainer/MenuBarPanel/MenuBar"]
-layout_mode = 0
-offset_left = 508.0
-offset_top = 2.0
-offset_right = 609.0
-offset_bottom = 28.0
+layout_mode = 2
+offset_top = 4.0
+offset_right = 1150.0
+offset_bottom = 27.0
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menu/VBoxContainer"]

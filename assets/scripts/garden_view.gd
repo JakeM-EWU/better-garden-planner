@@ -27,6 +27,7 @@ var current_edit_state = Enums.Garden_Edit_State.NONE
 # Called when the node enters the scene tree for the first time.
 func _ready():
 	GardenSignalBus.object_placed.connect( _on_object_placed)
+	GardenSignalBus.object_removed.connect(_on_object_removed)
 	GardenSignalBus.cleared.connect( _on_cleared)
 	GardenSignalBus.size_set.connect( _on_size_set)
 	pass # Replace with function body.
@@ -48,14 +49,32 @@ func _process(delta):
 	clear_layer(Layer.GHOST)
 	clear_layer(Layer.UI)
 	var tile = local_to_map(get_local_mouse_position())
-	if (current_edit_state != Enums.Garden_Edit_State.NONE):
-		
-		if (tile_is_placeable(tile)):
-			set_cell(Layer.UI, tile, _current_ui_cursor_source_id, Vector2(0,0))
-			
-			if (current_edit_state == Enums.Garden_Edit_State.PLACE):
-				show_ghost(tile, _current_object_source_id, Vector2(0,0))
-				
+	match current_edit_state:
+		Enums.Garden_Edit_State.PLACE:
+			show_place_interface(tile)
+			pass
+		Enums.Garden_Edit_State.MOVE:
+			pass
+		Enums.Garden_Edit_State.DELETE:
+			show_delete_interface(tile)
+			pass
+		Enums.Garden_Edit_State.NONE:
+			pass
+
+
+func show_place_interface(tile):
+	if (tile_is_placeable(tile) and tile_is_empty(tile)):
+		set_cell(Layer.UI, tile, _current_ui_cursor_source_id, Vector2(0,0))
+		show_ghost(tile, _current_object_source_id, Vector2(0,0))
+		if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
+			var row = tile.y
+			var column = tile.x
+			emit_signal("tile_clicked", row, column)
+
+
+func show_delete_interface(tile):
+	if (tile_is_placeable(tile) and not tile_is_empty(tile)):
+		set_cell(Layer.UI, tile, _current_ui_cursor_source_id, Vector2(0,0))
 		if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 			var row = tile.y
 			var column = tile.x
@@ -110,3 +129,7 @@ func _on_object_placed(row: int, column: int, object_key: String):
 	var tile = _coords_to_map(row, column)
 	var source_id = JsonParser.get_sprite_source_id(object_key)
 	set_cell(Layer.OBJECT, tile, source_id, Vector2i(0,0))
+	
+func _on_object_removed(row: int, column: int):
+	var tile = _coords_to_map(row, column)
+	set_cell(Layer.OBJECT, tile, -1, Vector2i(0,0))

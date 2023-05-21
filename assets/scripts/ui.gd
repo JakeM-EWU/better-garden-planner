@@ -92,6 +92,7 @@ func _on_garden_view_tile_clicked(row: int, column: int):
 		Enums.Garden_Edit_State.MOVE:
 			pass
 		Enums.Garden_Edit_State.DELETE:
+			object_remove_requested.emit(row,column)
 			pass
 		Enums.Garden_Edit_State.NONE:
 			pass

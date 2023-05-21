@@ -35,6 +35,7 @@ func _on_object_place_requested(row:int,column:int,object_key:String):
 
 
 func _on_object_remove_requested(row:int, column:int):
+	_garden_data.remove_object(row, column)
 	pass
 
 

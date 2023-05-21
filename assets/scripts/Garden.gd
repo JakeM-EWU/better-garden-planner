@@ -23,6 +23,7 @@ func place_object(row: int, column: int, object_key: String):
 
 func remove_object(row: int, column: int):
 	placed_objects[row][column] = ""
+	GardenSignalBus.object_removed.emit(row, column)
 
 
 ##[method save_to_file]:
