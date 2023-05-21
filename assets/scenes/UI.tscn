@@ -1,11 +1,13 @@
-[gd_scene load_steps=5 format=3 uid="uid://cpb3vqjnxlsm2"]
+[gd_scene load_steps=6 format=3 uid="uid://cpb3vqjnxlsm2"]
 
 [ext_resource type="TileSet" uid="uid://bdw7atgboe6is" path="res://assets/resources/Garden.tres" id="1_cnw6q"]
 [ext_resource type="Theme" uid="uid://cbbm8hxc72p1e" path="res://assets/Themes/UITheme.tres" id="1_o4767"]
+[ext_resource type="Script" path="res://assets/scripts/ui.gd" id="1_q1tt1"]
 [ext_resource type="PackedScene" uid="uid://bab60pp4rwsdn" path="res://assets/scenes/object_library.tscn" id="2_bjlp1"]
 [ext_resource type="Script" path="res://assets/scripts/garden_view.gd" id="2_k5twh"]
 
 [node name="UI" type="Node"]
+script = ExtResource("1_q1tt1")
 
 [node name="Garden View" type="TileMap" parent="."]
 position = Vector2(652, 354)

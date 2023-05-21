@@ -1,4 +1,4 @@
-extends Control
+extends Node
 
 var save_file_dialog_scene = preload("res://assets/scenes/save_file_dialog.tscn")
 var load_file_dialog_scene = preload("res://assets/scenes/load_file_dialog.tscn")
