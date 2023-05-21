@@ -17,7 +17,7 @@ func create_garden(rows: int, columns: int) -> void:
 
 func place_object(row: int, column: int, object_key: String):
 	placed_objects[row][column] = object_key
-	GardenSignalBus.emit_signal("object_placed", row, column, object_key)
+	GardenSignalBus.object_placed.emit(row, column, object_key)
 
 func remove_object(row: int, column: int):
 	placed_objects[row][column] = ""
@@ -27,24 +27,10 @@ func remove_object(row: int, column: int):
 ##The file must already be open for writing.
 #For now this only saves the garden plan, but it can be extended
 #to save other parts of a project
-#func save_to_file(file:FileAccess):
-#	var used_cells = get_used_cells(Layer.OBJECT)
-#
-#	var min_x = -1
-#	var min_y = -1
-#	for i in range(len(used_cells)):
-#		if used_cells[i].x < min_x or min_x==-1:
-#			min_x = used_cells[i].x 
-#		if used_cells[i].y < min_y or min_y==-1:
-#			min_y = used_cells[i].y 
-#
-#	var position = Vector2i(min_x,min_y)
-#	var pattern = get_pattern(Layer.OBJECT,used_cells)
-#
-#	file.store_64(rows)
-#	file.store_64(columns)
-#	file.store_var(position, true)
-#	file.store_var(pattern, true)
+func save_to_file(file:FileAccess):
+	file.store_64(rows)
+	file.store_64(columns)
+	file.store_var(placed_objects,true)
 	
 	
 ##[method load_from_file]:
@@ -52,11 +38,15 @@ func remove_object(row: int, column: int):
 ##The file must already be open for reading.
 #For now this only loads the garden plan, but it can be extended
 #to load other parts of a project
-#func load_from_file(file:FileAccess):
-#	var rows = file.get_64()
-#	var columns = file.get_64()
-#	var position = file.get_var(true)
-#	var pattern = file.get_var(true)
-#
-#	self.create_garden(rows,columns)
-#	self.set_pattern(Layer.OBJECT,position,pattern)
+func load_from_file(file:FileAccess):
+	
+	GardenSignalBus.cleared.emit()
+	
+	rows = file.get_64()
+	columns = file.get_64()
+	placed_objects= file.get_var(true)
+	
+	for r in range(rows):
+		for c in range(columns):
+			if not placed_objects[r][c].is_empty():
+				GardenSignalBus.object_placed.emit(r,c,placed_objects[r][c])

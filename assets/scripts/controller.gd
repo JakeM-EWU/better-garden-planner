@@ -11,8 +11,8 @@ enum File_Menu_Options {
 var _garden_creation_popup_scene = preload("res://assets/scenes/garden_creation_popup.tscn")
 @onready var _ui = $CanvasLayer/UI
 
-@onready var _garden = preload("res://assets/scenes/Garden.tscn")
-@onready var _garden_data: Garden
+
+@onready var _garden_data: Garden = $Garden
 @onready var _garden_view: GardenView = $"CanvasLayer/UI/Garden View"
 
 var current_key: String
@@ -41,19 +41,14 @@ func _on_file_id_pressed(id):
 ##[method create_garden]:
 ##Creates a [param rows] by [param columns] garden scene and adds it to the tree
 func create_garden(rows:int, columns:int):
-	_garden_data = _garden.instantiate()
 	_garden_data.create_garden(rows, columns)
-	add_child(_garden_data)
 
 
 ##[method create_and_load_garden]:
 ##loads a garden from [param file].
 #TODO deal with errors in this clause.
 func create_and_load_garden(file:FileAccess):
-	_garden_data = _garden.instantiate()
-	add_child(_garden)
-	_garden_data = _garden.get_node("Garden")
-	_garden.load_from_file(file)
+	_garden_data.load_from_file(file)
 
 
 ##[method save_garden]:
@@ -73,9 +68,6 @@ func save_garden(file:FileAccess):
 ##May return an error in the future to allow for an error popup.
 ##Returns nothing.
 func open_file_and_load(path:String):
-	if _garden_data != null:
-		_garden_data.queue_free()
-		_garden_data = null
 
 	var file = FileAccess.open(path,FileAccess.READ)
 	var open_error = FileAccess.get_open_error()
@@ -86,7 +78,7 @@ func open_file_and_load(path:String):
 		var error = file.get_error()
 		if error:
 			printerr(error_string(error))
-		file.close()
+	file.close()
 
 ## [method open_file_and_save]:
 ## Attempts to save a garden at the path [param path].
@@ -94,20 +86,18 @@ func open_file_and_load(path:String):
 ## May return an error in the future to allow for an error popup.
 ## Returns nothing.
 func open_file_and_save(path:String):
-	if _garden !=  null:
-		var file = FileAccess.open(path,FileAccess.WRITE)
-		var open_error = FileAccess.get_open_error()
-		if open_error != OK:
-			printerr(error_string(open_error))
-		else:
-			save_garden(file)
-			var error = file.get_error()
-			if error:
-				printerr(error_string(error))
-			file.close()
+	
+	var file = FileAccess.open(path,FileAccess.WRITE)
+	var open_error = FileAccess.get_open_error()
+	if open_error != OK:
+		printerr(error_string(open_error))
 	else:
-		#might be better to make a popup for this error.
-		printerr("Can't save a non-existant garden")
+		save_garden(file)
+		var error = file.get_error()
+		if error:
+			printerr(error_string(error))
+		file.close()
+
 
 func _ready():
 	# this if statement creates a save folder if one does not already exist
