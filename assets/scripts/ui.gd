@@ -1,9 +1,9 @@
 extends Node
 
-signal object_place_requested(row:int,column,object_key:String)
-signal object_remove_requested(row:int,column:int)
-signal object_move_requested(old_row:int, old_column:int, new_row:int, new_column:int)
-signal object_select_requested(row:int,column:int)
+signal object_place_requested(row: int, column, object_key: String)
+signal object_remove_requested(row: int, column: int)
+signal object_move_requested(old_row: int, old_column: int, new_row: int, new_column: int)
+signal object_select_requested(row: int,column: int)
 signal load_file_requested()
 signal save_file_requested()
 signal exit_program_requested()
@@ -17,8 +17,6 @@ var load_file_dialog_scene = preload("res://assets/scenes/load_file_dialog.tscn"
 var current_key: String = ""
 var current_edit_state: Enums.Garden_Edit_State = Enums.Garden_Edit_State.NONE
 
-
-
 enum File_Menu_Option{
 	EXIT = 1,
 	CREATE_GARDEN = 2,
@@ -31,6 +29,9 @@ enum Edit_Menu_Option {
 	DELETE = 1,
 	MOVE = 2,
 }
+
+var old_row: int = -1
+var old_column: int = -1
 
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_cancel")):
@@ -81,7 +82,7 @@ func _on_object_library_object_selected(object_name: String):
 	print(object_name)
 	var selected_id = JsonParser.get_sprite_source_id(object_name)
 	current_key = object_name
-	_garden_view.set_currently_selected_source_id(selected_id)
+	_garden_view.set_current_object_source_id(selected_id)
 
 
 func _on_garden_view_tile_clicked(row: int, column: int):
@@ -90,6 +91,13 @@ func _on_garden_view_tile_clicked(row: int, column: int):
 			object_place_requested.emit(row, column, current_key)
 			print(current_key)
 		Enums.Garden_Edit_State.MOVE:
+			if (old_row < 0 and old_column < 0):
+				old_row = row
+				old_column = column
+			else:
+				object_move_requested.emit(old_row, old_column, row, column)
+				old_row = -1
+				old_column = -1
 			pass
 		Enums.Garden_Edit_State.DELETE:
 			object_remove_requested.emit(row,column)
@@ -129,3 +137,5 @@ func _set_edit_state_to_none():
 	_action_state_label.text = ""
 	current_edit_state = Enums.Garden_Edit_State.NONE
 	_garden_view.set_edit_state(current_edit_state)
+	old_row = -1
+	old_column = -1

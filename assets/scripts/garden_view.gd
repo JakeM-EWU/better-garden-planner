@@ -12,7 +12,6 @@ var _delete_ui_cursor_source_id = 32765
 var _move_ui_cursor_source_id = 32766
 
 
-
 enum Layer {
 	GARDEN = 0,
 	OBJECT = 1,
@@ -23,6 +22,10 @@ enum Layer {
 var _current_ui_cursor_source_id = 0
 var _current_object_source_id = 1
 var current_edit_state = Enums.Garden_Edit_State.NONE
+
+var currently_moving_object: bool = false
+var old_location: Vector2i
+var old_source_id
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -48,22 +51,28 @@ func _on_cleared():
 func _process(delta):
 	clear_layer(Layer.GHOST)
 	clear_layer(Layer.UI)
+	
+	if (currently_moving_object):
+		show_ui_cursor(old_location, _move_ui_cursor_source_id, Vector2(0,0))
+		
 	var tile = local_to_map(get_local_mouse_position())
-	match current_edit_state:
-		Enums.Garden_Edit_State.PLACE:
-			show_place_interface(tile)
-			pass
-		Enums.Garden_Edit_State.MOVE:
-			pass
-		Enums.Garden_Edit_State.DELETE:
-			show_delete_interface(tile)
-			pass
-		Enums.Garden_Edit_State.NONE:
-			pass
+	if (tile_is_placeable(tile)):
+		match current_edit_state:
+			Enums.Garden_Edit_State.PLACE:
+				show_place_interface(tile)
+				pass
+			Enums.Garden_Edit_State.MOVE:
+				show_move_interface(tile)
+				pass
+			Enums.Garden_Edit_State.DELETE:
+				show_delete_interface(tile)
+				pass
+			Enums.Garden_Edit_State.NONE:
+				pass
 
 
 func show_place_interface(tile):
-	if (tile_is_placeable(tile) and tile_is_empty(tile)):
+	if (tile_is_empty(tile)):
 		show_ui_cursor(tile, _place_ui_cursor_source_id, Vector2(0,0))
 		show_object_ghost(tile, _current_object_source_id, Vector2(0,0))
 		if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
@@ -73,7 +82,7 @@ func show_place_interface(tile):
 
 
 func show_delete_interface(tile):
-	if (tile_is_placeable(tile) and not tile_is_empty(tile)):
+	if (not tile_is_empty(tile)):
 		show_ui_cursor(tile, _delete_ui_cursor_source_id, Vector2(0,0))
 		if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 			var row = tile.y
@@ -81,16 +90,39 @@ func show_delete_interface(tile):
 			emit_signal("tile_clicked", row, column)
 
 
+func show_move_interface(tile):
+	if (not currently_moving_object):
+		if (not tile_is_empty(tile)):
+			show_ui_cursor(tile, _move_ui_cursor_source_id, Vector2(0,0))
+			if (Input.is_action_just_pressed("Left Click")):
+				currently_moving_object = true
+				old_location = tile
+				old_source_id = get_cell_source_id(Layer.OBJECT, tile)
+				var row = tile.y
+				var column = tile.x
+				emit_signal("tile_clicked", row, column)
+	else:
+		if (tile_is_empty(tile)):
+			show_ui_cursor(tile, _move_ui_cursor_source_id, Vector2(0,0))
+			show_object_ghost(tile, old_source_id, Vector2(0,0))
+			if (Input.is_action_just_pressed("Left Click")):
+				currently_moving_object = false
+				var row = tile.y
+				var column = tile.x
+				emit_signal("tile_clicked", row, column)
+
 func set_edit_state(state: Enums.Garden_Edit_State):
 	current_edit_state = state
+	currently_moving_object = false
 
 
-func set_currently_selected_source_id(id: int):
+func set_current_object_source_id(id: int):
 	_current_object_source_id = id
 
 
 func show_ui_cursor(tile: Vector2i, tilemap_spritesheet_id: int, sprite_coords: Vector2):
 	set_cell(Layer.UI, tile, tilemap_spritesheet_id, sprite_coords)
+
 
 func show_object_ghost(tile: Vector2i, tilemap_spritesheet_id: int, sprite_coords: Vector2):
 	set_cell(Layer.GHOST, tile, tilemap_spritesheet_id, sprite_coords)

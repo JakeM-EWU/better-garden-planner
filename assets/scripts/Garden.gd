@@ -26,6 +26,12 @@ func remove_object(row: int, column: int):
 	GardenSignalBus.object_removed.emit(row, column)
 
 
+func move_object(old_row: int, old_column: int, row: int, column: int):
+	var temp = placed_objects[old_row][old_column]
+	remove_object(old_row, old_column)
+	place_object(row, column, temp)
+
+
 ##[method save_to_file]:
 ##Saves the Garden to a file
 ##The file must already be open for writing.
