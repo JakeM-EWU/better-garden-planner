@@ -3,7 +3,7 @@ extends Control
 
 @onready var object_list: ItemList = get_node("Object List")
 
-signal object_selected(name)
+signal object_selected(object_name)
 
 func _ready():
 	populate_library("")
@@ -24,5 +24,5 @@ func _on_object_filter_text_changed(new_text):
 
 
 func _on_object_list_item_selected(index):
-	var name = object_list.get_item_text(index)
-	object_selected.emit(name)
+	var object_name = object_list.get_item_text(index)
+	object_selected.emit(object_name)
