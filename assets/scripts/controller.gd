@@ -26,6 +26,7 @@ func _ready():
 func connect_ui_signals():
 	_ui.object_place_requested.connect(_on_object_place_requested)
 	_ui.object_remove_requested.connect(_on_object_remove_requested)
+	_ui.object_move_requested.connect(_on_object_move_requested)
 	_ui.load_file_requested.connect(_on_load_requested)
 	_ui.save_file_requested.connect(_on_save_requested)
 	_ui.exit_program_requested.connect(_on_exit_program_requested)
@@ -35,9 +36,12 @@ func _on_object_place_requested(row:int,column:int,object_key:String):
 
 
 func _on_object_remove_requested(row:int, column:int):
+	_garden_data.remove_object(row, column)
 	pass
 
 
+func _on_object_move_requested(old_row: int, old_column: int, row: int, column: int):
+	_garden_data.move_object(old_row, old_column, row, column)
 
 func _on_load_requested():
 	var path:String = await(_ui.prompt_load_file())
