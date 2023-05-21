@@ -64,8 +64,8 @@ func _process(delta):
 
 func show_place_interface(tile):
 	if (tile_is_placeable(tile) and tile_is_empty(tile)):
-		set_cell(Layer.UI, tile, _current_ui_cursor_source_id, Vector2(0,0))
-		show_ghost(tile, _current_object_source_id, Vector2(0,0))
+		show_ui_cursor(tile, _place_ui_cursor_source_id, Vector2(0,0))
+		show_object_ghost(tile, _current_object_source_id, Vector2(0,0))
 		if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 			var row = tile.y
 			var column = tile.x
@@ -74,7 +74,7 @@ func show_place_interface(tile):
 
 func show_delete_interface(tile):
 	if (tile_is_placeable(tile) and not tile_is_empty(tile)):
-		set_cell(Layer.UI, tile, _current_ui_cursor_source_id, Vector2(0,0))
+		show_ui_cursor(tile, _delete_ui_cursor_source_id, Vector2(0,0))
 		if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 			var row = tile.y
 			var column = tile.x
@@ -83,19 +83,16 @@ func show_delete_interface(tile):
 
 func set_edit_state(state: Enums.Garden_Edit_State):
 	current_edit_state = state
-	match state:
-		Enums.Garden_Edit_State.PLACE:
-			_current_ui_cursor_source_id = _place_ui_cursor_source_id
-		Enums.Garden_Edit_State.MOVE:
-			_current_ui_cursor_source_id = _move_ui_cursor_source_id
-		Enums.Garden_Edit_State.DELETE:
-			_current_ui_cursor_source_id = _delete_ui_cursor_source_id
+
 
 func set_currently_selected_source_id(id: int):
 	_current_object_source_id = id
 
 
-func show_ghost(tile: Vector2i, tilemap_spritesheet_id: int, sprite_coords: Vector2):
+func show_ui_cursor(tile: Vector2i, tilemap_spritesheet_id: int, sprite_coords: Vector2):
+	set_cell(Layer.UI, tile, tilemap_spritesheet_id, sprite_coords)
+
+func show_object_ghost(tile: Vector2i, tilemap_spritesheet_id: int, sprite_coords: Vector2):
 	set_cell(Layer.GHOST, tile, tilemap_spritesheet_id, sprite_coords)
 
 
