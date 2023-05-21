@@ -114,18 +114,15 @@ func _on_edit_id_pressed(id):
 	if current_edit_state == Enums.Garden_Edit_State.NONE:
 		match id:
 			Edit_Menu_Option.PLACE:
-				print("Place me")
 				current_edit_state = Enums.Garden_Edit_State.PLACE
 				_garden_view.set_edit_state(current_edit_state)
 				_object_library.show()
 				_action_state_label.text = "In place mode - Press ESC to cancel"
 			Edit_Menu_Option.DELETE:
-				print("Delete me")
 				current_edit_state = Enums.Garden_Edit_State.DELETE
 				_garden_view.set_edit_state(current_edit_state)
 				_action_state_label.text = "In delete mode - Press ESC to cancel"
 			Edit_Menu_Option.MOVE:
-				print("Move me")
 				current_edit_state = Enums.Garden_Edit_State.MOVE
 				_garden_view.set_edit_state(current_edit_state)
 				_action_state_label.text = "In move mode - Press ESC to cancel"
