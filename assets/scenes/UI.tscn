@@ -70,25 +70,42 @@ item_4/text = "Exit"
 item_4/id = 1
 
 [node name="Edit" type="PopupMenu" parent="Menu/VBoxContainer/MenuBarPanel/MenuBar"]
+item_count = 3
+item_0/text = "Place Object"
+item_0/id = 0
+item_1/text = "Delete Object"
+item_1/id = 1
+item_2/text = "Move Object"
+item_2/id = 2
 
 [node name="Help" type="PopupMenu" parent="Menu/VBoxContainer/MenuBarPanel/MenuBar"]
+
+[node name="Action State Label" type="Label" parent="Menu/VBoxContainer/MenuBarPanel/MenuBar"]
+layout_mode = 0
+offset_left = 508.0
+offset_top = 2.0
+offset_right = 609.0
+offset_bottom = 28.0
+text = "In place mode - press ESC to cancel"
+horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
+[node name="Object Library" parent="Menu/VBoxContainer/HBoxContainer" instance=ExtResource("2_bjlp1")]
+visible = false
+layout_mode = 2
+
 [node name="LeftBarPanel" type="PanelContainer" parent="Menu/VBoxContainer/HBoxContainer"]
+visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
 [node name="TabContainer" type="TabContainer" parent="Menu/VBoxContainer/HBoxContainer/LeftBarPanel"]
 layout_mode = 2
 
-[node name="Object Library" parent="Menu/VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer" instance=ExtResource("2_bjlp1")]
-layout_mode = 2
-
-[node name="Notes" type="VBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer"]
-visible = false
+[node name="Notes" type="VBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/LeftBarPanel"]
 layout_mode = 2
 
 [node name="Spacer" type="Control" parent="Menu/VBoxContainer/HBoxContainer"]
@@ -100,4 +117,5 @@ mouse_force_pass_scroll_events = false
 
 [connection signal="tile_clicked" from="Garden View" to="." method="_on_garden_view_tile_clicked"]
 [connection signal="id_pressed" from="Menu/VBoxContainer/MenuBarPanel/MenuBar/File" to="." method="_on_file_id_pressed"]
-[connection signal="object_selected" from="Menu/VBoxContainer/HBoxContainer/LeftBarPanel/TabContainer/Object Library" to="." method="_on_object_library_object_selected"]
+[connection signal="id_pressed" from="Menu/VBoxContainer/MenuBarPanel/MenuBar/Edit" to="." method="_on_edit_id_pressed"]
+[connection signal="object_selected" from="Menu/VBoxContainer/HBoxContainer/Object Library" to="." method="_on_object_library_object_selected"]

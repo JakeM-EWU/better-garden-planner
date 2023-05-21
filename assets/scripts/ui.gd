@@ -22,13 +22,24 @@ enum Tile_Action{
 	NONE,
 }
 
-
 enum File_Menu_Option{
 	EXIT = 1,
 	CREATE_GARDEN = 2,
 	SAVE_AS = 3,
 	LOAD = 4,
 }
+
+enum Edit_Menu_Option {
+	PLACE = 0,
+	DELETE = 1,
+	MOVE = 2,
+}
+
+func _process(delta):
+	if (Input.is_action_just_pressed("ui_cancel")):
+		$"Menu/VBoxContainer/HBoxContainer/Object Library".hide()
+		$"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label".text = ""
+
 
 ##[method _on_file_id_pressed]:
 ##Connected to the file menu's [signal PopupMenu.index_pressed]
@@ -45,8 +56,6 @@ func _on_file_id_pressed(id):
 			load_file_requested.emit()
 		_:
 			push_warning("Menu Item not found")
-
-
 
 
 func prompt_load_file()->String:
@@ -77,7 +86,7 @@ func _on_object_library_object_selected(object_name: String):
 	var selected_id = JsonParser.get_sprite_source_id(object_name)
 	current_key = object_name
 	_garden_view.set_currently_selected_source_id(selected_id)
-	current_action = Tile_Action.PLACE
+
 
 func _on_garden_view_tile_clicked(row: int, column: int):
 	match current_action:
@@ -94,3 +103,20 @@ func _on_garden_view_tile_clicked(row: int, column: int):
 
 func _on_toggle_to_title_pressed():
 	get_tree().change_scene_to_file("res://assets/scenes/title_screen.tscn")
+
+
+func _on_edit_id_pressed(id):
+	match id:
+		Edit_Menu_Option.PLACE:
+			print("Place me")
+			current_action = Tile_Action.PLACE
+			$"Menu/VBoxContainer/HBoxContainer/Object Library".show()
+			$"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label".text = "In place mode - Press ESC to cancel"
+		Edit_Menu_Option.DELETE:
+			print("Delete me")
+			$"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label".text = "In delete mode - Press ESC to cancel"
+		Edit_Menu_Option.MOVE:
+			print("Move me")
+			$"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label".text = "In move mode - Press ESC to cancel"
+		
+	pass # Replace with function body.
