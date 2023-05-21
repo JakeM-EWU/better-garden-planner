@@ -1,5 +1,5 @@
 class_name Garden
-extends Node2D
+extends Node
 
 var rows: int
 var columns: int
@@ -14,14 +14,16 @@ func create_garden(rows: int, columns: int) -> void:
 		placed_objects.append([])
 		for c in columns:
 			placed_objects[r].append("")
-			
+
 
 func place_object(row: int, column: int, object_key: String):
 	placed_objects[row][column] = object_key
 	GardenSignalBus.object_placed.emit(row, column, object_key)
 
+
 func remove_object(row: int, column: int):
 	placed_objects[row][column] = ""
+
 
 ##[method save_to_file]:
 ##Saves the Garden to a file
@@ -32,15 +34,14 @@ func save_to_file(file:FileAccess):
 	file.store_64(rows)
 	file.store_64(columns)
 	file.store_var(placed_objects,true)
-	
-	
+
+
 ##[method load_from_file]:
 ##Loads a Garden from a file. 
 ##The file must already be open for reading.
 #For now this only loads the garden plan, but it can be extended
 #to load other parts of a project
 func load_from_file(file:FileAccess):
-	
 	GardenSignalBus.cleared.emit()
 	
 	rows = file.get_64()

@@ -27,14 +27,16 @@ func _ready():
 	GardenSignalBus.size_set.connect( _on_size_set)
 	pass # Replace with function body.
 
+
 func _on_size_set(rows:int,columns:int):
 	_generate_tiles(rows,columns)
-	
-	
+
+
 func _on_cleared():
 	clear_layer(Layer.GARDEN)
 	clear_layer(Layer.OBJECT)
 	clear_layer(Layer.GHOST)
+
 
 # Called every frame. 'delta' is the elapsed time since the previous frame.
 func _process(delta):
@@ -76,10 +78,11 @@ func _generate_tiles(rows: int, columns: int):
 	for r in rows:
 		for c in columns:
 			set_cell(Layer.GARDEN, Vector2i(c, r), _placeable_tile_source_id, Vector2i(0,0))
-			
-			
+
+
 func _coords_to_map(row: int, column: int) -> Vector2i:
 	return Vector2i(column, row)
+
 
 func _on_object_placed(row: int, column: int, object_key: String):
 	var tile = _coords_to_map(row, column)

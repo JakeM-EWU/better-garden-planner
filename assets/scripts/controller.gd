@@ -1,10 +1,6 @@
 class_name Controller
 extends Node
 
-
-
-
-
 var _garden_creation_popup_scene = preload("res://assets/scenes/garden_creation_popup.tscn")
 @onready var _ui = $UI
 @onready var _garden_data: Garden = $Garden
@@ -36,7 +32,8 @@ func connect_ui_signals():
 
 func _on_object_place_requested(row:int,column:int,object_key:String):
 	_garden_data.place_object(row,column,object_key)
-	
+
+
 func _on_object_remove_requested(row:int, column:int):
 	pass
 
@@ -46,17 +43,17 @@ func _on_load_requested():
 	var path:String = await(_ui.prompt_load_file())
 	if !path.is_empty():
 		open_file_and_load(path)
-	
+
+
 func _on_save_requested():
 	var path = await(_ui.prompt_save_file())
 	open_file_and_save(path)
-	
+
+
 func _on_exit_program_requested():
 	get_tree().get_root().propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	get_tree().quit()
 	
-
-
 
 
 ##[method create_garden]:
@@ -101,6 +98,7 @@ func open_file_and_load(path:String):
 			printerr(error_string(error))
 	file.close()
 
+
 ## [method open_file_and_save]:
 ## Attempts to save a garden at the path [param path].
 ## If there is no garden currently open. Nothing is saved, it prints an error message.
@@ -118,8 +116,3 @@ func open_file_and_save(path:String):
 		if error:
 			printerr(error_string(error))
 		file.close()
-
-
-	
-
-
