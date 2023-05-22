@@ -1,3 +1,4 @@
+class_name Ui
 extends Node
 
 signal object_place_requested(row: int, column, object_key: String)
@@ -7,15 +8,6 @@ signal object_select_requested(row: int,column: int)
 signal load_file_requested()
 signal save_file_requested()
 signal exit_program_requested()
-
-@onready var _garden_view: GardenView = $"Garden View"
-@onready var _object_library: ObjectLibrary = $"Menu/VBoxContainer/HBoxContainer/Object Library"
-@onready var _action_state_label: Label = $"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label"
-var save_file_dialog_scene = preload("res://assets/scenes/save_file_dialog.tscn")
-var load_file_dialog_scene = preload("res://assets/scenes/load_file_dialog.tscn")
-
-var current_key: String = ""
-var current_edit_state: Enums.Garden_Edit_State = Enums.Garden_Edit_State.NONE
 
 enum File_Menu_Option{
 	EXIT = 1,
@@ -30,8 +22,17 @@ enum Edit_Menu_Option {
 	MOVE = 2,
 }
 
+const SaveFileDialogScene = preload("res://assets/scenes/save_file_dialog.tscn")
+const LoadFileDialogScene = preload("res://assets/scenes/load_file_dialog.tscn")
+
+var current_key: String = ""
+var current_edit_state: Enums.Garden_Edit_State = Enums.Garden_Edit_State.NONE
 var old_row: int = -1
 var old_column: int = -1
+
+@onready var _garden_view: GardenView = $"Garden View"
+@onready var _object_library: ObjectLibrary = $"Menu/VBoxContainer/HBoxContainer/Object Library"
+@onready var _action_state_label: Label = $"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label"
 
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_cancel")):
@@ -57,7 +58,7 @@ func _on_file_id_pressed(id):
 
 func prompt_load_file()->String:
 	#create and display the file dialog
-	var load_file_dialag = load_file_dialog_scene.instantiate()
+	var load_file_dialag = LoadFileDialogScene.instantiate()
 	load_file_dialag.show()
 	self.add_child(load_file_dialag)
 	
@@ -66,9 +67,10 @@ func prompt_load_file()->String:
 	load_file_dialag.queue_free()
 	return output
 
+
 func prompt_save_file()->String:
 	#create and display the file dialog
-	var save_file_dialog = save_file_dialog_scene.instantiate()
+	var save_file_dialog = SaveFileDialogScene.instantiate()
 	save_file_dialog.show()
 	self.add_child(save_file_dialog)
 	
@@ -127,6 +129,7 @@ func _on_edit_id_pressed(id):
 				_action_state_label.text = "In move mode - Press ESC to cancel"
 		
 	pass # Replace with function body.
+
 
 func _set_edit_state_to_none():
 	_object_library.hide()

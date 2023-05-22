@@ -4,14 +4,6 @@ extends TileMap
 
 signal tile_clicked(row: int, column: int)
 
-#The spritesheet for background tiles
-var _placeable_tile_source_id = 0
-
-var _place_ui_cursor_source_id = 32764
-var _delete_ui_cursor_source_id = 32765
-var _move_ui_cursor_source_id = 32766
-
-
 enum Layer {
 	GARDEN = 0,
 	OBJECT = 1,
@@ -19,13 +11,19 @@ enum Layer {
 	UI = 3
 }
 
+#The spritesheet for background tiles
+const PlaceableTileSourceId = 0
+const PlaceUiCursorSourceId = 32764
+const DeleteUiCursorSourceId = 32765
+const MoveUiCursorSourceId = 32766
+
 var _current_ui_cursor_source_id = 0
 var _current_object_source_id = 1
 var current_edit_state = Enums.Garden_Edit_State.NONE
 
 var currently_moving_object: bool = false
 var old_location: Vector2i
-var old_source_id
+var old_source_id: int
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -53,7 +51,7 @@ func _process(delta):
 	clear_layer(Layer.UI)
 	
 	if (currently_moving_object):
-		show_ui_cursor(old_location, _move_ui_cursor_source_id, Vector2(0,0))
+		show_ui_cursor(old_location, MoveUiCursorSourceId, Vector2(0,0))
 		
 	var tile = local_to_map(get_local_mouse_position())
 	if (tile_is_placeable(tile)):
@@ -73,7 +71,7 @@ func _process(delta):
 
 func show_place_interface(tile):
 	if (tile_is_empty(tile)):
-		show_ui_cursor(tile, _place_ui_cursor_source_id, Vector2(0,0))
+		show_ui_cursor(tile, PlaceUiCursorSourceId, Vector2(0,0))
 		show_object_ghost(tile, _current_object_source_id, Vector2(0,0))
 		if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 			var row = tile.y
@@ -83,7 +81,7 @@ func show_place_interface(tile):
 
 func show_delete_interface(tile):
 	if (not tile_is_empty(tile)):
-		show_ui_cursor(tile, _delete_ui_cursor_source_id, Vector2(0,0))
+		show_ui_cursor(tile, DeleteUiCursorSourceId, Vector2(0,0))
 		if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 			var row = tile.y
 			var column = tile.x
@@ -93,7 +91,7 @@ func show_delete_interface(tile):
 func show_move_interface(tile):
 	if (not currently_moving_object):
 		if (not tile_is_empty(tile)):
-			show_ui_cursor(tile, _move_ui_cursor_source_id, Vector2(0,0))
+			show_ui_cursor(tile, MoveUiCursorSourceId, Vector2(0,0))
 			if (Input.is_action_just_pressed("Left Click")):
 				currently_moving_object = true
 				old_location = tile
@@ -103,7 +101,7 @@ func show_move_interface(tile):
 				emit_signal("tile_clicked", row, column)
 	else:
 		if (tile_is_empty(tile)):
-			show_ui_cursor(tile, _move_ui_cursor_source_id, Vector2(0,0))
+			show_ui_cursor(tile, MoveUiCursorSourceId, Vector2(0,0))
 			show_object_ghost(tile, old_source_id, Vector2(0,0))
 			if (Input.is_action_just_pressed("Left Click")):
 				currently_moving_object = false
@@ -139,7 +137,7 @@ func tile_is_empty(tile: Vector2i) -> bool:
 ##Returns true if the location [param tile] can have an object placed in it.
 func tile_is_placeable(tile: Vector2i) -> bool:
 	var tile_source_id = get_cell_source_id(Layer.GARDEN, tile)
-	return tile_source_id == _placeable_tile_source_id
+	return tile_source_id == PlaceableTileSourceId
 
 
 ##[method _generate_tiles]:
@@ -147,7 +145,7 @@ func tile_is_placeable(tile: Vector2i) -> bool:
 func _generate_tiles(rows: int, columns: int):
 	for r in rows:
 		for c in columns:
-			set_cell(Layer.GARDEN, Vector2i(c, r), _placeable_tile_source_id, Vector2i(0,0))
+			set_cell(Layer.GARDEN, Vector2i(c, r), PlaceableTileSourceId, Vector2i(0,0))
 
 
 func _coords_to_map(row: int, column: int) -> Vector2i:
