@@ -1,10 +1,9 @@
-[gd_scene load_steps=19 format=3 uid="uid://cpb3vqjnxlsm2"]
+[gd_scene load_steps=18 format=3 uid="uid://cpb3vqjnxlsm2"]
 
 [ext_resource type="TileSet" uid="uid://dkkkqt5gs5kwv" path="res://assets/resources/Garden.tres" id="1_cnw6q"]
 [ext_resource type="Script" path="res://assets/scripts/ui.gd" id="1_q1tt1"]
 [ext_resource type="PackedScene" uid="uid://bab60pp4rwsdn" path="res://assets/scenes/object_library.tscn" id="2_bjlp1"]
 [ext_resource type="Script" path="res://assets/scripts/garden_view.gd" id="2_k5twh"]
-[ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="4_af8he"]
 
 [sub_resource type="Theme" id="Theme_docmk"]
 
@@ -29,8 +28,7 @@ expand_margin_right = 6.0
 bg_color = Color(0.780392, 0.905882, 0.988235, 0.960784)
 
 [sub_resource type="Theme" id="Theme_arsnw"]
-default_font = ExtResource("4_af8he")
-default_font_size = 30
+default_font_size = 20
 MenuBar/styles/hover = SubResource("StyleBoxFlat_td7gg")
 MenuBar/styles/normal = SubResource("StyleBoxFlat_yj4mu")
 MenuBar/styles/pressed = SubResource("StyleBoxFlat_x7lmb")
