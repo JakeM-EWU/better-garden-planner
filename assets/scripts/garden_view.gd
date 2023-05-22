@@ -92,8 +92,7 @@ func show_delete_interface(tile):
 
 
 func show_move_interface(tile):
-	if (not currently_moving_object):
-		if (not tile_is_empty(tile)):
+	if (not currently_moving_object and not tile_is_empty(tile)):
 			show_ui_cursor(tile, MoveUiCursorSourceId, Vector2(0,0))
 			if (Input.is_action_just_pressed("Left Click")):
 				currently_moving_object = true
