@@ -1,13 +1,28 @@
-[gd_scene load_steps=3 format=3 uid="uid://bab60pp4rwsdn"]
+[gd_scene load_steps=5 format=3 uid="uid://bab60pp4rwsdn"]
 
 [ext_resource type="Script" path="res://assets/scripts/object_library.gd" id="1_dyppb"]
 [ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="2_7k2kq"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qb3to"]
+bg_color = Color(0.673923, 0.867933, 0.98672, 1)
+
+[sub_resource type="Theme" id="Theme_qekrs"]
+ItemList/styles/cursor = null
+ItemList/styles/cursor_unfocused = null
+ItemList/styles/focus = null
+ItemList/styles/panel = SubResource("StyleBoxFlat_qb3to")
+ItemList/styles/selected = null
+ItemList/styles/selected_focus = null
+LineEdit/styles/focus = null
+LineEdit/styles/normal = null
+LineEdit/styles/read_only = null
 
 [node name="Object Library" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
+theme = SubResource("Theme_qekrs")
 script = ExtResource("1_dyppb")
 
 [node name="Object List" type="ItemList" parent="."]

@@ -4,6 +4,7 @@
 [ext_resource type="Theme" uid="uid://cbbm8hxc72p1e" path="res://assets/Themes/UITheme.tres" id="1_anxfn"]
 
 [node name="load_file_dialog" type="FileDialog"]
+transparent_bg = true
 title = "Open a File"
 position = Vector2i(10, 34)
 size = Vector2i(500, 400)
