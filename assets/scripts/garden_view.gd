@@ -14,8 +14,9 @@ enum Layer {
 	UI = 3
 }
 
-#The spritesheet for background tiles
+# Source IDs found in Garden.tres file
 const PlaceableTileSourceId = 0
+const BorderSourceId = 32763
 const PlaceUiCursorSourceId = 32764
 const DeleteUiCursorSourceId = 32765
 const MoveUiCursorSourceId = 32766
@@ -75,6 +76,7 @@ func show_place_interface(tile):
 	if (tile_is_empty(tile)):
 		show_ui_cursor(tile, PlaceUiCursorSourceId, Vector2(0,0))
 		show_object_ghost(tile, _current_object_source_id, Vector2(0,0))
+		
 		if (Input.is_mouse_button_pressed(MOUSE_BUTTON_LEFT)):
 			var row = tile.y
 			var column = tile.x
@@ -92,8 +94,11 @@ func show_delete_interface(tile):
 
 
 func show_move_interface(tile):
-	if (not currently_moving_object and not tile_is_empty(tile)):
+	if (not currently_moving_object):
+		
+		if (not tile_is_empty(tile)):
 			show_ui_cursor(tile, MoveUiCursorSourceId, Vector2(0,0))
+			
 			if (Input.is_action_just_pressed("Left Click")):
 				currently_moving_object = true
 				old_location = tile
@@ -101,9 +106,11 @@ func show_move_interface(tile):
 				
 	else:
 		show_ui_cursor(old_location, MoveUiCursorSourceId, Vector2(0,0))
+		
 		if (tile_is_empty(tile)):
 			show_ui_cursor(tile, MoveUiCursorSourceId, Vector2(0,0))
 			show_object_ghost(tile, old_source_id, Vector2(0,0))
+			
 			if (Input.is_action_just_pressed("Left Click")):
 				var old_row = old_location.y
 				var old_column = old_location.x
@@ -161,7 +168,8 @@ func _on_object_placed(row: int, column: int, object_key: String):
 	var tile = _coords_to_map(row, column)
 	var source_id = JsonParser.get_sprite_source_id(object_key)
 	set_cell(Layer.OBJECT, tile, source_id, Vector2i(0,0))
-	
+
+
 func _on_object_removed(row: int, column: int):
 	var tile = _coords_to_map(row, column)
 	set_cell(Layer.OBJECT, tile, -1, Vector2i(0,0))

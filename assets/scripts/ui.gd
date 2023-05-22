@@ -37,6 +37,7 @@ func _process(delta):
 ##[method _on_file_id_pressed]:
 ##Connected to the file menu's [signal PopupMenu.index_pressed]
 func _on_file_id_pressed(id):
+	_reset_view()
 	match id:
 		File_Menu_Option.EXIT:
 			exit_program_requested.emit()
