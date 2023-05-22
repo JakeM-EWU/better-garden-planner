@@ -158,6 +158,25 @@ func _generate_tiles(rows: int, columns: int):
 	for r in rows:
 		for c in columns:
 			set_cell(Layer.GARDEN, Vector2i(c, r), PlaceableTileSourceId, Vector2i(0,0))
+	_generate_border(rows, columns)
+	
+
+
+
+func _generate_border(rows: int, columns: int):
+	# Set Corners
+	set_cell(Layer.GARDEN, Vector2i(-1, -1), BorderSourceId, Vector2i(0,0))
+	set_cell(Layer.GARDEN, Vector2i(-1, rows + 1), BorderSourceId, Vector2i(0,0))	
+	set_cell(Layer.GARDEN, Vector2i(columns + 1, -1), BorderSourceId, Vector2i(0,0))
+	set_cell(Layer.GARDEN, Vector2i(columns + 1, rows + 1), BorderSourceId, Vector2i(0,0))
+	
+	# Set Tiles between Corners
+	for c in columns:
+		set_cell(Layer.GARDEN, Vector2i(c - 1, -1), BorderSourceId, Vector2i(0,0))
+		set_cell(Layer.GARDEN, Vector2i(c - 1, rows), BorderSourceId, Vector2i(0,0))
+	for r in rows:
+		set_cell(Layer.GARDEN, Vector2i(-1, r), BorderSourceId, Vector2i(0,0))
+		set_cell(Layer.GARDEN, Vector2i(columns, r), BorderSourceId, Vector2i(0,0))
 
 
 func _coords_to_map(row: int, column: int) -> Vector2i:
