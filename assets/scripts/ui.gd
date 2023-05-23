@@ -36,8 +36,8 @@ const LoadFileDialogScene = preload("res://assets/scenes/load_file_dialog.tscn")
 
 
 @onready var _garden_view: GardenView = $"Garden View"
-@onready var _object_library: ObjectLibrary = $"Menu/VBoxContainer/HBoxContainer/Object Library"
-@onready var _action_state_label: Label = $"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label"
+@onready var _object_library: ObjectLibrary = $"CanvasLayer/Menu/VBoxContainer/HBoxContainer/Object Library"
+@onready var _action_state_label: Label = $"CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label"
 
 
 func _process(delta):
