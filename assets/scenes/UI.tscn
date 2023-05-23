@@ -1,51 +1,10 @@
-[gd_scene load_steps=18 format=3 uid="uid://cpb3vqjnxlsm2"]
+[gd_scene load_steps=6 format=3 uid="uid://cpb3vqjnxlsm2"]
 
 [ext_resource type="TileSet" uid="uid://dkkkqt5gs5kwv" path="res://assets/resources/Garden.tres" id="1_cnw6q"]
+[ext_resource type="Theme" uid="uid://cbbm8hxc72p1e" path="res://assets/Themes/UITheme.tres" id="1_o4767"]
 [ext_resource type="Script" path="res://assets/scripts/ui.gd" id="1_q1tt1"]
 [ext_resource type="PackedScene" uid="uid://bab60pp4rwsdn" path="res://assets/scenes/object_library.tscn" id="2_bjlp1"]
 [ext_resource type="Script" path="res://assets/scripts/garden_view.gd" id="2_k5twh"]
-
-[sub_resource type="Theme" id="Theme_docmk"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_xuhof"]
-bg_color = Color(0.772549, 0.890196, 0.988235, 1)
-
-[sub_resource type="Theme" id="Theme_2hrp2"]
-PanelContainer/styles/panel = SubResource("StyleBoxFlat_xuhof")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_td7gg"]
-bg_color = Color(0.184314, 0.470588, 0.796078, 1)
-expand_margin_right = 5.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yj4mu"]
-bg_color = Color(0.337255, 0.431373, 0.968627, 0.0117647)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_x7lmb"]
-bg_color = Color(0.164706, 0.419608, 0.615686, 1)
-expand_margin_right = 6.0
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_k1iq6"]
-bg_color = Color(0.780392, 0.905882, 0.988235, 0.960784)
-
-[sub_resource type="Theme" id="Theme_arsnw"]
-default_font_size = 20
-MenuBar/styles/hover = SubResource("StyleBoxFlat_td7gg")
-MenuBar/styles/normal = SubResource("StyleBoxFlat_yj4mu")
-MenuBar/styles/pressed = SubResource("StyleBoxFlat_x7lmb")
-PopupMenu/colors/font_color = Color(0.00392157, 0.00392157, 0.00392157, 1)
-PopupMenu/styles/panel = SubResource("StyleBoxFlat_k1iq6")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_dcm0n"]
-
-[sub_resource type="Theme" id="Theme_1lvqb"]
-MenuBar/styles/hover = SubResource("StyleBoxFlat_dcm0n")
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_rhvjv"]
-bg_color = Color(0.235294, 0.545098, 0.729412, 1)
-
-[sub_resource type="Theme" id="Theme_ryb6t"]
-
-[sub_resource type="Theme" id="Theme_7t0w3"]
 
 [node name="UI" type="Node"]
 script = ExtResource("1_q1tt1")
@@ -87,7 +46,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = SubResource("Theme_docmk")
+theme = ExtResource("1_o4767")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
 layout_mode = 2
@@ -95,7 +54,6 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-theme = SubResource("Theme_2hrp2")
 theme_override_constants/separation = 0
 
 [node name="MenuBarPanel" type="PanelContainer" parent="Menu/VBoxContainer"]
@@ -103,12 +61,8 @@ layout_mode = 2
 
 [node name="MenuBar" type="MenuBar" parent="Menu/VBoxContainer/MenuBarPanel"]
 layout_mode = 2
-theme = SubResource("Theme_arsnw")
-theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [node name="File" type="PopupMenu" parent="Menu/VBoxContainer/MenuBarPanel/MenuBar"]
-theme = SubResource("Theme_1lvqb")
-theme_override_styles/hover = SubResource("StyleBoxFlat_rhvjv")
 item_count = 5
 item_0/text = "Create Garden"
 item_0/id = 2
@@ -138,13 +92,11 @@ layout_mode = 2
 offset_top = 4.0
 offset_right = 1150.0
 offset_bottom = 27.0
-theme = SubResource("Theme_ryb6t")
 horizontal_alignment = 1
 
 [node name="HBoxContainer" type="HBoxContainer" parent="Menu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
-theme = SubResource("Theme_7t0w3")
 
 [node name="Object Library" parent="Menu/VBoxContainer/HBoxContainer" instance=ExtResource("2_bjlp1")]
 visible = false
@@ -169,6 +121,9 @@ mouse_filter = 2
 mouse_force_pass_scroll_events = false
 
 [connection signal="tile_clicked" from="Garden View" to="." method="_on_garden_view_tile_clicked"]
+[connection signal="tile_deleted" from="Garden View" to="." method="_on_garden_view_tile_deleted"]
+[connection signal="tile_moved" from="Garden View" to="." method="_on_garden_view_tile_moved"]
+[connection signal="tile_placed" from="Garden View" to="." method="_on_garden_view_tile_placed"]
 [connection signal="id_pressed" from="Menu/VBoxContainer/MenuBarPanel/MenuBar/File" to="." method="_on_file_id_pressed"]
 [connection signal="id_pressed" from="Menu/VBoxContainer/MenuBarPanel/MenuBar/Edit" to="." method="_on_edit_id_pressed"]
 [connection signal="object_selected" from="Menu/VBoxContainer/HBoxContainer/Object Library" to="." method="_on_object_library_object_selected"]

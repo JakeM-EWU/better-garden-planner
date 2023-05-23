@@ -1,44 +1,13 @@
-[gd_scene load_steps=9 format=3 uid="uid://bab60pp4rwsdn"]
+[gd_scene load_steps=3 format=3 uid="uid://bab60pp4rwsdn"]
 
 [ext_resource type="Script" path="res://assets/scripts/object_library.gd" id="1_dyppb"]
 [ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="2_7k2kq"]
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_qb3to"]
-bg_color = Color(0.673923, 0.867933, 0.98672, 1)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_85v5h"]
-bg_color = Color(0.341176, 0.654902, 1, 0.517647)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_c4tb8"]
-bg_color = Color(0.0156863, 0.364706, 0.866667, 0.25098)
-
-[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_nxnsl"]
-
-[sub_resource type="Theme" id="Theme_qekrs"]
-ItemList/colors/font_color = Color(0.00392157, 0.0862745, 0.117647, 1)
-ItemList/colors/font_outline_color = Color(1, 1, 1, 1)
-ItemList/colors/font_selected_color = Color(0, 0.196078, 0.376471, 1)
-ItemList/colors/guide_color = Color(0.337255, 0.756863, 0.92549, 0.25098)
-ItemList/styles/cursor = null
-ItemList/styles/cursor_unfocused = null
-ItemList/styles/focus = null
-ItemList/styles/panel = SubResource("StyleBoxFlat_qb3to")
-ItemList/styles/selected = SubResource("StyleBoxFlat_85v5h")
-ItemList/styles/selected_focus = SubResource("StyleBoxFlat_c4tb8")
-LineEdit/colors/selection_color = Color(0.501961, 0.501961, 0.501961, 1)
-LineEdit/styles/focus = SubResource("StyleBoxFlat_nxnsl")
-LineEdit/styles/normal = null
-LineEdit/styles/read_only = null
-
-[sub_resource type="Theme" id="Theme_sq7ix"]
-LineEdit/colors/font_placeholder_color = Color(0.717647, 0.933333, 1, 1)
 
 [node name="Object Library" type="Control"]
 layout_mode = 3
 anchors_preset = 0
 offset_right = 40.0
 offset_bottom = 40.0
-theme = SubResource("Theme_qekrs")
 script = ExtResource("1_dyppb")
 
 [node name="Object List" type="ItemList" parent="."]
@@ -47,19 +16,17 @@ layout_mode = 0
 offset_left = 1.0
 offset_top = 103.0
 offset_right = 221.0
-offset_bottom = 718.0
+offset_bottom = 715.0
 theme_override_fonts/font = ExtResource("2_7k2kq")
 theme_override_font_sizes/font_size = 25
 
 [node name="Object Filter" type="LineEdit" parent="."]
 clip_contents = true
 layout_mode = 0
-offset_top = 72.0
 offset_right = 220.0
-offset_bottom = 103.0
-theme = SubResource("Theme_sq7ix")
+offset_bottom = 31.0
 theme_override_fonts/font = ExtResource("2_7k2kq")
-theme_override_font_sizes/font_size = 26
+theme_override_font_sizes/font_size = 20
 placeholder_text = "Search"
 
 [connection signal="item_selected" from="Object List" to="." method="_on_object_list_item_selected"]
