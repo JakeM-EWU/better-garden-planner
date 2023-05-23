@@ -1,3 +1,4 @@
+class_name Ui
 extends Node
 
 signal object_place_requested(row: int, column, object_key: String)
@@ -7,15 +8,6 @@ signal object_select_requested(row: int,column: int)
 signal load_file_requested()
 signal save_file_requested()
 signal exit_program_requested()
-
-@onready var _garden_view: GardenView = $"Garden View"
-@onready var _object_library: ObjectLibrary = $"Menu/VBoxContainer/HBoxContainer/Object Library"
-@onready var _action_state_label: Label = $"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label"
-var save_file_dialog_scene = preload("res://assets/scenes/save_file_dialog.tscn")
-var load_file_dialog_scene = preload("res://assets/scenes/load_file_dialog.tscn")
-
-var current_key: String = ""
-var current_edit_state: Enums.Garden_Edit_State = Enums.Garden_Edit_State.NONE
 
 enum File_Menu_Option{
 	EXIT = 1,
@@ -30,17 +22,22 @@ enum Edit_Menu_Option {
 	MOVE = 2,
 }
 
-var old_row: int = -1
-var old_column: int = -1
+const SaveFileDialogScene = preload("res://assets/scenes/save_file_dialog.tscn")
+const LoadFileDialogScene = preload("res://assets/scenes/load_file_dialog.tscn")
+
+@onready var _garden_view: GardenView = $"Garden View"
+@onready var _object_library: ObjectLibrary = $"Menu/VBoxContainer/HBoxContainer/Object Library"
+@onready var _action_state_label: Label = $"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label"
 
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_cancel")):
-		_set_edit_state_to_none()
+		_reset_view()
 
 
 ##[method _on_file_id_pressed]:
 ##Connected to the file menu's [signal PopupMenu.index_pressed]
 func _on_file_id_pressed(id):
+	_reset_view()
 	match id:
 		File_Menu_Option.EXIT:
 			exit_program_requested.emit()
@@ -57,7 +54,7 @@ func _on_file_id_pressed(id):
 
 func prompt_load_file()->String:
 	#create and display the file dialog
-	var load_file_dialag = load_file_dialog_scene.instantiate()
+	var load_file_dialag = LoadFileDialogScene.instantiate()
 	load_file_dialag.show()
 	self.add_child(load_file_dialag)
 	
@@ -66,9 +63,10 @@ func prompt_load_file()->String:
 	load_file_dialag.queue_free()
 	return output
 
+
 func prompt_save_file()->String:
 	#create and display the file dialog
-	var save_file_dialog = save_file_dialog_scene.instantiate()
+	var save_file_dialog = SaveFileDialogScene.instantiate()
 	save_file_dialog.show()
 	self.add_child(save_file_dialog)
 	
@@ -79,59 +77,42 @@ func prompt_save_file()->String:
 
 
 func _on_object_library_object_selected(object_name: String):
-	current_key = object_name
-	var selected_id = JsonParser.get_sprite_source_id(object_name)
-	_garden_view.set_current_object_source_id(selected_id)
-
-
-func _on_garden_view_tile_clicked(row: int, column: int):
-	match current_edit_state:
-		Enums.Garden_Edit_State.PLACE:
-			object_place_requested.emit(row, column, current_key)
-		Enums.Garden_Edit_State.MOVE:
-			if (old_row < 0 and old_column < 0):
-				old_row = row
-				old_column = column
-			else:
-				object_move_requested.emit(old_row, old_column, row, column)
-				old_row = -1
-				old_column = -1
-			pass
-		Enums.Garden_Edit_State.DELETE:
-			object_remove_requested.emit(row,column)
-			pass
-		Enums.Garden_Edit_State.NONE:
-			pass
-
-
-func _on_toggle_to_title_pressed():
-	get_tree().change_scene_to_file("res://assets/scenes/title_screen.tscn")
+	_garden_view.set_current_object(object_name)
 
 
 func _on_edit_id_pressed(id):
-	if current_edit_state == Enums.Garden_Edit_State.NONE:
-		match id:
-			Edit_Menu_Option.PLACE:
-				current_edit_state = Enums.Garden_Edit_State.PLACE
-				_garden_view.set_edit_state(current_edit_state)
-				_object_library.show()
-				_object_library.select_first_item()
-				_action_state_label.text = "In place mode - Press ESC to cancel"
-			Edit_Menu_Option.DELETE:
-				current_edit_state = Enums.Garden_Edit_State.DELETE
-				_garden_view.set_edit_state(current_edit_state)
-				_action_state_label.text = "In delete mode - Press ESC to cancel"
-			Edit_Menu_Option.MOVE:
-				current_edit_state = Enums.Garden_Edit_State.MOVE
-				_garden_view.set_edit_state(current_edit_state)
-				_action_state_label.text = "In move mode - Press ESC to cancel"
-		
+	_reset_view()
+	match id:
+		Edit_Menu_Option.PLACE:
+			_object_library.show()
+			_object_library.select_first_item()
+			_action_state_label.text = "In place mode - Press ESC to cancel"
+			_garden_view.set_edit_state(Enums.Garden_Edit_State.PLACE)
+		Edit_Menu_Option.DELETE:
+			_action_state_label.text = "In delete mode - Press ESC to cancel"
+			_garden_view.set_edit_state(Enums.Garden_Edit_State.DELETE)
+		Edit_Menu_Option.MOVE:
+			_action_state_label.text = "In move mode - Press ESC to cancel"
+			_garden_view.set_edit_state(Enums.Garden_Edit_State.MOVE)
 	pass # Replace with function body.
 
-func _set_edit_state_to_none():
+
+func _reset_view():
 	_object_library.hide()
 	_action_state_label.text = ""
-	current_edit_state = Enums.Garden_Edit_State.NONE
-	_garden_view.set_edit_state(current_edit_state)
-	old_row = -1
-	old_column = -1
+	_garden_view.set_edit_state(Enums.Garden_Edit_State.NONE)
+
+
+func _on_garden_view_tile_deleted(row, column):
+	object_remove_requested.emit(row,column)	
+	pass # Replace with function body.
+
+
+func _on_garden_view_tile_moved(old_row, old_column, new_row, new_column):
+	object_move_requested.emit(old_row, old_column, new_row, new_column)
+	pass # Replace with function body.
+
+
+func _on_garden_view_tile_placed(row, column, key):
+	object_place_requested.emit(row, column, key)
+	pass # Replace with function body.
