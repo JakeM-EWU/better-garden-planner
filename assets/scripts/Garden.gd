@@ -7,6 +7,7 @@ var placed_objects: Array
 
 
 func create_garden(rows: int, columns: int) -> void:
+	$NotebookData.update_notebook_data({})
 	GardenSignalBus.size_set.emit(rows,columns)
 	self.rows = rows
 	self.columns = columns
