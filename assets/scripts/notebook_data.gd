@@ -4,7 +4,7 @@ extends Node
 
 func update_notes(new_notebook_state:Dictionary):
 	self._notebook_data = new_notebook_state
-	print("backend notes:",self._notebook_data)
+	#print("backend notes:",self._notebook_data)
 	GardenSignalBus.notebook_updated.emit(self._notebook_data.duplicate())
 	
 func save_to_file(file:FileAccess):
