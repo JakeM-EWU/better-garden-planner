@@ -169,9 +169,6 @@ mouse_filter = 2
 mouse_force_pass_scroll_events = false
 
 [connection signal="tile_clicked" from="Garden View" to="." method="_on_garden_view_tile_clicked"]
-[connection signal="tile_deleted" from="Garden View" to="." method="_on_garden_view_tile_deleted"]
-[connection signal="tile_moved" from="Garden View" to="." method="_on_garden_view_tile_moved"]
-[connection signal="tile_placed" from="Garden View" to="." method="_on_garden_view_tile_placed"]
 [connection signal="id_pressed" from="Menu/VBoxContainer/MenuBarPanel/MenuBar/File" to="." method="_on_file_id_pressed"]
 [connection signal="id_pressed" from="Menu/VBoxContainer/MenuBarPanel/MenuBar/Edit" to="." method="_on_edit_id_pressed"]
 [connection signal="object_selected" from="Menu/VBoxContainer/HBoxContainer/Object Library" to="." method="_on_object_library_object_selected"]
