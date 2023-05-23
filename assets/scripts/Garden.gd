@@ -41,7 +41,7 @@ func save_to_file(file:FileAccess):
 	file.store_64(rows)
 	file.store_64(columns)
 	file.store_var(placed_objects,true)
-
+	$NotebookData.save_to_file(file)
 
 ##[method load_from_file]:
 ##Loads a Garden from a file. 
@@ -61,3 +61,4 @@ func load_from_file(file:FileAccess):
 		for c in range(columns):
 			if not placed_objects[r][c].is_empty():
 				GardenSignalBus.object_placed.emit(r,c,placed_objects[r][c])
+	$NotebookData.load_from_file(file)
