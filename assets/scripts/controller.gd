@@ -1,7 +1,7 @@
 class_name Controller
 extends Node
 
-var _garden_creation_popup_scene = preload("res://assets/scenes/garden_creation_popup.tscn")
+
 @onready var _ui = $UI
 @onready var _garden_data: Garden = $Garden
 
@@ -20,7 +20,6 @@ func _ready():
 		# var tile = Vector2i(randi_range(0,10),randi_range(0,10))
 		
 		# _garden_plan.place_object(tile,1,sprite_coord)
-	create_garden(100,100)
 
 
 func connect_ui_signals():
@@ -31,7 +30,8 @@ func connect_ui_signals():
 	_ui.save_file_requested.connect(_on_save_requested)
 	_ui.exit_program_requested.connect(_on_exit_program_requested)
 	_ui.notebook_update_requested.connect(_on_notebook_update_requested)
-
+	_ui.create_garden_requested.connect(_on_create_garden_requested)
+	
 func _on_object_place_requested(row:int,column:int,object_key:String):
 	_garden_data.place_object(row,column,object_key)
 
@@ -40,6 +40,8 @@ func _on_object_remove_requested(row:int, column:int):
 	_garden_data.remove_object(row, column)
 	pass
 
+func _on_create_garden_requested(rows,columns):
+	create_garden(rows,columns)
 
 func _on_object_move_requested(old_row: int, old_column: int, row: int, column: int):
 	_garden_data.move_object(old_row, old_column, row, column)

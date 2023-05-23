@@ -12,6 +12,7 @@ signal exit_program_requested()
 ##the backend representation of a notebook. emits a dictionary representing
 ##the new state of the notebook.
 signal notebook_update_requested(new_notebook_state:Dictionary)
+signal create_garden_requested(rows:int, columns:int)
 
 enum File_Menu_Option{
 	EXIT = 1,
@@ -28,7 +29,7 @@ enum Edit_Menu_Option {
 
 const SaveFileDialogScene = preload("res://assets/scenes/save_file_dialog.tscn")
 const LoadFileDialogScene = preload("res://assets/scenes/load_file_dialog.tscn")
-
+const GardenCreationPopupScene = preload("res://assets/scenes/garden_creation_popup.tscn")
 @onready var _garden_view: GardenView = $"Garden View"
 @onready var _object_library: ObjectLibrary = $"Menu/VBoxContainer/HBoxContainer/Object Library"
 @onready var _action_state_label: Label = $"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label"
@@ -45,9 +46,8 @@ func _on_file_id_pressed(id):
 	match id:
 		File_Menu_Option.EXIT:
 			exit_program_requested.emit()
-		#File_Menu_Options.CREATE_GARDEN:
-			#var garden_creation_popup = _garden_creation_popup_scene.instantiate()
-			#self.add_child(garden_creation_popup)
+		File_Menu_Option.CREATE_GARDEN:
+			prompt_create_garden()
 		File_Menu_Option.SAVE_AS:
 			save_file_requested.emit()
 		File_Menu_Option.LOAD:
@@ -55,7 +55,18 @@ func _on_file_id_pressed(id):
 		_:
 			push_warning("Menu Item not found")
 
-
+##[method prompt_create_garden] prompts the user to create a garden with 
+##a dialog box
+func prompt_create_garden():
+	var garden_creation_popup = GardenCreationPopupScene.instantiate()
+	self.add_child(garden_creation_popup)
+	var dimensions = await(garden_creation_popup.dimensions_selected_or_cancelled)
+	var rows = dimensions[1]
+	var columns = dimensions[0]
+	if rows > 0 and columns > 0:
+		create_garden_requested.emit(rows,columns)
+	garden_creation_popup.queue_free()
+	
 func prompt_load_file()->String:
 	#create and display the file dialog
 	var load_file_dialag = LoadFileDialogScene.instantiate()

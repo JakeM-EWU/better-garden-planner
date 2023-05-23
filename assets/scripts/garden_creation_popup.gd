@@ -1,8 +1,10 @@
 class_name GardenCreationPanel
 extends Panel
 
-# Declare the custom signal with the desired arguments.
-signal dimensions_selected(x_dimension, y_dimension)
+##[signal dimensions_selected_or_cancelled] emits two positive integers if
+##the user selects a set of dimensions.
+##If the user closes the box, it emits -1,-1
+signal dimensions_selected_or_cancelled(x_dimension, y_dimension)
 
 # Declare the sliders and spin boxes as onready variables so they are available as soon as the node is in the scene tree.
 @onready var x_slider = $VBoxContainer/DimensionsContainer/XDimensionSlider
@@ -40,7 +42,7 @@ func on_create_button_pressed():
 	# Check if values are valid, arbitrarily 1-100.
 	if x_slider.value >= 1 and x_slider.value <= 100 and y_slider.value >= 1 and y_slider.value <= 100:
 		# Emit the custom signal with the selected x and y dimensions.
-		emit_signal("dimensions_selected", x_slider.value, y_slider.value)
+		dimensions_selected_or_cancelled.emit(x_slider.value, y_slider.value)
 	# TODO: add an else with an error message
 
 
@@ -56,5 +58,6 @@ func _on_new_button_pressed():
 	
 
 
-func _on_exit_button_pressed():
+func _on_exit_button_pressed(): 
+	dimensions_selected_or_cancelled.emit(-1, -1)
 	visible = false
