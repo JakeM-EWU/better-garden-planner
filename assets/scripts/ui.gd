@@ -8,7 +8,11 @@ signal object_select_requested(row: int,column: int)
 signal load_file_requested()
 signal save_file_requested()
 signal exit_program_requested()
+##[signal notebook_update_requested] emmited when the UI wants to update
+##the backend representation of a notebook. emits a dictionary representing
+##the new state of the notebook.
 signal notebook_update_requested(new_notebook_state:Dictionary)
+
 enum File_Menu_Option{
 	EXIT = 1,
 	CREATE_GARDEN = 2,

@@ -123,4 +123,4 @@ func open_file_and_save(path:String):
 		file.close()
 
 func _on_notebook_update_requested(new_notebook_state:Dictionary):
-	$Garden/NotebookData.update_notes(new_notebook_state)
+	$Garden/NotebookData.update_notebook_data(new_notebook_state)
