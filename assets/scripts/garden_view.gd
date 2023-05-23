@@ -7,6 +7,17 @@ signal tile_placed(row: int, column: int, key: String)
 signal tile_deleted(row: int, column: int)
 signal tile_moved(old_row: int, old_column: int, new_row: int, new_column: int)
 
+var garden_height_in_pixels: int:
+	get:
+		return rows * cell_quadrant_size
+
+var garden_width_in_pixels: int:
+	get:
+		return columns * cell_quadrant_size
+
+var rows: int
+var columns: int
+
 enum Layer {
 	GARDEN = 0,
 	OBJECT = 1,
@@ -160,20 +171,32 @@ func _generate_tiles(rows: int, columns: int):
 			set_cell(Layer.GARDEN, Vector2i(c, r), PlaceableTileSourceId, Vector2i(0,0))
 	_generate_border(rows, columns)
 	
+	# add 2 for the border rows/columns
+	self.rows = rows + 2
+	self.columns = columns + 2
+	center_garden()
+	
 
+
+func center_garden():
+	var x_pos = (garden_width_in_pixels / 2) * -1
+	var y_pos = (garden_height_in_pixels / 2) * -1
+	
+	self.position.x = x_pos
+	self.position.y = y_pos
 
 
 func _generate_border(rows: int, columns: int):
 	# Set Corners
-	set_cell(Layer.GARDEN, Vector2i(-1, -1), BorderSourceId, Vector2i(0,0))
-	set_cell(Layer.GARDEN, Vector2i(-1, rows + 1), BorderSourceId, Vector2i(0,0))	
-	set_cell(Layer.GARDEN, Vector2i(columns + 1, -1), BorderSourceId, Vector2i(0,0))
-	set_cell(Layer.GARDEN, Vector2i(columns + 1, rows + 1), BorderSourceId, Vector2i(0,0))
+	set_cell(Layer.GARDEN, Vector2i(-1, -1), BorderSourceId, Vector2i(0,0)) # northwest corner
+	set_cell(Layer.GARDEN, Vector2i(columns, -1), BorderSourceId, Vector2i(0,0)) # northeast corner
+	set_cell(Layer.GARDEN, Vector2i(-1, rows), BorderSourceId, Vector2i(0,0)) # southeast corner
+	set_cell(Layer.GARDEN, Vector2i(columns, rows), BorderSourceId, Vector2i(0,0)) #southwest corner
 	
 	# Set Tiles between Corners
 	for c in columns:
-		set_cell(Layer.GARDEN, Vector2i(c - 1, -1), BorderSourceId, Vector2i(0,0))
-		set_cell(Layer.GARDEN, Vector2i(c - 1, rows), BorderSourceId, Vector2i(0,0))
+		set_cell(Layer.GARDEN, Vector2i(c, -1), BorderSourceId, Vector2i(0,0))
+		set_cell(Layer.GARDEN, Vector2i(c, rows), BorderSourceId, Vector2i(0,0))
 	for r in rows:
 		set_cell(Layer.GARDEN, Vector2i(-1, r), BorderSourceId, Vector2i(0,0))
 		set_cell(Layer.GARDEN, Vector2i(columns, r), BorderSourceId, Vector2i(0,0))
