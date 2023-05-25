@@ -1,0 +1,49 @@
+[gd_scene load_steps=5 format=3 uid="uid://c1us87waphm1d"]
+
+[ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="1_wri3l"]
+[ext_resource type="Script" path="res://assets/scripts/garden_schedule_popup.gd" id="2_x7bba"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vibcu"]
+bg_color = Color(0.12549, 0.0627451, 0.415686, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.424167, 0.330764, 0.875458, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+expand_margin_left = 10.0
+expand_margin_top = 40.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+shadow_color = Color(0.227451, 0.109804, 0.439216, 0.301961)
+shadow_size = 2
+shadow_offset = Vector2(10, 10)
+
+[sub_resource type="Theme" id="Theme_tht4p"]
+Window/styles/embedded_border = SubResource("StyleBoxFlat_vibcu")
+
+[node name="garden_schedule_popup" type="Window"]
+title = "Garden Schedule"
+position = Vector2i(198, 76)
+size = Vector2i(750, 500)
+min_size = Vector2i(750, 500)
+theme = SubResource("Theme_tht4p")
+theme_override_fonts/title_font = ExtResource("1_wri3l")
+theme_override_font_sizes/title_font_size = 25
+script = ExtResource("2_x7bba")
+
+[node name="gardenDetailsBackground" type="ColorRect" parent="."]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.470588, 0.517647, 0.933333, 0.960784)
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]
