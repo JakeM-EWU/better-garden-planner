@@ -26,12 +26,19 @@ enum Edit_Menu_Option {
 	MOVE = 2,
 }
 
+enum View_Menu_Option {
+	INVENTORY = 0,
+	SCHEDULE = 1,
+}
+
 const SaveFileDialogScene = preload("res://assets/scenes/save_file_dialog.tscn")
 const LoadFileDialogScene = preload("res://assets/scenes/load_file_dialog.tscn")
+
 
 @onready var _garden_view: GardenView = $"Garden View"
 @onready var _object_library: ObjectLibrary = $"Menu/VBoxContainer/HBoxContainer/Object Library"
 @onready var _action_state_label: Label = $"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label"
+
 
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_cancel")):
@@ -102,6 +109,8 @@ func _on_edit_id_pressed(id):
 
 
 func _reset_view():
+	$Menu/VBoxContainer/HBoxContainer/garden_inventory_popup.hide()
+	$Menu/VBoxContainer/HBoxContainer/garden_schedule_popup.hide()
 	_object_library.hide()
 	_action_state_label.text = ""
 	_garden_view.set_edit_state(Enums.Garden_Edit_State.NONE)
@@ -120,3 +129,15 @@ func _on_garden_view_tile_moved(old_row, old_column, new_row, new_column):
 func _on_garden_view_tile_placed(row, column, key):
 	object_place_requested.emit(row, column, key)
 	pass # Replace with function body.
+
+
+##[method _on_view_id_pressed]:
+##Connected to the view menu's [signal PopupMenu.index_pressed]
+func _on_view_id_pressed(id):
+	_reset_view()
+	match id:
+		View_Menu_Option.INVENTORY:
+			$Menu/VBoxContainer/HBoxContainer/garden_inventory_popup.visible = true
+			
+		View_Menu_Option.SCHEDULE:
+			$Menu/VBoxContainer/HBoxContainer/garden_schedule_popup.visible = true
