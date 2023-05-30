@@ -1,10 +1,91 @@
-[gd_scene load_steps=6 format=3 uid="uid://cpb3vqjnxlsm2"]
+[gd_scene load_steps=15 format=3 uid="uid://cpb3vqjnxlsm2"]
 
 [ext_resource type="TileSet" uid="uid://dkkkqt5gs5kwv" path="res://assets/resources/Garden.tres" id="1_cnw6q"]
-[ext_resource type="Theme" uid="uid://cbbm8hxc72p1e" path="res://assets/Themes/UITheme.tres" id="1_o4767"]
 [ext_resource type="Script" path="res://assets/scripts/ui.gd" id="1_q1tt1"]
 [ext_resource type="PackedScene" uid="uid://bab60pp4rwsdn" path="res://assets/scenes/object_library.tscn" id="2_bjlp1"]
 [ext_resource type="Script" path="res://assets/scripts/garden_view.gd" id="2_k5twh"]
+[ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="4_ywda8"]
+[ext_resource type="PackedScene" uid="uid://bv7inytf4futi" path="res://assets/scenes/garden_inventory_popup.tscn" id="5_rn7c7"]
+[ext_resource type="PackedScene" uid="uid://c1us87waphm1d" path="res://assets/scenes/garden_schedule_popup.tscn" id="6_5sg7j"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bw7g3"]
+bg_color = Color(0, 0.231373, 0.368627, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.109804, 0.12549, 0.403922, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 1
+expand_margin_left = 1.0
+expand_margin_right = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_t4xxi"]
+bg_color = Color(0.0352941, 0.403922, 0.72549, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.0156863, 0.12549, 0.380392, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 1
+expand_margin_left = 1.0
+expand_margin_right = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_oacq4"]
+bg_color = Color(0.282353, 0.568627, 0.819608, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.458824, 0.8, 0.8, 1)
+border_blend = true
+corner_radius_top_left = 2
+corner_radius_top_right = 2
+corner_radius_bottom_right = 2
+corner_radius_bottom_left = 2
+corner_detail = 1
+expand_margin_left = 1.0
+expand_margin_right = 2.0
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ju2lq"]
+bg_color = Color(0.184314, 0.6, 0.639216, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.105882, 0.909804, 0.917647, 1)
+border_blend = true
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_2bq5e"]
+bg_color = Color(0.294118, 0.745098, 0.603922, 0.580392)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_8brb2"]
+bg_color = Color(0.282353, 0.568627, 0.819608, 1)
+border_width_left = 4
+border_width_top = 4
+border_width_right = 4
+border_width_bottom = 4
+border_color = Color(0.188235, 0.533333, 0.74902, 1)
+border_blend = true
+
+[sub_resource type="Theme" id="Theme_ft5bu"]
+default_font = ExtResource("4_ywda8")
+default_font_size = 25
+MenuBar/styles/hover = SubResource("StyleBoxFlat_bw7g3")
+MenuBar/styles/normal = SubResource("StyleBoxFlat_t4xxi")
+MenuBar/styles/pressed = SubResource("StyleBoxFlat_oacq4")
+PanelContainer/styles/panel = SubResource("StyleBoxFlat_ju2lq")
+PopupMenu/styles/hover = SubResource("StyleBoxFlat_2bq5e")
+PopupMenu/styles/panel = SubResource("StyleBoxFlat_8brb2")
 
 [node name="UI" type="Node"]
 script = ExtResource("1_q1tt1")
@@ -46,7 +127,7 @@ grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 3
 size_flags_vertical = 3
-theme = ExtResource("1_o4767")
+theme = SubResource("Theme_ft5bu")
 
 [node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
 layout_mode = 2
@@ -87,6 +168,13 @@ item_2/id = 2
 
 [node name="Help" type="PopupMenu" parent="Menu/VBoxContainer/MenuBarPanel/MenuBar"]
 
+[node name="View" type="PopupMenu" parent="Menu/VBoxContainer/MenuBarPanel/MenuBar"]
+item_count = 2
+item_0/text = "Inventory"
+item_0/id = 0
+item_1/text = "Schedule"
+item_1/id = 1
+
 [node name="Action State Label" type="Label" parent="Menu/VBoxContainer/MenuBarPanel/MenuBar"]
 layout_mode = 2
 offset_top = 4.0
@@ -120,10 +208,17 @@ size_flags_stretch_ratio = 4.14
 mouse_filter = 2
 mouse_force_pass_scroll_events = false
 
+[node name="garden_inventory_popup" parent="Menu/VBoxContainer/HBoxContainer" instance=ExtResource("5_rn7c7")]
+visible = false
+
+[node name="garden_schedule_popup" parent="Menu/VBoxContainer/HBoxContainer" instance=ExtResource("6_5sg7j")]
+visible = false
+
 [connection signal="tile_clicked" from="Garden View" to="." method="_on_garden_view_tile_clicked"]
 [connection signal="tile_deleted" from="Garden View" to="." method="_on_garden_view_tile_deleted"]
 [connection signal="tile_moved" from="Garden View" to="." method="_on_garden_view_tile_moved"]
 [connection signal="tile_placed" from="Garden View" to="." method="_on_garden_view_tile_placed"]
 [connection signal="id_pressed" from="Menu/VBoxContainer/MenuBarPanel/MenuBar/File" to="." method="_on_file_id_pressed"]
 [connection signal="id_pressed" from="Menu/VBoxContainer/MenuBarPanel/MenuBar/Edit" to="." method="_on_edit_id_pressed"]
+[connection signal="id_pressed" from="Menu/VBoxContainer/MenuBarPanel/MenuBar/View" to="." method="_on_view_id_pressed"]
 [connection signal="object_selected" from="Menu/VBoxContainer/HBoxContainer/Object Library" to="." method="_on_object_library_object_selected"]

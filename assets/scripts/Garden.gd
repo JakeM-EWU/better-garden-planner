@@ -61,3 +61,6 @@ func load_from_file(file:FileAccess):
 		for c in range(columns):
 			if not placed_objects[r][c].is_empty():
 				GardenSignalBus.object_placed.emit(r,c,placed_objects[r][c])
+
+func show_garden_details(placed_objects):
+	GardenSignalBus.show_garden_details.emit(placed_objects)
