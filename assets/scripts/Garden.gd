@@ -7,6 +7,7 @@ var placed_objects: Array
 
 
 func create_garden(rows: int, columns: int) -> void:
+	$NotebookData.update_notebook_data({})
 	GardenSignalBus.size_set.emit(rows,columns)
 	self.rows = rows
 	self.columns = columns
@@ -41,7 +42,7 @@ func save_to_file(file:FileAccess):
 	file.store_64(rows)
 	file.store_64(columns)
 	file.store_var(placed_objects,true)
-
+	$NotebookData.save_to_file(file)
 
 ##[method load_from_file]:
 ##Loads a Garden from a file. 
@@ -62,5 +63,9 @@ func load_from_file(file:FileAccess):
 			if not placed_objects[r][c].is_empty():
 				GardenSignalBus.object_placed.emit(r,c,placed_objects[r][c])
 
+	$NotebookData.load_from_file(file)
+
+
 func show_garden_details(placed_objects):
 	GardenSignalBus.show_garden_details.emit(placed_objects)
+
