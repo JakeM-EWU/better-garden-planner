@@ -41,6 +41,7 @@ var _current_object_source_id = 1
 var currently_moving_object: bool = false
 var old_location: Vector2i
 var old_source_id: int
+var mouse_in_menu: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -68,7 +69,7 @@ func _process(delta):
 	clear_layer(Layer.UI)
 		
 	var tile = local_to_map(get_local_mouse_position())
-	if (tile_is_placeable(tile)):
+	if (tile_is_placeable(tile) and mouse_in_menu):
 		match current_edit_state:
 			Enums.Garden_Edit_State.PLACE:
 				show_place_interface(tile)
@@ -215,3 +216,10 @@ func _on_object_placed(row: int, column: int, object_key: String):
 func _on_object_removed(row: int, column: int):
 	var tile = _coords_to_map(row, column)
 	set_cell(Layer.OBJECT, tile, -1, Vector2i(0,0))
+
+
+func _on_menu_mouse_entered():
+	mouse_in_menu = true
+
+func _on_menu_mouse_exited():
+	mouse_in_menu = false
