@@ -17,29 +17,29 @@ func _ready():
 #			print(ind, ": ", garden_data[obj][ind])
 
 
-## Returns a dictionary containing the Indoor Planting dates for Frost and Moon for the given key. Returns an empty dictionary if N/A.
-func get_start_seeds_indoors(object: String) -> Dictionary:
+## Returns planting date range start as string
+func get_planting_date_range_start(object: String) -> String:
 	var item_data: Dictionary = garden_data[object]
-	if (contains_dictionary(item_data, "Start Seeds Indoors")):
-		return item_data["Start Seeds Indoors"] as Dictionary
+	if (item_data.get("PlantingDateRangeStart")):
+		return item_data["PlantingDateRangeStart"] as String
 	else:
-		return {}
+		return ""
 
-## Returns a dictionary containing the Plant Seedlings or Transplants dates for Frost and Moon for the given key. Returns an empty dictionary if N/A.
-func get_plant_seedlings_or_transplants_data(object: String) -> Dictionary:
+## Returns planting date range end as string
+func get_planting_date_range_end(object: String) -> String:
 	var item_data: Dictionary = garden_data[object]
-	if (contains_dictionary(item_data, "Plant Seedlings or Transplants")):
-		return item_data["Plant Seedlings or Transplants"] as Dictionary
+	if (item_data.get("PlantingDateRangeEnd")):
+		return item_data["PlantingDateRangeEnd"] as String
 	else:
-		return {}
+		return ""
 
-## Returns a dictionary containing the Outdoor Planting dates for Frost and Moon for the given key. Returns an empty dictionary if N/A.
-func get_start_seeds_outdoors_data(object: String) -> Dictionary:
+## Returns sowing location (indoors/outdoors) as string
+func get_sowing_location(object: String) -> String:
 	var item_data: Dictionary = garden_data[object]
-	if (contains_dictionary(item_data, "Start Seeds Outdoors")):
-		return item_data["Start Seeds Outdoors"] as Dictionary
+	if (item_data.get("SowingLocation")):
+		return item_data["SowingLocation"] as String
 	else:
-		return {}
+		return ""
 
 
 func get_sprite_source_id(object: String) -> int:

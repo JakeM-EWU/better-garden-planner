@@ -30,6 +30,11 @@ func connect_ui_signals():
 	_ui.load_file_requested.connect(_on_load_requested)
 	_ui.save_file_requested.connect(_on_save_requested)
 	_ui.exit_program_requested.connect(_on_exit_program_requested)
+	_ui.get_placed_objects_requested.connect(_on_placed_objects_requested)
+	
+func _on_placed_objects_requested():
+	_garden_data.get_placed_objects()
+
 
 func _on_object_place_requested(row:int,column:int,object_key:String):
 	_garden_data.place_object(row,column,object_key)

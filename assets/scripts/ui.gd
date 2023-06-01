@@ -8,6 +8,8 @@ signal object_select_requested(row: int,column: int)
 signal load_file_requested()
 signal save_file_requested()
 signal exit_program_requested()
+signal get_placed_objects_requested()
+
 
 enum File_Menu_Option{
 	EXIT = 1,
@@ -133,7 +135,9 @@ func _on_view_id_pressed(id):
 	_reset_view()
 	match id:
 		View_Menu_Option.INVENTORY:
+			get_placed_objects_requested.emit()
 			$Menu/VBoxContainer/HBoxContainer/garden_inventory_popup.visible = true
 			
 		View_Menu_Option.SCHEDULE:
+			get_placed_objects_requested.emit()
 			$Menu/VBoxContainer/HBoxContainer/garden_schedule_popup.visible = true

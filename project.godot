@@ -19,6 +19,7 @@ config/icon="res://icon.svg"
 
 JsonParser="*res://assets/scripts/json_parser.gd"
 GardenSignalBus="*res://assets/scripts/garden_signal_bus.gd"
+ViewGarden="*res://assets/scripts/Garden.gd"
 
 [display]
 

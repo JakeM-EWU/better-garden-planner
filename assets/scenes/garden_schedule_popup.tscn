@@ -46,4 +46,16 @@ grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.470588, 0.517647, 0.933333, 0.960784)
 
+[node name="InventoryList" type="ScrollContainer" parent="."]
+custom_minimum_size = Vector2(500, 500)
+offset_right = 750.0
+offset_bottom = 500.0
+size_flags_horizontal = 3
+size_flags_vertical = 3
+
+[node name="GridContainer" type="GridContainer" parent="InventoryList"]
+clip_contents = true
+custom_minimum_size = Vector2(750, 500)
+layout_mode = 2
+
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]

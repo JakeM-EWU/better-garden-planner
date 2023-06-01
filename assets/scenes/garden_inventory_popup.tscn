@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://bv7inytf4futi"]
+[gd_scene load_steps=7 format=3 uid="uid://bv7inytf4futi"]
 
 [ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="1_buwt2"]
 [ext_resource type="Script" path="res://assets/scripts/garden_inventory_popup.gd" id="2_kenco"]
@@ -27,11 +27,17 @@ shadow_offset = Vector2(10, 10)
 [sub_resource type="Theme" id="Theme_er62s"]
 Window/styles/embedded_border = SubResource("StyleBoxFlat_haio2")
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ffoqb"]
+bg_color = Color(0.282353, 0.698039, 0.4, 1)
+
+[sub_resource type="Theme" id="Theme_2vs6s"]
+ItemList/styles/panel = SubResource("StyleBoxFlat_ffoqb")
+
 [node name="garden_inventory_popup" type="Window"]
 title = "Garden Inventory"
 position = Vector2i(198, 76)
-size = Vector2i(750, 500)
-min_size = Vector2i(750, 500)
+size = Vector2i(375, 500)
+min_size = Vector2i(375, 500)
 theme = SubResource("Theme_er62s")
 theme_override_fonts/title_font = ExtResource("1_buwt2")
 theme_override_font_sizes/title_font_size = 25
@@ -44,5 +50,15 @@ anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
 color = Color(0.505882, 0.901961, 0.666667, 1)
+
+[node name="InventoryList" type="ItemList" parent="."]
+custom_minimum_size = Vector2(300, 0)
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_2vs6s")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
