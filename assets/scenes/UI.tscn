@@ -92,6 +92,7 @@ script = ExtResource("1_q1tt1")
 
 [node name="Garden View" type="TileMap" parent="."]
 tile_set = ExtResource("1_cnw6q")
+cell_quadrant_size = 32
 format = 2
 layer_0/name = "Garden"
 layer_1/name = "Objects"
