@@ -34,6 +34,7 @@ func connect_ui_signals():
 	_ui.save_file_requested.connect(_on_save_requested)
 	_ui.exit_program_requested.connect(_on_exit_program_requested)
 	_ui.notebook_update_requested.connect(_on_notebook_update_requested)
+	_ui.export_image_requested.connect(_on_export_image_requested)
 
 func _on_object_place_requested(row:int,column:int,object_key:String):
 	_garden_data.place_object(row,column,object_key)

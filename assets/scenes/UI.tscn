@@ -184,6 +184,7 @@ item_1/id = 1
 [node name="Help" type="PopupMenu" parent="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar"]
 
 [node name="Action State Label" type="Label" parent="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar"]
+layout_mode = 0
 offset_left = -4.0
 offset_right = 1146.0
 offset_bottom = 25.0
@@ -225,3 +226,10 @@ visible = false
 [connection signal="tile_deleted" from="Garden View" to="." method="_on_garden_view_tile_deleted"]
 [connection signal="tile_moved" from="Garden View" to="." method="_on_garden_view_tile_moved"]
 [connection signal="tile_placed" from="Garden View" to="." method="_on_garden_view_tile_placed"]
+[connection signal="mouse_entered" from="CanvasLayer/Menu" to="Garden View" method="_on_menu_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Menu" to="Garden View" method="_on_menu_mouse_exited"]
+[connection signal="id_pressed" from="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar/File" to="." method="_on_file_id_pressed"]
+[connection signal="id_pressed" from="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar/Edit" to="." method="_on_edit_id_pressed"]
+[connection signal="id_pressed" from="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar/View" to="." method="_on_view_id_pressed"]
+[connection signal="id_pressed" from="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar/Help" to="." method="_on_help_id_pressed"]
+[connection signal="object_selected" from="CanvasLayer/Menu/VBoxContainer/HBoxContainer/Object Library" to="." method="_on_object_library_object_selected"]

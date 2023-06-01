@@ -40,6 +40,8 @@ const LoadFileDialogScene = preload("res://assets/scenes/load_file_dialog.tscn")
 @onready var _garden_view: GardenView = $"Garden View"
 @onready var _object_library: ObjectLibrary = $"CanvasLayer/Menu/VBoxContainer/HBoxContainer/Object Library"
 @onready var _action_state_label: Label = $"CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label"
+@onready var _garden_inventory_popup = $CanvasLayer/Menu/VBoxContainer/HBoxContainer/garden_inventory_popup
+@onready var _garden_schedule_popup = $CanvasLayer/Menu/VBoxContainer/HBoxContainer/garden_schedule_popup
 
 
 func _process(delta):
@@ -113,8 +115,8 @@ func _on_edit_id_pressed(id):
 
 
 func _reset_view():
-	$Menu/VBoxContainer/HBoxContainer/garden_inventory_popup.hide()
-	$Menu/VBoxContainer/HBoxContainer/garden_schedule_popup.hide()
+	_garden_inventory_popup.hide()
+	_garden_schedule_popup.hide()
 	_object_library.hide()
 	_action_state_label.text = ""
 	_garden_view.set_edit_state(Enums.Garden_Edit_State.NONE)
@@ -141,7 +143,11 @@ func _on_view_id_pressed(id):
 	_reset_view()
 	match id:
 		View_Menu_Option.INVENTORY:
-			$Menu/VBoxContainer/HBoxContainer/garden_inventory_popup.visible = true
+			_garden_inventory_popup.visible = true
 			
 		View_Menu_Option.SCHEDULE:
-			$Menu/VBoxContainer/HBoxContainer/garden_schedule_popup.visible = true
+			_garden_schedule_popup.visible = true
+
+
+func _on_help_id_pressed(id):
+	pass # Replace with function body.
