@@ -26,8 +26,8 @@ enum Layer {
 }
 
 # Source IDs found in Garden.tres file
-const PlaceableTileSourceId = 0
-const BorderSourceId = 32763
+const PlaceableTileSourceId = 400
+const BorderSourceId = 5
 const PlaceUiCursorSourceId = 32764
 const DeleteUiCursorSourceId = 32765
 const MoveUiCursorSourceId = 32766
@@ -188,18 +188,18 @@ func center_garden():
 
 func _generate_border(rows: int, columns: int):
 	# Set Corners
-	set_cell(Layer.GARDEN, Vector2i(-1, -1), BorderSourceId, Vector2i(0,0)) # northwest corner
-	set_cell(Layer.GARDEN, Vector2i(columns, -1), BorderSourceId, Vector2i(0,0)) # northeast corner
-	set_cell(Layer.GARDEN, Vector2i(-1, rows), BorderSourceId, Vector2i(0,0)) # southeast corner
-	set_cell(Layer.GARDEN, Vector2i(columns, rows), BorderSourceId, Vector2i(0,0)) #southwest corner
+	set_cell(Layer.GARDEN, Vector2i(-1, -1), BorderSourceId, Vector2i(0,3)) # northwest corner
+	set_cell(Layer.GARDEN, Vector2i(columns, -1), BorderSourceId, Vector2i(0,3)) # northeast corner
+	set_cell(Layer.GARDEN, Vector2i(-1, rows), BorderSourceId, Vector2i(0,3)) # southeast corner
+	set_cell(Layer.GARDEN, Vector2i(columns, rows), BorderSourceId, Vector2i(0,3)) #southwest corner
 	
 	# Set Tiles between Corners
 	for c in columns:
-		set_cell(Layer.GARDEN, Vector2i(c, -1), BorderSourceId, Vector2i(0,0))
-		set_cell(Layer.GARDEN, Vector2i(c, rows), BorderSourceId, Vector2i(0,0))
+		set_cell(Layer.GARDEN, Vector2i(c, -1), BorderSourceId, Vector2i(0,3))
+		set_cell(Layer.GARDEN, Vector2i(c, rows), BorderSourceId, Vector2i(0,3))
 	for r in rows:
-		set_cell(Layer.GARDEN, Vector2i(-1, r), BorderSourceId, Vector2i(0,0))
-		set_cell(Layer.GARDEN, Vector2i(columns, r), BorderSourceId, Vector2i(0,0))
+		set_cell(Layer.GARDEN, Vector2i(-1, r), BorderSourceId, Vector2i(0,3))
+		set_cell(Layer.GARDEN, Vector2i(columns, r), BorderSourceId, Vector2i(0,3))
 
 
 func _coords_to_map(row: int, column: int) -> Vector2i:
