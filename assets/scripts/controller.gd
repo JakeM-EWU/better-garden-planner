@@ -31,7 +31,8 @@ func connect_ui_signals():
 	_ui.save_file_requested.connect(_on_save_requested)
 	_ui.exit_program_requested.connect(_on_exit_program_requested)
 	_ui.get_placed_objects_requested.connect(_on_placed_objects_requested)
-	
+    _ui.notebook_update_requested.connect(_on_notebook_update_requested)
+
 func _on_placed_objects_requested():
 	_garden_data.get_placed_objects()
 
@@ -125,3 +126,6 @@ func open_file_and_save(path:String):
 		if error:
 			printerr(error_string(error))
 		file.close()
+
+func _on_notebook_update_requested(new_notebook_state:Dictionary):
+	$Garden/NotebookData.update_notebook_data(new_notebook_state)

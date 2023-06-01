@@ -10,6 +10,10 @@ signal save_file_requested()
 signal exit_program_requested()
 signal get_placed_objects_requested()
 
+##[signal notebook_update_requested] emmited when the UI wants to update
+##the backend representation of a notebook. emits a dictionary representing
+##the new state of the notebook.
+signal notebook_update_requested(new_notebook_state:Dictionary)
 
 enum File_Menu_Option{
 	EXIT = 1,
