@@ -250,10 +250,8 @@ texture = ExtResource("2_1cy6d")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pop3w"]
 resource_name = "Cabbage"
 texture = ExtResource("3_01iys")
+texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cvaw3"]
 resource_name = "Carrot"
@@ -283,10 +281,8 @@ texture = ExtResource("7_7wc8g")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lj2o"]
 resource_name = "Potato"
 texture = ExtResource("5_s0ewo")
+texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gfghl"]
 texture = ExtResource("10_wlvy1")
