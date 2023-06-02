@@ -7,6 +7,7 @@ signal object_move_requested(old_row: int, old_column: int, new_row: int, new_co
 signal object_select_requested(row: int,column: int)
 signal load_file_requested()
 signal save_file_requested()
+signal export_image_requested()
 signal exit_program_requested()
 ##[signal notebook_update_requested] emmited when the UI wants to update
 ##the backend representation of a notebook. emits a dictionary representing
@@ -22,6 +23,7 @@ enum File_Menu_Option{
 	CREATE_GARDEN = 2,
 	SAVE_AS = 3,
 	LOAD = 4,
+	EXPORT_IMAGE = 5,
 }
 
 enum Edit_Menu_Option {
@@ -43,8 +45,10 @@ const GardenCreationPopupScene = preload("res://assets/scenes/garden_creation_po
 
 
 @onready var _garden_view: GardenView = $"Garden View"
-@onready var _object_library: ObjectLibrary = $"Menu/VBoxContainer/HBoxContainer/Object Library"
-@onready var _action_state_label: Label = $"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label"
+@onready var _object_library: ObjectLibrary = $"CanvasLayer/Menu/VBoxContainer/HBoxContainer/Object Library"
+@onready var _action_state_label: Label = $"CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label"
+@onready var _garden_inventory_popup = $CanvasLayer/Menu/VBoxContainer/HBoxContainer/garden_inventory_popup
+@onready var _garden_schedule_popup = $CanvasLayer/Menu/VBoxContainer/HBoxContainer/garden_schedule_popup
 
 
 func _process(delta):
@@ -65,6 +69,8 @@ func _on_file_id_pressed(id):
 			save_file_requested.emit()
 		File_Menu_Option.LOAD:
 			load_file_requested.emit()
+		File_Menu_Option.EXPORT_IMAGE:
+			export_image_requested.emit()
 		_:
 			push_warning("Menu Item not found")
 
@@ -72,7 +78,7 @@ func _on_file_id_pressed(id):
 ##a dialog box
 func prompt_create_garden():
 	var garden_creation_popup = GardenCreationPopupScene.instantiate()
-	self.add_child(garden_creation_popup)
+	$CanvasLayer/Menu.add_child(garden_creation_popup)
 	var dimensions = await(garden_creation_popup.dimensions_selected_or_cancelled)
 	var rows = dimensions[1]
 	var columns = dimensions[0]
@@ -125,10 +131,25 @@ func _on_edit_id_pressed(id):
 	pass # Replace with function body.
 
 
+func set_menu_visibility(is_visible: bool):
+	$CanvasLayer.visible = is_visible
+
+
+func show_image_message(filepath: String):
+	_action_state_label.text = "Image saved at " + filepath
+	await get_tree().create_timer(2.5).timeout
+	
+	# If the action state label is not displaying any edit info, clear the string
+	if (not _garden_view.is_editing()):
+		_action_state_label.text = ""
+
+
 func _reset_view():
-	$Menu/VBoxContainer/HBoxContainer/garden_inventory_popup.hide()
-	$Menu/VBoxContainer/HBoxContainer/garden_schedule_popup.hide()
-	$Menu/NotebookScene.close_notes()
+
+
+	$CanvasLayer/Menu/NotebookScene.close_notes()
+	_garden_inventory_popup.hide()
+	_garden_schedule_popup.hide()
 	_object_library.hide()
 	_action_state_label.text = ""
 	_garden_view.set_edit_state(Enums.Garden_Edit_State.NONE)
@@ -155,9 +176,17 @@ func _on_view_id_pressed(id):
 	_reset_view()
 	match id:
 		View_Menu_Option.INVENTORY:
-			$Menu/VBoxContainer/HBoxContainer/garden_inventory_popup.visible = true
+			_garden_inventory_popup.visible = true
 			
 		View_Menu_Option.SCHEDULE:
-			$Menu/VBoxContainer/HBoxContainer/garden_schedule_popup.visible = true
+			_garden_schedule_popup.visible = true
+
 		View_Menu_Option.NOTES:
 			$Menu/NotebookScene.open_notes()
+
+			
+
+
+func _on_help_id_pressed(id):
+	pass # Replace with function body.
+

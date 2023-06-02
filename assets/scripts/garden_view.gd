@@ -7,6 +7,17 @@ signal tile_placed(row: int, column: int, key: String)
 signal tile_deleted(row: int, column: int)
 signal tile_moved(old_row: int, old_column: int, new_row: int, new_column: int)
 
+var garden_height_in_pixels: int:
+	get:
+		return rows * cell_quadrant_size
+
+var garden_width_in_pixels: int:
+	get:
+		return columns * cell_quadrant_size
+
+var rows: int
+var columns: int
+
 enum Layer {
 	GARDEN = 0,
 	OBJECT = 1,
@@ -15,8 +26,8 @@ enum Layer {
 }
 
 # Source IDs found in Garden.tres file
-const PlaceableTileSourceId = 0
-const BorderSourceId = 32763
+const PlaceableTileSourceId = 400
+const BorderSourceId = 5
 const PlaceUiCursorSourceId = 32764
 const DeleteUiCursorSourceId = 32765
 const MoveUiCursorSourceId = 32766
@@ -30,6 +41,7 @@ var _current_object_source_id = 1
 var currently_moving_object: bool = false
 var old_location: Vector2i
 var old_source_id: int
+var mouse_in_menu: bool = false
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -57,7 +69,7 @@ func _process(delta):
 	clear_layer(Layer.UI)
 		
 	var tile = local_to_map(get_local_mouse_position())
-	if (tile_is_placeable(tile)):
+	if (tile_is_placeable(tile) and mouse_in_menu):
 		match current_edit_state:
 			Enums.Garden_Edit_State.PLACE:
 				show_place_interface(tile)
@@ -91,6 +103,10 @@ func show_delete_interface(tile):
 			var row = tile.y
 			var column = tile.x
 			tile_deleted.emit(row, column)
+
+
+func is_editing():
+	return not (current_edit_state == Enums.Garden_Edit_State.NONE)
 
 
 func show_move_interface(tile):
@@ -160,23 +176,35 @@ func _generate_tiles(rows: int, columns: int):
 			set_cell(Layer.GARDEN, Vector2i(c, r), PlaceableTileSourceId, Vector2i(0,0))
 	_generate_border(rows, columns)
 	
+	# add 2 for the border rows/columns
+	self.rows = rows + 2
+	self.columns = columns + 2
+	center_garden()
+	
 
+
+func center_garden():
+	var x_pos = (garden_width_in_pixels / 2) * -1
+	var y_pos = (garden_height_in_pixels / 2) * -1
+	
+	self.position.x = x_pos
+	self.position.y = y_pos
 
 
 func _generate_border(rows: int, columns: int):
 	# Set Corners
-	set_cell(Layer.GARDEN, Vector2i(-1, -1), BorderSourceId, Vector2i(0,0))
-	set_cell(Layer.GARDEN, Vector2i(-1, rows + 1), BorderSourceId, Vector2i(0,0))	
-	set_cell(Layer.GARDEN, Vector2i(columns + 1, -1), BorderSourceId, Vector2i(0,0))
-	set_cell(Layer.GARDEN, Vector2i(columns + 1, rows + 1), BorderSourceId, Vector2i(0,0))
+	set_cell(Layer.GARDEN, Vector2i(-1, -1), BorderSourceId, Vector2i(0,3)) # northwest corner
+	set_cell(Layer.GARDEN, Vector2i(columns, -1), BorderSourceId, Vector2i(0,3)) # northeast corner
+	set_cell(Layer.GARDEN, Vector2i(-1, rows), BorderSourceId, Vector2i(0,3)) # southeast corner
+	set_cell(Layer.GARDEN, Vector2i(columns, rows), BorderSourceId, Vector2i(0,3)) #southwest corner
 	
 	# Set Tiles between Corners
 	for c in columns:
-		set_cell(Layer.GARDEN, Vector2i(c - 1, -1), BorderSourceId, Vector2i(0,0))
-		set_cell(Layer.GARDEN, Vector2i(c - 1, rows), BorderSourceId, Vector2i(0,0))
+		set_cell(Layer.GARDEN, Vector2i(c, -1), BorderSourceId, Vector2i(0,3))
+		set_cell(Layer.GARDEN, Vector2i(c, rows), BorderSourceId, Vector2i(0,3))
 	for r in rows:
-		set_cell(Layer.GARDEN, Vector2i(-1, r), BorderSourceId, Vector2i(0,0))
-		set_cell(Layer.GARDEN, Vector2i(columns, r), BorderSourceId, Vector2i(0,0))
+		set_cell(Layer.GARDEN, Vector2i(-1, r), BorderSourceId, Vector2i(0,3))
+		set_cell(Layer.GARDEN, Vector2i(columns, r), BorderSourceId, Vector2i(0,3))
 
 
 func _coords_to_map(row: int, column: int) -> Vector2i:
@@ -192,3 +220,10 @@ func _on_object_placed(row: int, column: int, object_key: String):
 func _on_object_removed(row: int, column: int):
 	var tile = _coords_to_map(row, column)
 	set_cell(Layer.OBJECT, tile, -1, Vector2i(0,0))
+
+
+func _on_menu_mouse_entered():
+	mouse_in_menu = true
+
+func _on_menu_mouse_exited():
+	mouse_in_menu = false

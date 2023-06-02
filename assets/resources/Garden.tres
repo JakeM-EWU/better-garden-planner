@@ -1,4 +1,4 @@
-[gd_resource type="TileSet" load_steps=19 format=3 uid="uid://dkkkqt5gs5kwv"]
+[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://dkkkqt5gs5kwv"]
 
 [ext_resource type="Texture2D" uid="uid://b0ug80oac8008" path="res://assets/images/Placeable.png" id="1_856l8"]
 [ext_resource type="Texture2D" uid="uid://c2rnepv66s2lv" path="res://assets/images/Fruit+.png" id="2_1cy6d"]
@@ -9,6 +9,8 @@
 [ext_resource type="Texture2D" uid="uid://0rp33g1slpip" path="res://assets/images/Potato.png" id="5_s0ewo"]
 [ext_resource type="Texture2D" uid="uid://ctprxehhnfqcs" path="res://assets/images/ui cursors/Delete Cursor.png" id="6_6en2u"]
 [ext_resource type="Texture2D" uid="uid://dxxnu0qn0bbf8" path="res://assets/images/ui cursors/Move Cursor.png" id="7_7wc8g"]
+[ext_resource type="Texture2D" uid="uid://yv1b23uglncg" path="res://assets/images/Sprout Lands - Sprites - Basic pack/Tilesets/ground tiles/old tiles/Tilled Dirt.png" id="10_wlvy1"]
+[ext_resource type="Texture2D" uid="uid://dcqnr2gkigixy" path="res://assets/images/Sprout Lands - Sprites - Basic pack/Tilesets/ground tiles/new tiles/Tall Grass hill tiles v.2.png" id="13_ms7gr"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_er8ly"]
 texture = ExtResource("1_856l8")
@@ -248,18 +250,14 @@ texture = ExtResource("2_1cy6d")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pop3w"]
 resource_name = "Cabbage"
 texture = ExtResource("3_01iys")
+texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_cvaw3"]
 resource_name = "Carrot"
 texture = ExtResource("4_35ajk")
+texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
-1:0/0 = 0
-0:1/0 = 0
-1:1/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_s685v"]
 texture = ExtResource("5_hreyw")
@@ -283,12 +281,47 @@ texture = ExtResource("7_7wc8g")
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_2lj2o"]
 resource_name = "Potato"
 texture = ExtResource("5_s0ewo")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_gfghl"]
+texture = ExtResource("10_wlvy1")
+texture_region_size = Vector2i(32, 32)
 0:0/0 = 0
 1:0/0 = 0
+2:0/0 = 0
+3:0/0 = 0
 0:1/0 = 0
 1:1/0 = 0
+2:1/0 = 0
+3:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+3:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
+3:3/0 = 0
+
+[sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_f5x2o"]
+texture = ExtResource("13_ms7gr")
+texture_region_size = Vector2i(32, 32)
+0:0/0 = 0
+1:0/0 = 0
+2:0/0 = 0
+0:1/0 = 0
+1:1/0 = 0
+2:1/0 = 0
+0:2/0 = 0
+1:2/0 = 0
+2:2/0 = 0
+0:3/0 = 0
+1:3/0 = 0
+2:3/0 = 0
 
 [resource]
+tile_size = Vector2i(32, 32)
 uv_clipping = true
 custom_data_layer_0/name = "placeable"
 custom_data_layer_0/type = 1
@@ -303,3 +336,5 @@ sources/32765 = SubResource("TileSetAtlasSource_8xxwx")
 sources/32766 = SubResource("TileSetAtlasSource_8i47y")
 sources/32764 = SubResource("TileSetAtlasSource_g0xhi")
 sources/32763 = SubResource("TileSetAtlasSource_s685v")
+sources/400 = SubResource("TileSetAtlasSource_gfghl")
+sources/5 = SubResource("TileSetAtlasSource_f5x2o")

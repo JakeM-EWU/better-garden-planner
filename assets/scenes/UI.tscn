@@ -4,6 +4,7 @@
 [ext_resource type="Script" path="res://assets/scripts/ui.gd" id="1_q1tt1"]
 [ext_resource type="PackedScene" uid="uid://bab60pp4rwsdn" path="res://assets/scenes/object_library.tscn" id="2_bjlp1"]
 [ext_resource type="Script" path="res://assets/scripts/garden_view.gd" id="2_k5twh"]
+[ext_resource type="Script" path="res://assets/scripts/Camera2D.gd" id="4_fknk3"]
 [ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="4_ywda8"]
 [ext_resource type="PackedScene" uid="uid://bv7inytf4futi" path="res://assets/scenes/garden_inventory_popup.tscn" id="5_rn7c7"]
 [ext_resource type="PackedScene" uid="uid://c1us87waphm1d" path="res://assets/scenes/garden_schedule_popup.tscn" id="6_5sg7j"]
@@ -92,8 +93,8 @@ PopupMenu/styles/panel = SubResource("StyleBoxFlat_8brb2")
 script = ExtResource("1_q1tt1")
 
 [node name="Garden View" type="TileMap" parent="."]
-position = Vector2(652, 354)
 tile_set = ExtResource("1_cnw6q")
+cell_quadrant_size = 32
 format = 2
 layer_0/name = "Garden"
 layer_1/name = "Objects"
@@ -119,7 +120,12 @@ layer_3/z_index = 0
 layer_3/tile_data = PackedInt32Array()
 script = ExtResource("2_k5twh")
 
-[node name="Menu" type="Control" parent="."]
+[node name="Camera2D" type="Camera2D" parent="."]
+script = ExtResource("4_fknk3")
+
+[node name="CanvasLayer" type="CanvasLayer" parent="."]
+
+[node name="Menu" type="Control" parent="CanvasLayer"]
 layout_mode = 3
 anchors_preset = 15
 anchor_right = 1.0
@@ -130,7 +136,7 @@ size_flags_horizontal = 3
 size_flags_vertical = 3
 theme = SubResource("Theme_ft5bu")
 
-[node name="VBoxContainer" type="VBoxContainer" parent="Menu"]
+[node name="VBoxContainer" type="VBoxContainer" parent="CanvasLayer/Menu"]
 layout_mode = 2
 anchor_right = 1.0
 anchor_bottom = 1.0
@@ -138,14 +144,14 @@ grow_horizontal = 2
 grow_vertical = 2
 theme_override_constants/separation = 0
 
-[node name="MenuBarPanel" type="PanelContainer" parent="Menu/VBoxContainer"]
+[node name="MenuBarPanel" type="PanelContainer" parent="CanvasLayer/Menu/VBoxContainer"]
 layout_mode = 2
 
-[node name="MenuBar" type="MenuBar" parent="Menu/VBoxContainer/MenuBarPanel"]
+[node name="MenuBar" type="MenuBar" parent="CanvasLayer/Menu/VBoxContainer/MenuBarPanel"]
 layout_mode = 2
 
-[node name="File" type="PopupMenu" parent="Menu/VBoxContainer/MenuBarPanel/MenuBar"]
-item_count = 5
+[node name="File" type="PopupMenu" parent="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar"]
+item_count = 6
 item_0/text = "Create Garden"
 item_0/id = 2
 item_1/text = "Save as"
@@ -157,8 +163,10 @@ item_3/id = 0
 item_3/separator = true
 item_4/text = "Exit"
 item_4/id = 1
+item_5/text = "Export Image"
+item_5/id = 5
 
-[node name="Edit" type="PopupMenu" parent="Menu/VBoxContainer/MenuBarPanel/MenuBar"]
+[node name="Edit" type="PopupMenu" parent="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar"]
 item_count = 3
 item_0/text = "Place Object"
 item_0/id = 0
@@ -167,9 +175,8 @@ item_1/id = 1
 item_2/text = "Move Object"
 item_2/id = 2
 
-[node name="Help" type="PopupMenu" parent="Menu/VBoxContainer/MenuBarPanel/MenuBar"]
 
-[node name="View" type="PopupMenu" parent="Menu/VBoxContainer/MenuBarPanel/MenuBar"]
+[node name="View" type="PopupMenu" parent="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar"]
 item_count = 3
 item_0/text = "Inventory"
 item_0/id = 0
@@ -178,43 +185,45 @@ item_1/id = 1
 item_2/text = "Notes"
 item_2/id = 2
 
-[node name="Action State Label" type="Label" parent="Menu/VBoxContainer/MenuBarPanel/MenuBar"]
-layout_mode = 2
-offset_top = 4.0
-offset_right = 1150.0
-offset_bottom = 27.0
+[node name="Help" type="PopupMenu" parent="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar"]
+
+[node name="Action State Label" type="Label" parent="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar"]
+layout_mode = 0
+offset_left = -4.0
+offset_right = 1146.0
+offset_bottom = 25.0
 horizontal_alignment = 1
 
-[node name="HBoxContainer" type="HBoxContainer" parent="Menu/VBoxContainer"]
+[node name="HBoxContainer" type="HBoxContainer" parent="CanvasLayer/Menu/VBoxContainer"]
 layout_mode = 2
 size_flags_vertical = 3
 
-[node name="Object Library" parent="Menu/VBoxContainer/HBoxContainer" instance=ExtResource("2_bjlp1")]
+[node name="Object Library" parent="CanvasLayer/Menu/VBoxContainer/HBoxContainer" instance=ExtResource("2_bjlp1")]
 visible = false
 layout_mode = 2
 
-[node name="LeftBarPanel" type="PanelContainer" parent="Menu/VBoxContainer/HBoxContainer"]
+[node name="LeftBarPanel" type="PanelContainer" parent="CanvasLayer/Menu/VBoxContainer/HBoxContainer"]
 visible = false
 layout_mode = 2
 size_flags_horizontal = 3
 
-[node name="TabContainer" type="TabContainer" parent="Menu/VBoxContainer/HBoxContainer/LeftBarPanel"]
+[node name="TabContainer" type="TabContainer" parent="CanvasLayer/Menu/VBoxContainer/HBoxContainer/LeftBarPanel"]
 layout_mode = 2
 
-[node name="Notes" type="VBoxContainer" parent="Menu/VBoxContainer/HBoxContainer/LeftBarPanel"]
+[node name="Notes" type="VBoxContainer" parent="CanvasLayer/Menu/VBoxContainer/HBoxContainer/LeftBarPanel"]
 layout_mode = 2
 
-[node name="Spacer" type="Control" parent="Menu/VBoxContainer/HBoxContainer"]
+[node name="Spacer" type="Control" parent="CanvasLayer/Menu/VBoxContainer/HBoxContainer"]
 layout_mode = 2
 size_flags_horizontal = 3
 size_flags_stretch_ratio = 4.14
 mouse_filter = 2
 mouse_force_pass_scroll_events = false
 
-[node name="garden_inventory_popup" parent="Menu/VBoxContainer/HBoxContainer" instance=ExtResource("5_rn7c7")]
+[node name="garden_inventory_popup" parent="CanvasLayer/Menu/VBoxContainer/HBoxContainer" instance=ExtResource("5_rn7c7")]
 visible = false
 
-[node name="garden_schedule_popup" parent="Menu/VBoxContainer/HBoxContainer" instance=ExtResource("6_5sg7j")]
+[node name="garden_schedule_popup" parent="CanvasLayer/Menu/VBoxContainer/HBoxContainer" instance=ExtResource("6_5sg7j")]
 visible = false
 
 [node name="NotebookScene" parent="Menu" instance=ExtResource("8_jtlve")]
@@ -224,8 +233,14 @@ layout_mode = 1
 [connection signal="tile_deleted" from="Garden View" to="." method="_on_garden_view_tile_deleted"]
 [connection signal="tile_moved" from="Garden View" to="." method="_on_garden_view_tile_moved"]
 [connection signal="tile_placed" from="Garden View" to="." method="_on_garden_view_tile_placed"]
-[connection signal="id_pressed" from="Menu/VBoxContainer/MenuBarPanel/MenuBar/File" to="." method="_on_file_id_pressed"]
-[connection signal="id_pressed" from="Menu/VBoxContainer/MenuBarPanel/MenuBar/Edit" to="." method="_on_edit_id_pressed"]
-[connection signal="id_pressed" from="Menu/VBoxContainer/MenuBarPanel/MenuBar/View" to="." method="_on_view_id_pressed"]
-[connection signal="object_selected" from="Menu/VBoxContainer/HBoxContainer/Object Library" to="." method="_on_object_library_object_selected"]
-[connection signal="notebook_update_requested" from="Menu/NotebookScene" to="." method="_on_notebook_scene_notebook_update_requested"]
+
+
+[connection signal="notebook_update_requested" from="CanvasLayer/Menu/NotebookScene" to="." method="_on_notebook_scene_notebook_update_requested"]
+[connection signal="mouse_entered" from="CanvasLayer/Menu" to="Garden View" method="_on_menu_mouse_entered"]
+[connection signal="mouse_exited" from="CanvasLayer/Menu" to="Garden View" method="_on_menu_mouse_exited"]
+[connection signal="id_pressed" from="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar/File" to="." method="_on_file_id_pressed"]
+[connection signal="id_pressed" from="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar/Edit" to="." method="_on_edit_id_pressed"]
+[connection signal="id_pressed" from="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar/View" to="." method="_on_view_id_pressed"]
+[connection signal="id_pressed" from="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar/Help" to="." method="_on_help_id_pressed"]
+[connection signal="object_selected" from="CanvasLayer/Menu/VBoxContainer/HBoxContainer/Object Library" to="." method="_on_object_library_object_selected"]
+
