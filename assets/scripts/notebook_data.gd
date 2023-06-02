@@ -9,6 +9,7 @@ extends Node
 ##to alert the UI of the change.
 func update_notebook_data(new_notebook_state:Dictionary):
 	self._notebook_data = new_notebook_state
+	print(_notebook_data)
 	#print("backend notes:",self._notebook_data)
 	GardenSignalBus.notebook_updated.emit(self._notebook_data.duplicate())
 

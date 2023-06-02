@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpb3vqjnxlsm2"]
+[gd_scene load_steps=17 format=3 uid="uid://cpb3vqjnxlsm2"]
 
 [ext_resource type="TileSet" uid="uid://dkkkqt5gs5kwv" path="res://assets/resources/Garden.tres" id="1_cnw6q"]
 [ext_resource type="Script" path="res://assets/scripts/ui.gd" id="1_q1tt1"]
@@ -8,6 +8,7 @@
 [ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="4_ywda8"]
 [ext_resource type="PackedScene" uid="uid://bv7inytf4futi" path="res://assets/scenes/garden_inventory_popup.tscn" id="5_rn7c7"]
 [ext_resource type="PackedScene" uid="uid://c1us87waphm1d" path="res://assets/scenes/garden_schedule_popup.tscn" id="6_5sg7j"]
+[ext_resource type="PackedScene" uid="uid://bnryqfrxfjohl" path="res://assets/scenes/notebook.tscn" id="8_jtlve"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_bw7g3"]
 bg_color = Color(0, 0.231373, 0.368627, 1)
@@ -175,11 +176,13 @@ item_2/text = "Move Object"
 item_2/id = 2
 
 [node name="View" type="PopupMenu" parent="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar"]
-item_count = 2
+item_count = 3
 item_0/text = "Inventory"
 item_0/id = 0
 item_1/text = "Schedule"
 item_1/id = 1
+item_2/text = "Notes"
+item_2/id = 2
 
 [node name="Help" type="PopupMenu" parent="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar"]
 
@@ -221,6 +224,9 @@ visible = false
 
 [node name="garden_schedule_popup" parent="CanvasLayer/Menu/VBoxContainer/HBoxContainer" instance=ExtResource("6_5sg7j")]
 visible = false
+
+[node name="NotebookScene" parent="CanvasLayer/Menu" instance=ExtResource("8_jtlve")]
+layout_mode = 1
 
 [connection signal="tile_clicked" from="Garden View" to="." method="_on_garden_view_tile_clicked"]
 [connection signal="tile_deleted" from="Garden View" to="." method="_on_garden_view_tile_deleted"]

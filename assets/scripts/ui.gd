@@ -15,6 +15,9 @@ signal exit_program_requested()
 signal notebook_update_requested(new_notebook_state:Dictionary)
 signal create_garden_requested(rows:int, columns:int)
 
+func _on_notebook_scene_notebook_update_requested(new_notebook_state:Dictionary):
+	notebook_update_requested.emit(new_notebook_state)
+
 enum File_Menu_Option{
 	EXIT = 1,
 	CREATE_GARDEN = 2,
@@ -32,6 +35,7 @@ enum Edit_Menu_Option {
 enum View_Menu_Option {
 	INVENTORY = 0,
 	SCHEDULE = 1,
+	NOTES = 2
 }
 
 const SaveFileDialogScene = preload("res://assets/scenes/save_file_dialog.tscn")
@@ -141,6 +145,7 @@ func show_image_message(filepath: String):
 
 
 func _reset_view():
+	$CanvasLayer/Menu/NotebookScene.close_notes()
 	_garden_inventory_popup.hide()
 	_garden_schedule_popup.hide()
 	_object_library.hide()
@@ -174,6 +179,9 @@ func _on_view_id_pressed(id):
 		View_Menu_Option.SCHEDULE:
 			_garden_schedule_popup.visible = true
 
+		View_Menu_Option.NOTES:
+			$CanvasLayer/Menu/NotebookScene.open_notes()
 
 func _on_help_id_pressed(id):
 	pass # Replace with function body.
+
