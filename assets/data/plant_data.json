@@ -1,23 +1,23 @@
 {
   "Cabbage": {
-    "PlantingDateRangeStart": "03-05",
-    "PlantingDateRangeEnd": "03-20",
-    "SowingLocation": "Indoors",
-    "Notes": "Transplant seedlings outdoors 04-03 to 04-17",
-    "Sprite Source ID": "10"
+	"PlantingDateRangeStart": "03-05",
+	"PlantingDateRangeEnd": "03-20",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 04-03 to 04-17",
+	"Sprite Source ID": "10"
   },
   "Carrot": {
-    "PlantingDateRangeStart": "03-27",
-    "PlantingDateRangeEnd": "04-10",
-    "SowingLocation": "Outdoors",
-    "Notes": "N/A",
-    "Sprite Source ID": "203"
+	"PlantingDateRangeStart": "03-27",
+	"PlantingDateRangeEnd": "04-10",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "203"
   },
   "Potato": {
-    "PlantingDateRangeStart": "04-03",
-    "PlantingDateRangeEnd": "04-17",
-    "SowingLocation": "Outdoors",
-    "Notes": "N/A",
-    "Sprite Source ID": "32767"
+	"PlantingDateRangeStart": "04-03",
+	"PlantingDateRangeEnd": "04-17",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "32767"
   }
 }
