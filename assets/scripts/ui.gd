@@ -145,8 +145,6 @@ func show_image_message(filepath: String):
 
 
 func _reset_view():
-
-
 	$CanvasLayer/Menu/NotebookScene.close_notes()
 	_garden_inventory_popup.hide()
 	_garden_schedule_popup.hide()
@@ -183,9 +181,6 @@ func _on_view_id_pressed(id):
 
 		View_Menu_Option.NOTES:
 			$CanvasLayer/Menu/NotebookScene.open_notes()
-
-			
-
 
 func _on_help_id_pressed(id):
 	pass # Replace with function body.
