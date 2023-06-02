@@ -74,7 +74,7 @@ func _on_file_id_pressed(id):
 ##a dialog box
 func prompt_create_garden():
 	var garden_creation_popup = GardenCreationPopupScene.instantiate()
-	self.add_child(garden_creation_popup)
+	$CanvasLayer/Menu.add_child(garden_creation_popup)
 	var dimensions = await(garden_creation_popup.dimensions_selected_or_cancelled)
 	var rows = dimensions[1]
 	var columns = dimensions[0]
