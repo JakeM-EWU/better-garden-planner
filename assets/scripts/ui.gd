@@ -7,6 +7,7 @@ signal object_move_requested(old_row: int, old_column: int, new_row: int, new_co
 signal object_select_requested(row: int,column: int)
 signal load_file_requested()
 signal save_file_requested()
+signal export_image_requested()
 signal exit_program_requested()
 signal get_placed_objects_requested()
 
@@ -20,6 +21,7 @@ enum File_Menu_Option{
 	CREATE_GARDEN = 2,
 	SAVE_AS = 3,
 	LOAD = 4,
+	EXPORT_IMAGE = 5,
 }
 
 enum Edit_Menu_Option {
@@ -38,8 +40,10 @@ const LoadFileDialogScene = preload("res://assets/scenes/load_file_dialog.tscn")
 
 
 @onready var _garden_view: GardenView = $"Garden View"
-@onready var _object_library: ObjectLibrary = $"Menu/VBoxContainer/HBoxContainer/Object Library"
-@onready var _action_state_label: Label = $"Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label"
+@onready var _object_library: ObjectLibrary = $"CanvasLayer/Menu/VBoxContainer/HBoxContainer/Object Library"
+@onready var _action_state_label: Label = $"CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label"
+@onready var _garden_inventory_popup = $CanvasLayer/Menu/VBoxContainer/HBoxContainer/garden_inventory_popup
+@onready var _garden_schedule_popup = $CanvasLayer/Menu/VBoxContainer/HBoxContainer/garden_schedule_popup
 
 
 func _process(delta):
@@ -61,6 +65,8 @@ func _on_file_id_pressed(id):
 			save_file_requested.emit()
 		File_Menu_Option.LOAD:
 			load_file_requested.emit()
+		File_Menu_Option.EXPORT_IMAGE:
+			export_image_requested.emit()
 		_:
 			push_warning("Menu Item not found")
 
@@ -111,8 +117,8 @@ func _on_edit_id_pressed(id):
 
 
 func _reset_view():
-	$Menu/VBoxContainer/HBoxContainer/garden_inventory_popup.hide()
-	$Menu/VBoxContainer/HBoxContainer/garden_schedule_popup.hide()
+	_garden_inventory_popup.hide()
+	_garden_schedule_popup.hide()
 	_object_library.hide()
 	_action_state_label.text = ""
 	_garden_view.set_edit_state(Enums.Garden_Edit_State.NONE)
@@ -140,8 +146,12 @@ func _on_view_id_pressed(id):
 	match id:
 		View_Menu_Option.INVENTORY:
 			get_placed_objects_requested.emit()
-			$Menu/VBoxContainer/HBoxContainer/garden_inventory_popup.visible = true
-			
+			_garden_inventory_popup.visible = true
+
 		View_Menu_Option.SCHEDULE:
 			get_placed_objects_requested.emit()
-			$Menu/VBoxContainer/HBoxContainer/garden_schedule_popup.visible = true
+			_garden_schedule_popup.visible = true
+
+
+func _on_help_id_pressed(id):
+	pass # Replace with function body.
