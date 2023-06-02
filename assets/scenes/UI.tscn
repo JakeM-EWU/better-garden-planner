@@ -1,4 +1,4 @@
-[gd_scene load_steps=16 format=3 uid="uid://cpb3vqjnxlsm2"]
+[gd_scene load_steps=17 format=3 uid="uid://cpb3vqjnxlsm2"]
 
 [ext_resource type="TileSet" uid="uid://dkkkqt5gs5kwv" path="res://assets/resources/Garden.tres" id="1_cnw6q"]
 [ext_resource type="Script" path="res://assets/scripts/ui.gd" id="1_q1tt1"]
@@ -175,7 +175,6 @@ item_1/id = 1
 item_2/text = "Move Object"
 item_2/id = 2
 
-
 [node name="View" type="PopupMenu" parent="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar"]
 item_count = 3
 item_0/text = "Inventory"
@@ -226,16 +225,13 @@ visible = false
 [node name="garden_schedule_popup" parent="CanvasLayer/Menu/VBoxContainer/HBoxContainer" instance=ExtResource("6_5sg7j")]
 visible = false
 
-[node name="NotebookScene" parent="Menu" instance=ExtResource("8_jtlve")]
+[node name="NotebookScene" parent="CanvasLayer/Menu" instance=ExtResource("8_jtlve")]
 layout_mode = 1
 
 [connection signal="tile_clicked" from="Garden View" to="." method="_on_garden_view_tile_clicked"]
 [connection signal="tile_deleted" from="Garden View" to="." method="_on_garden_view_tile_deleted"]
 [connection signal="tile_moved" from="Garden View" to="." method="_on_garden_view_tile_moved"]
 [connection signal="tile_placed" from="Garden View" to="." method="_on_garden_view_tile_placed"]
-
-
-[connection signal="notebook_update_requested" from="CanvasLayer/Menu/NotebookScene" to="." method="_on_notebook_scene_notebook_update_requested"]
 [connection signal="mouse_entered" from="CanvasLayer/Menu" to="Garden View" method="_on_menu_mouse_entered"]
 [connection signal="mouse_exited" from="CanvasLayer/Menu" to="Garden View" method="_on_menu_mouse_exited"]
 [connection signal="id_pressed" from="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar/File" to="." method="_on_file_id_pressed"]
@@ -243,4 +239,3 @@ layout_mode = 1
 [connection signal="id_pressed" from="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar/View" to="." method="_on_view_id_pressed"]
 [connection signal="id_pressed" from="CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar/Help" to="." method="_on_help_id_pressed"]
 [connection signal="object_selected" from="CanvasLayer/Menu/VBoxContainer/HBoxContainer/Object Library" to="." method="_on_object_library_object_selected"]
-

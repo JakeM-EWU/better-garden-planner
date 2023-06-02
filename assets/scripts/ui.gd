@@ -182,7 +182,7 @@ func _on_view_id_pressed(id):
 			_garden_schedule_popup.visible = true
 
 		View_Menu_Option.NOTES:
-			$Menu/NotebookScene.open_notes()
+			$CanvasLayer/Menu/NotebookScene.open_notes()
 
 			
 
