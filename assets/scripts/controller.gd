@@ -2,14 +2,19 @@ class_name Controller
 extends Node
 
 
-@onready var _ui = $UI
+const UserProjectsDirectory: String = "user://projects"
+
+var _garden_creation_popup_scene = preload("res://assets/scenes/garden_creation_popup.tscn")
+
+@onready var _ui: Ui = $UI
+
 @onready var _garden_data: Garden = $Garden
 
 func _ready():
 	connect_ui_signals()
 	# this if statement creates a save folder if one does not already exist
-	if(not DirAccess.dir_exists_absolute("user://projects")):
-		var project_folder_creation_error = DirAccess.make_dir_absolute("user://projects")
+	if(not DirAccess.dir_exists_absolute(UserProjectsDirectory)):
+		var project_folder_creation_error = DirAccess.make_dir_absolute(UserProjectsDirectory)
 		if(project_folder_creation_error !=OK):
 			printerr("Couldn't create the project folder to save files. Error is below")
 			printerr(error_string(project_folder_creation_error))
@@ -22,6 +27,7 @@ func _ready():
 		# _garden_plan.place_object(tile,1,sprite_coord)
 
 
+
 func connect_ui_signals():
 	_ui.object_place_requested.connect(_on_object_place_requested)
 	_ui.object_remove_requested.connect(_on_object_remove_requested)
@@ -31,7 +37,9 @@ func connect_ui_signals():
 	_ui.exit_program_requested.connect(_on_exit_program_requested)
 	_ui.notebook_update_requested.connect(_on_notebook_update_requested)
 	_ui.create_garden_requested.connect(_on_create_garden_requested)
-	
+	_ui.export_image_requested.connect(_on_export_image_requested)
+
+
 func _on_object_place_requested(row:int,column:int,object_key:String):
 	_garden_data.place_object(row,column,object_key)
 
@@ -61,6 +69,22 @@ func _on_exit_program_requested():
 	get_tree().get_root().propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	get_tree().quit()
 	
+	
+func _on_export_image_requested():
+	_ui.set_menu_visibility(false)
+	
+	await get_tree().create_timer(0.02).timeout
+	
+	var image = get_viewport().get_texture().get_image()
+	var file_path: String = "{d}/{n}.png".format(
+			{
+			"d": UserProjectsDirectory, 
+			"n": Time.get_date_string_from_system()
+			})
+	image.save_png(file_path)
+	
+	_ui.set_menu_visibility(true)
+	_ui.show_image_message(file_path)
 
 
 ##[method create_garden]:
