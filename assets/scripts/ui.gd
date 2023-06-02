@@ -58,7 +58,7 @@ func _on_file_id_pressed(id):
 	match id:
 		File_Menu_Option.EXIT:
 			exit_program_requested.emit()
-		#File_Menu_Options.CREATE_GARDEN:
+		#File_Menu_Option.CREATE_GARDEN:
 			#var garden_creation_popup = _garden_creation_popup_scene.instantiate()
 			#self.add_child(garden_creation_popup)
 		File_Menu_Option.SAVE_AS:

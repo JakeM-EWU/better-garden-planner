@@ -27,6 +27,10 @@ func _on_get_placed_objects(object):
 
 func populate_inventory(inventory_tally): 
 	object_list.clear()
+	if(len(inventory_tally)== 0):
+		object_list.add_item("Place objects in your garden")
+		object_list.add_item("to view inventory")
+	
 	for value in inventory_tally:
 		var item = value + ": " + str(inventory_tally[value])
 		object_list.add_item(item)

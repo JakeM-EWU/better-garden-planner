@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://cu146r3ks35v6"]
+[gd_scene load_steps=61 format=3 uid="uid://c2k5hamvh8jmk"]
 
 [ext_resource type="Texture2D" uid="uid://du1y1br7w0c6u" path="res://assets/images/Sprout Lands - Sprites - Basic pack/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png" id="1_37qin"]
 [ext_resource type="Script" path="res://assets/scripts/title_screen.gd" id="1_x58mg"]

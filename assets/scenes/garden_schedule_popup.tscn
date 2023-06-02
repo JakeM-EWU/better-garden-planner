@@ -30,8 +30,8 @@ Window/styles/embedded_border = SubResource("StyleBoxFlat_vibcu")
 [node name="garden_schedule_popup" type="Window"]
 title = "Garden Schedule"
 position = Vector2i(198, 76)
-size = Vector2i(750, 500)
-min_size = Vector2i(750, 500)
+size = Vector2i(500, 500)
+min_size = Vector2i(500, 500)
 theme = SubResource("Theme_tht4p")
 theme_override_fonts/title_font = ExtResource("1_wri3l")
 theme_override_font_sizes/title_font_size = 25

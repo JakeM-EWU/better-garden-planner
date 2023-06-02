@@ -3,7 +3,6 @@
 [ext_resource type="Script" path="res://assets/scripts/controller.gd" id="1_0n1by"]
 [ext_resource type="Script" path="res://assets/scripts/Garden.gd" id="2_0x4ej"]
 [ext_resource type="PackedScene" uid="uid://cpb3vqjnxlsm2" path="res://assets/scenes/UI.tscn" id="2_tx6a1"]
-[ext_resource type="PackedScene" uid="uid://cu146r3ks35v6" path="res://assets/scenes/title_screen.tscn" id="4_lcbn7"]
 [ext_resource type="Script" path="res://assets/scripts/notebook_data.gd" id="3_svjq2"]
 
 [node name="Controller" type="Node"]
@@ -16,6 +15,3 @@ script = ExtResource("2_0x4ej")
 script = ExtResource("3_svjq2")
 
 [node name="UI" parent="." instance=ExtResource("2_tx6a1")]
-
-[node name="title_screen" parent="UI" instance=ExtResource("4_lcbn7")]
-visible = false

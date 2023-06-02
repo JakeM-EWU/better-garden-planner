@@ -41,7 +41,13 @@ func create_schedule(schedule_tally):
 func populate_schedule(schedule): 
 	for child in grid_container.get_children():
 		grid_container.remove_child(child)
-		
+	if (len(schedule) == 0):
+		var plantLabel = Label.new()
+		plantLabel.text = "Place objects in your garden to view your planting schedule!"
+		var objectContainer = PanelContainer.new()
+		objectContainer.add_child(plantLabel)
+		grid_container.add_child(objectContainer)
+			
 	for item in schedule:	
 		var plantLabel = Label.new()
 		var plant = item["Object"]
