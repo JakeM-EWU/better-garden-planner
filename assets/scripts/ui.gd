@@ -114,6 +114,19 @@ func _on_edit_id_pressed(id):
 	pass # Replace with function body.
 
 
+func set_menu_visibility(is_visible: bool):
+	$CanvasLayer.visible = is_visible
+
+
+func show_image_message(filepath: String):
+	_action_state_label.text = "Image saved at " + filepath
+	await get_tree().create_timer(2.5).timeout
+	
+	# If the action state label is not displaying any edit info, clear the string
+	if (not _garden_view.is_editing()):
+		_action_state_label.text = ""
+
+
 func _reset_view():
 	_garden_inventory_popup.hide()
 	_garden_schedule_popup.hide()

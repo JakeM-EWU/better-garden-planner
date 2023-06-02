@@ -65,6 +65,10 @@ func _on_exit_program_requested():
 	
 	
 func _on_export_image_requested():
+	_ui.set_menu_visibility(false)
+	
+	await get_tree().create_timer(0.02).timeout
+	
 	var image = get_viewport().get_texture().get_image()
 	var file_path: String = "{d}/{n}.png".format(
 			{
@@ -72,6 +76,9 @@ func _on_export_image_requested():
 			"n": Time.get_date_string_from_system()
 			})
 	image.save_png(file_path)
+	
+	_ui.set_menu_visibility(true)
+	_ui.show_image_message(file_path)
 
 
 ##[method create_garden]:
