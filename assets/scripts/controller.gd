@@ -1,11 +1,13 @@
 class_name Controller
 extends Node
 
+
 const UserProjectsDirectory: String = "user://projects"
 
 var _garden_creation_popup_scene = preload("res://assets/scenes/garden_creation_popup.tscn")
 
 @onready var _ui: Ui = $UI
+
 @onready var _garden_data: Garden = $Garden
 
 func _ready():
@@ -23,7 +25,7 @@ func _ready():
 		# var tile = Vector2i(randi_range(0,10),randi_range(0,10))
 		
 		# _garden_plan.place_object(tile,1,sprite_coord)
-	create_garden(38,38)
+
 
 
 func connect_ui_signals():
@@ -36,7 +38,9 @@ func connect_ui_signals():
 	_ui.get_placed_objects_requested.connect(_on_placed_objects_requested)
 	_ui.notebook_update_requested.connect(_on_notebook_update_requested)
 	_ui.notebook_update_requested.connect(_on_notebook_update_requested)
+	_ui.create_garden_requested.connect(_on_create_garden_requested)
 	_ui.export_image_requested.connect(_on_export_image_requested)
+
 
 func _on_placed_objects_requested():
 	_garden_data.get_placed_objects()
@@ -50,6 +54,8 @@ func _on_object_remove_requested(row:int, column:int):
 	_garden_data.remove_object(row, column)
 	pass
 
+func _on_create_garden_requested(rows,columns):
+	create_garden(rows,columns)
 
 func _on_object_move_requested(old_row: int, old_column: int, row: int, column: int):
 	_garden_data.move_object(old_row, old_column, row, column)
@@ -71,6 +77,10 @@ func _on_exit_program_requested():
 	
 
 func _on_export_image_requested():
+	_ui.set_menu_visibility(false)
+
+	await get_tree().create_timer(0.02).timeout
+
 	var image = get_viewport().get_texture().get_image()
 	var file_path: String = "{d}/{n}.png".format(
 			{
@@ -78,6 +88,9 @@ func _on_export_image_requested():
 			"n": Time.get_date_string_from_system()
 			})
 	image.save_png(file_path)
+
+	_ui.set_menu_visibility(true)
+	_ui.show_image_message(file_path)
 
 
 ##[method create_garden]:

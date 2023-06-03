@@ -15,6 +15,10 @@ signal get_placed_objects_requested()
 ##the backend representation of a notebook. emits a dictionary representing
 ##the new state of the notebook.
 signal notebook_update_requested(new_notebook_state:Dictionary)
+signal create_garden_requested(rows:int, columns:int)
+
+func _on_notebook_scene_notebook_update_requested(new_notebook_state:Dictionary):
+	notebook_update_requested.emit(new_notebook_state)
 
 enum File_Menu_Option{
 	EXIT = 1,
@@ -33,10 +37,13 @@ enum Edit_Menu_Option {
 enum View_Menu_Option {
 	INVENTORY = 0,
 	SCHEDULE = 1,
+	NOTES = 2
 }
 
 const SaveFileDialogScene = preload("res://assets/scenes/save_file_dialog.tscn")
 const LoadFileDialogScene = preload("res://assets/scenes/load_file_dialog.tscn")
+const GardenCreationPopupScene = preload("res://assets/scenes/garden_creation_popup.tscn")
+
 
 
 @onready var _garden_view: GardenView = $"Garden View"
@@ -58,9 +65,8 @@ func _on_file_id_pressed(id):
 	match id:
 		File_Menu_Option.EXIT:
 			exit_program_requested.emit()
-		#File_Menu_Option.CREATE_GARDEN:
-			#var garden_creation_popup = _garden_creation_popup_scene.instantiate()
-			#self.add_child(garden_creation_popup)
+		File_Menu_Option.CREATE_GARDEN:
+			prompt_create_garden()
 		File_Menu_Option.SAVE_AS:
 			save_file_requested.emit()
 		File_Menu_Option.LOAD:
@@ -70,6 +76,17 @@ func _on_file_id_pressed(id):
 		_:
 			push_warning("Menu Item not found")
 
+##[method prompt_create_garden] prompts the user to create a garden with
+##a dialog box
+func prompt_create_garden():
+	var garden_creation_popup = GardenCreationPopupScene.instantiate()
+	$CanvasLayer/Menu.add_child(garden_creation_popup)
+	var dimensions = await(garden_creation_popup.dimensions_selected_or_cancelled)
+	var rows = dimensions[1]
+	var columns = dimensions[0]
+	if rows > 0 and columns > 0:
+		create_garden_requested.emit(rows,columns)
+	garden_creation_popup.queue_free()
 
 func prompt_load_file()->String:
 	#create and display the file dialog
@@ -116,7 +133,21 @@ func _on_edit_id_pressed(id):
 	pass # Replace with function body.
 
 
+func set_menu_visibility(is_visible: bool):
+	$CanvasLayer.visible = is_visible
+
+
+func show_image_message(filepath: String):
+	_action_state_label.text = "Image saved at " + filepath
+	await get_tree().create_timer(2.5).timeout
+
+	# If the action state label is not displaying any edit info, clear the string
+	if (not _garden_view.is_editing()):
+		_action_state_label.text = ""
+
+
 func _reset_view():
+	$CanvasLayer/Menu/NotebookScene.close_notes()
 	_garden_inventory_popup.hide()
 	_garden_schedule_popup.hide()
 	_object_library.hide()
@@ -152,6 +183,9 @@ func _on_view_id_pressed(id):
 			get_placed_objects_requested.emit()
 			_garden_schedule_popup.visible = true
 
+		View_Menu_Option.NOTES:
+			$CanvasLayer/Menu/NotebookScene.open_notes()
 
 func _on_help_id_pressed(id):
 	pass # Replace with function body.
+

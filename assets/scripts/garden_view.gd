@@ -105,6 +105,10 @@ func show_delete_interface(tile):
 			tile_deleted.emit(row, column)
 
 
+func is_editing():
+	return not (current_edit_state == Enums.Garden_Edit_State.NONE)
+
+
 func show_move_interface(tile):
 	if (not currently_moving_object):
 		
