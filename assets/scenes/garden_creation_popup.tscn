@@ -7,12 +7,12 @@
 [sub_resource type="Theme" id="Theme_f3336"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltb0g"]
-bg_color = Color(0.282353, 0.329412, 0.803922, 1)
+bg_color = Color(0.109804, 0.12549, 0.392157, 1)
 border_width_left = 8
 border_width_top = 8
 border_width_right = 8
 border_width_bottom = 8
-border_color = Color(0, 0.0745098, 0.109804, 1)
+border_color = Color(0.372549, 0.266667, 0.580392, 1)
 border_blend = true
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -39,10 +39,10 @@ corner_detail = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7ado"]
 bg_color = Color(0.148385, 0.0474493, 0.108484, 1)
-border_width_left = 12
-border_width_top = 12
-border_width_right = 12
-border_width_bottom = 12
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
 border_color = Color(0.937255, 0.372549, 0.482353, 1)
 border_blend = true
 corner_radius_top_left = 8
@@ -53,10 +53,10 @@ corner_detail = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cvr8c"]
 bg_color = Color(0.611767, 0.12315, 0.257011, 1)
-border_width_left = 12
-border_width_top = 12
-border_width_right = 12
-border_width_bottom = 12
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
 border_color = Color(0.854902, 0.764706, 0.909804, 1)
 border_blend = true
 corner_radius_top_left = 8
