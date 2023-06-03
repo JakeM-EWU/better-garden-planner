@@ -7,25 +7,29 @@
 [sub_resource type="Theme" id="Theme_f3336"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ltb0g"]
-bg_color = Color(1.58831e-06, 0.501083, 0.455193, 1)
-border_width_left = 40
-border_width_top = 40
-border_width_right = 40
-border_width_bottom = 40
-border_color = Color(2.01548e-07, 0.122212, 0.107587, 1)
+bg_color = Color(0.282353, 0.329412, 0.803922, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0.0745098, 0.109804, 1)
 border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
 corner_detail = 1
 
 [sub_resource type="Theme" id="Theme_3qc5n"]
 default_font = ExtResource("2_sow8u")
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_d16bh"]
-bg_color = Color(0.513726, 0.270588, 0.458824, 1)
-border_width_left = 12
-border_width_top = 12
-border_width_right = 12
-border_width_bottom = 12
-border_color = Color(0.219608, 0.0352941, 0.172549, 1)
+bg_color = Color(0.921569, 0.541176, 0.709804, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.14902, 0.0470588, 0.109804, 1)
 border_blend = true
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -34,12 +38,12 @@ corner_radius_bottom_left = 8
 corner_detail = 1
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_i7ado"]
-bg_color = Color(0.218896, 0.0356678, 0.173486, 1)
+bg_color = Color(0.148385, 0.0474493, 0.108484, 1)
 border_width_left = 12
 border_width_top = 12
 border_width_right = 12
 border_width_bottom = 12
-border_color = Color(0.514022, 0.270778, 0.459094, 1)
+border_color = Color(0.937255, 0.372549, 0.482353, 1)
 border_blend = true
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -71,10 +75,10 @@ anchor_left = 0.5
 anchor_top = 0.5
 anchor_right = 0.5
 anchor_bottom = 0.5
-offset_left = -285.5
+offset_left = -286.0
 offset_top = -178.0
-offset_right = 285.5
-offset_bottom = 178.0
+offset_right = 214.0
+offset_bottom = 122.0
 grow_horizontal = 2
 grow_vertical = 2
 size_flags_horizontal = 6
@@ -84,35 +88,41 @@ theme_override_styles/panel = SubResource("StyleBoxFlat_ltb0g")
 script = ExtResource("1_y4s4t")
 
 [node name="CreateButton" type="Button" parent="."]
+top_level = true
 clip_contents = true
 layout_mode = 1
-anchors_preset = 3
-anchor_left = 1.0
-anchor_top = 1.0
-anchor_right = 1.0
-anchor_bottom = 1.0
-offset_left = -228.0
-offset_top = -72.0
-offset_right = -18.0
-offset_bottom = -13.0
+anchors_preset = -1
+anchor_left = 0.818
+anchor_top = 0.822
+anchor_right = 0.818
+anchor_bottom = 0.822
+offset_left = -302.7
+offset_top = -198.84
+offset_right = -182.7
+offset_bottom = -144.84
 grow_horizontal = 0
 grow_vertical = 0
 mouse_default_cursor_shape = 2
 theme = SubResource("Theme_3qc5n")
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_pressed_color = Color(0.803922, 0.803922, 0.803922, 1)
+theme_override_colors/font_hover_color = Color(0.941176, 0.835294, 0.941176, 1)
 theme_override_fonts/font = ExtResource("2_sow8u")
-theme_override_font_sizes/font_size = 35
+theme_override_font_sizes/font_size = 30
 theme_override_styles/normal = SubResource("StyleBoxFlat_d16bh")
 theme_override_styles/hover = SubResource("StyleBoxFlat_i7ado")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_cvr8c")
-text = "Create Garden"
+text = "Create"
 
 [node name="ExitButton" type="Button" parent="."]
 layout_mode = 1
 anchors_preset = 1
 anchor_left = 1.0
 anchor_right = 1.0
-offset_left = -26.0
-offset_bottom = 31.0
+offset_left = -40.0
+offset_top = 10.0
+offset_right = -14.0
+offset_bottom = 46.0
 grow_horizontal = 0
 theme = SubResource("Theme_plpsx")
 text = "X"
@@ -133,7 +143,7 @@ grow_horizontal = 2
 custom_minimum_size = Vector2(50, 60)
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_sow8u")
-theme_override_font_sizes/font_size = 60
+theme_override_font_sizes/font_size = 40
 text = "Create a new Garden"
 horizontal_alignment = 1
 vertical_alignment = 1
