@@ -4,12 +4,12 @@
 [ext_resource type="Script" path="res://assets/scripts/garden_schedule_popup.gd" id="2_x7bba"]
 
 [sub_resource type="StyleBoxFlat" id="StyleBoxFlat_vibcu"]
-bg_color = Color(0.12549, 0.0627451, 0.415686, 1)
+bg_color = Color(0, 0.101961, 0.14902, 1)
 border_width_left = 8
 border_width_top = 8
 border_width_right = 8
 border_width_bottom = 8
-border_color = Color(0.424167, 0.330764, 0.875458, 1)
+border_color = Color(0.0235294, 0.490196, 0.631373, 1)
 border_blend = true
 corner_radius_top_left = 8
 corner_radius_top_right = 8
@@ -44,7 +44,7 @@ anchor_right = 1.0
 anchor_bottom = 1.0
 grow_horizontal = 2
 grow_vertical = 2
-color = Color(0.470588, 0.517647, 0.933333, 0.960784)
+color = Color(0, 0.627451, 0.764706, 0.960784)
 
 [node name="InventoryList" type="ScrollContainer" parent="."]
 custom_minimum_size = Vector2(500, 500)

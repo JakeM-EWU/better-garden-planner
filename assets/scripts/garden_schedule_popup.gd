@@ -43,7 +43,7 @@ func populate_schedule(schedule):
 		grid_container.remove_child(child)
 	if (len(schedule) == 0):
 		var plantLabel = Label.new()
-		plantLabel.text = "Place objects in your garden to view your planting schedule!"
+		plantLabel.text = "Place objects in your garden \nto view your planting schedule!"
 		var objectContainer = PanelContainer.new()
 		objectContainer.add_child(plantLabel)
 		grid_container.add_child(objectContainer)
