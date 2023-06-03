@@ -1,9 +1,142 @@
-[gd_scene load_steps=2 format=3 uid="uid://bnryqfrxfjohl"]
+[gd_scene load_steps=14 format=3 uid="uid://bnryqfrxfjohl"]
 
+[ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="1_2yh27"]
 [ext_resource type="Script" path="res://assets/scripts/notebook.gd" id="1_648xl"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_r48ke"]
+bg_color = Color(0.25098, 0.709804, 0.647059, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.00392157, 0.133333, 0.168627, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_u3qof"]
+bg_color = Color(0.054902, 0.184314, 0.278431, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0, 0.92549, 0.823529, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 1
+shadow_color = Color(0.0117647, 0.0235294, 0.113725, 0.745098)
+shadow_size = 2
+shadow_offset = Vector2(1, 1)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_w6via"]
+bg_color = Color(0, 0.745098, 0.745098, 0.478431)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.0117647, 0.113725, 0.145098, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_1wf1h"]
+bg_color = Color(0.737255, 0.921569, 0.980392, 0.631373)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.152941, 0.466667, 0.584314, 1)
+border_blend = true
+corner_radius_top_left = 5
+corner_radius_top_right = 5
+corner_radius_bottom_right = 5
+corner_radius_bottom_left = 5
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_yl4s8"]
+bg_color = Color(0.6, 0.6, 0.6, 0)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_0bpe0"]
+bg_color = Color(0.737255, 0.921569, 0.980392, 0.733333)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_objhe"]
+bg_color = Color(0.0431373, 0.678431, 0.737255, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.00392157, 0.188235, 0.180392, 1)
+border_blend = true
+corner_radius_top_left = 12
+corner_radius_top_right = 12
+corner_radius_bottom_right = 12
+corner_radius_bottom_left = 12
+corner_detail = 1
+shadow_color = Color(0, 0.12549, 0.145098, 0.6)
+shadow_size = 3
+shadow_offset = Vector2(2, 2)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_l44mi"]
+bg_color = Color(0.784314, 0.941176, 0.972549, 0.92549)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.25098, 0.807843, 0.862745, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+corner_detail = 1
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_cwhnd"]
+
+[sub_resource type="Theme" id="Theme_w2p6v"]
+Button/colors/font_hover_color = Color(0.0509804, 0.0509804, 0.0509804, 1)
+Button/colors/font_pressed_color = Color(0.00784314, 0.027451, 0.0509804, 1)
+Button/font_sizes/font_size = 25
+Button/fonts/font = ExtResource("1_2yh27")
+Button/styles/disabled = null
+Button/styles/hover = SubResource("StyleBoxFlat_r48ke")
+Button/styles/normal = SubResource("StyleBoxFlat_u3qof")
+Button/styles/pressed = SubResource("StyleBoxFlat_w6via")
+ItemList/colors/font_color = Color(0.0196078, 0.054902, 0.113725, 1)
+ItemList/colors/font_selected_color = Color(0, 0.0901961, 0.0901961, 1)
+ItemList/font_sizes/font_size = 25
+ItemList/fonts/font = ExtResource("1_2yh27")
+ItemList/styles/cursor = null
+ItemList/styles/panel = SubResource("StyleBoxFlat_1wf1h")
+Label/colors/font_color = Color(0, 0.0627451, 0.0627451, 1)
+Label/font_sizes/font_size = 30
+Label/fonts/font = ExtResource("1_2yh27")
+Label/styles/normal = SubResource("StyleBoxFlat_yl4s8")
+LineEdit/colors/font_color = Color(0.00392157, 0.0588235, 0.0705882, 1)
+LineEdit/colors/font_placeholder_color = Color(0.0901961, 0.0901961, 0.0901961, 0.6)
+LineEdit/font_sizes/font_size = 25
+LineEdit/fonts/font = ExtResource("1_2yh27")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_0bpe0")
+Panel/styles/panel = SubResource("StyleBoxFlat_objhe")
+TextEdit/colors/font_color = Color(0.00392157, 0.00392157, 0.00392157, 1)
+TextEdit/colors/font_placeholder_color = Color(0.00392157, 0.0823529, 0.0705882, 0.6)
+TextEdit/colors/font_readonly_color = Color(0.0352941, 0.0352941, 0.0352941, 0.501961)
+TextEdit/font_sizes/font_size = 25
+TextEdit/fonts/font = ExtResource("1_2yh27")
+TextEdit/styles/normal = SubResource("StyleBoxFlat_l44mi")
+TextEdit/styles/read_only = SubResource("StyleBoxFlat_cwhnd")
+
+[sub_resource type="Theme" id="Theme_hkbu5"]
+
 [node name="NotebookScene" type="Panel"]
-visible = false
 custom_minimum_size = Vector2(800, 600)
 anchors_preset = 8
 anchor_left = 0.5
@@ -16,6 +149,8 @@ offset_right = 400.0
 offset_bottom = 300.0
 grow_horizontal = 2
 grow_vertical = 2
+theme = SubResource("Theme_w2p6v")
+theme_type_variation = &"NotebookTheme"
 script = ExtResource("1_648xl")
 
 [node name="NotebookTitle" type="Label" parent="."]
@@ -101,6 +236,7 @@ anchor_left = 0.35
 anchor_top = 0.2
 anchor_right = 0.95
 anchor_bottom = 0.9
+theme = SubResource("Theme_hkbu5")
 placeholder_text = "Note Text"
 
 [node name="SaveButton" type="Button" parent="."]
