@@ -5,8 +5,8 @@ const MaxZoom: float = 1.5
 const ZoomIncrement: float = 0.1
 
 var _current_zoom: float = 1.0
-var x_bounds
-var y_bounds
+var x_bounds = 0.0
+var y_bounds = 0.0
 
 func _ready():
 	GardenSignalBus.size_set.connect(_on_size_set)
