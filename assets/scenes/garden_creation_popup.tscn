@@ -1,8 +1,7 @@
-[gd_scene load_steps=11 format=3 uid="uid://gs2mfyu8ou4j"]
+[gd_scene load_steps=10 format=3 uid="uid://gs2mfyu8ou4j"]
 
 [ext_resource type="Script" path="res://assets/scripts/garden_creation_popup.gd" id="1_y4s4t"]
 [ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="2_sow8u"]
-[ext_resource type="FontFile" uid="uid://dordcixmxodmx" path="res://assets/fonts/Stardew_Valley.ttf" id="3_utub7"]
 
 [sub_resource type="Theme" id="Theme_f3336"]
 
@@ -139,18 +138,6 @@ horizontal_alignment = 1
 vertical_alignment = 1
 uppercase = true
 
-[node name="GardenNameLabel" type="Label" parent="VBoxContainer"]
-layout_mode = 2
-size_flags_horizontal = 0
-size_flags_vertical = 10
-theme_override_fonts/font = ExtResource("3_utub7")
-theme_override_font_sizes/font_size = 35
-text = "Garden Name:"
-vertical_alignment = 1
-
-[node name="GardenName" type="LineEdit" parent="VBoxContainer"]
-layout_mode = 2
-
 [node name="DimensionsLabel" type="Label" parent="VBoxContainer"]
 layout_mode = 2
 theme_override_fonts/font = ExtResource("2_sow8u")
@@ -164,6 +151,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 30)
 layout_direction = 2
 layout_mode = 2
+size_flags_horizontal = 3
 min_value = 1.0
 value = 1.0
 
@@ -181,6 +169,7 @@ layout_mode = 2
 custom_minimum_size = Vector2(200, 30)
 layout_direction = 2
 layout_mode = 2
+size_flags_horizontal = 3
 min_value = 1.0
 value = 1.0
 
