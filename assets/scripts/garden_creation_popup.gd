@@ -12,7 +12,6 @@ signal dimensions_selected_or_cancelled(x_dimension, y_dimension)
 @onready var y_slider = $VBoxContainer/YDimensionsContainer/YDimensionSlider
 @onready var y_spin_box = $VBoxContainer/YDimensionsContainer/YDimensionSpinBox
 @onready var create_button = $CreateButton
-@onready var project_name = $VBoxContainer/GardenName
 
 # Function called when the x_slider value changes.
 func on_x_slider_change(value):
