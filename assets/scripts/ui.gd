@@ -9,6 +9,8 @@ signal load_file_requested()
 signal save_file_requested()
 signal export_image_requested()
 signal exit_program_requested()
+signal get_placed_objects_requested()
+
 ##[signal notebook_update_requested] emmited when the UI wants to update
 ##the backend representation of a notebook. emits a dictionary representing
 ##the new state of the notebook.
@@ -74,7 +76,7 @@ func _on_file_id_pressed(id):
 		_:
 			push_warning("Menu Item not found")
 
-##[method prompt_create_garden] prompts the user to create a garden with 
+##[method prompt_create_garden] prompts the user to create a garden with
 ##a dialog box
 func prompt_create_garden():
 	var garden_creation_popup = GardenCreationPopupScene.instantiate()
@@ -85,7 +87,7 @@ func prompt_create_garden():
 	if rows > 0 and columns > 0:
 		create_garden_requested.emit(rows,columns)
 	garden_creation_popup.queue_free()
-	
+
 func prompt_load_file()->String:
 	#create and display the file dialog
 	var load_file_dialag = LoadFileDialogScene.instantiate()
@@ -138,7 +140,7 @@ func set_menu_visibility(is_visible: bool):
 func show_image_message(filepath: String):
 	_action_state_label.text = "Image saved at " + filepath
 	await get_tree().create_timer(2.5).timeout
-	
+
 	# If the action state label is not displaying any edit info, clear the string
 	if (not _garden_view.is_editing()):
 		_action_state_label.text = ""
@@ -174,9 +176,11 @@ func _on_view_id_pressed(id):
 	_reset_view()
 	match id:
 		View_Menu_Option.INVENTORY:
+			get_placed_objects_requested.emit()
 			_garden_inventory_popup.visible = true
-			
+
 		View_Menu_Option.SCHEDULE:
+			get_placed_objects_requested.emit()
 			_garden_schedule_popup.visible = true
 
 		View_Menu_Option.NOTES:

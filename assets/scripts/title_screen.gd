@@ -16,3 +16,8 @@ func _process(delta):
 func _on_jump_to_ui_pressed():
 	get_tree().change_scene_to_file("res://assets/scenes/Controller.tscn")
 	pass # Replace with function body.
+
+
+func _on_load_button_pressed():
+	var node = get_node("load_file_dialog")
+	node.visible = true

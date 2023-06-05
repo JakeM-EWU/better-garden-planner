@@ -1,4 +1,4 @@
-[gd_scene load_steps=5 format=3 uid="uid://jqajyk3c727c"]
+[gd_scene load_steps=5 format=3 uid="uid://cxwoqq654hx1w"]
 
 [ext_resource type="Script" path="res://assets/scripts/controller.gd" id="1_0n1by"]
 [ext_resource type="Script" path="res://assets/scripts/Garden.gd" id="2_0x4ej"]

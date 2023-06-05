@@ -35,9 +35,15 @@ func connect_ui_signals():
 	_ui.load_file_requested.connect(_on_load_requested)
 	_ui.save_file_requested.connect(_on_save_requested)
 	_ui.exit_program_requested.connect(_on_exit_program_requested)
+	_ui.get_placed_objects_requested.connect(_on_placed_objects_requested)
+	_ui.notebook_update_requested.connect(_on_notebook_update_requested)
 	_ui.notebook_update_requested.connect(_on_notebook_update_requested)
 	_ui.create_garden_requested.connect(_on_create_garden_requested)
 	_ui.export_image_requested.connect(_on_export_image_requested)
+
+
+func _on_placed_objects_requested():
+	_garden_data.get_placed_objects()
 
 
 func _on_object_place_requested(row:int,column:int,object_key:String):
@@ -69,20 +75,20 @@ func _on_exit_program_requested():
 	get_tree().get_root().propagate_notification(NOTIFICATION_WM_CLOSE_REQUEST)
 	get_tree().quit()
 	
-	
+
 func _on_export_image_requested():
 	_ui.set_menu_visibility(false)
-	
+
 	await get_tree().create_timer(0.02).timeout
-	
+
 	var image = get_viewport().get_texture().get_image()
 	var file_path: String = "{d}/{n}.png".format(
 			{
-			"d": UserProjectsDirectory, 
+			"d": UserProjectsDirectory,
 			"n": Time.get_date_string_from_system()
 			})
 	image.save_png(file_path)
-	
+
 	_ui.set_menu_visibility(true)
 	_ui.show_image_message(file_path)
 
