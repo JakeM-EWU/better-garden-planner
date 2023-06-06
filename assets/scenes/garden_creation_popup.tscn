@@ -68,6 +68,7 @@ corner_detail = 1
 default_font_size = 20
 
 [node name="GardenCreationPopup" type="Panel"]
+top_level = true
 custom_minimum_size = Vector2(400, 300)
 anchors_preset = 8
 anchor_left = 0.5

@@ -1,10 +1,11 @@
-[gd_resource type="TileSet" load_steps=41 format=3 uid="uid://bny1d0xy3gvgb"]
+[gd_resource type="TileSet" load_steps=23 format=3 uid="uid://bny1d0xy3gvgb"]
 
 [ext_resource type="Texture2D" uid="uid://b0ug80oac8008" path="res://assets/images/Placeable.png" id="1_856l8"]
 [ext_resource type="Texture2D" uid="uid://c2rnepv66s2lv" path="res://assets/images/Fruit+.png" id="2_1cy6d"]
 [ext_resource type="Texture2D" uid="uid://cenx8qaxj8n3" path="res://assets/images/Cabbage.png" id="3_01iys"]
 [ext_resource type="Texture2D" uid="uid://yojvjv6o1dmd" path="res://assets/images/Leek.png" id="4_3fxkm"]
 [ext_resource type="Texture2D" uid="uid://7ccpmeys04q" path="res://assets/images/Carrot.png" id="4_35ajk"]
+[ext_resource type="Texture2D" uid="uid://rkqips8sk7ot" path="res://assets/images/Cherry.png" id="5_hreyw"]
 [ext_resource type="Texture2D" uid="uid://6swfp7cxgl4p" path="res://assets/images/ui cursors/Place Cursor.png" id="5_ne3dn"]
 [ext_resource type="Texture2D" uid="uid://0rp33g1slpip" path="res://assets/images/Potato.png" id="5_s0ewo"]
 [ext_resource type="Texture2D" uid="uid://ctprxehhnfqcs" path="res://assets/images/ui cursors/Delete Cursor.png" id="6_6en2u"]

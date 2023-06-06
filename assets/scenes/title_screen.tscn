@@ -1,4 +1,4 @@
-[gd_scene load_steps=61 format=3 uid="uid://c2k5hamvh8jmk"]
+[gd_scene load_steps=59 format=3 uid="uid://c2k5hamvh8jmk"]
 
 [ext_resource type="Texture2D" uid="uid://du1y1br7w0c6u" path="res://assets/images/Sprout Lands - Sprites - Basic pack/Tilesets/ground tiles/new tiles/Grass hill tiles v.2.png" id="1_37qin"]
 [ext_resource type="Script" path="res://assets/scripts/title_screen.gd" id="1_x58mg"]
@@ -23,8 +23,6 @@
 [ext_resource type="Texture2D" uid="uid://buj4cjwy4cbkm" path="res://assets/images/chickens/Chicken_Sprite_Sheet_Light_Brown.png" id="20_owvxh"]
 [ext_resource type="Texture2D" uid="uid://c2dg4j1h5mrj0" path="res://assets/images/buttons/Buttons_all_01.png" id="22_e0oip"]
 [ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="23_07p7m"]
-[ext_resource type="PackedScene" uid="uid://gs2mfyu8ou4j" path="res://assets/scenes/garden_creation_popup.tscn" id="24_yv5f4"]
-[ext_resource type="PackedScene" uid="uid://bc7l74juaedwa" path="res://assets/scenes/load_file_dialog.tscn" id="25_ed0ty"]
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_yrwkl"]
 texture = ExtResource("1_37qin")
@@ -1239,16 +1237,5 @@ theme_override_styles/hover = SubResource("StyleBoxFlat_xlue7")
 theme_override_styles/pressed = SubResource("StyleBoxFlat_jqv1h")
 text = "Load Project"
 
-[node name="GardenCreationPopup" parent="." instance=ExtResource("24_yv5f4")]
-visible = false
-layout_mode = 1
-offset_left = 578.0
-offset_top = 294.5
-offset_right = 1146.0
-offset_bottom = 614.5
-
-[node name="load_file_dialog" parent="." instance=ExtResource("25_ed0ty")]
-visible = false
-
-[connection signal="pressed" from="Control/NewButton" to="GardenCreationPopup" method="_on_new_button_pressed"]
+[connection signal="pressed" from="Control/NewButton" to="." method="_on_new_button_pressed"]
 [connection signal="pressed" from="Control2/LoadButton" to="." method="_on_load_button_pressed"]

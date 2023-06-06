@@ -18,6 +18,7 @@ func create_garden(rows: int, columns: int) -> void:
 		placed_objects.append([])
 		for c in columns:
 			placed_objects[r].append("")
+	GardenSignalBus.hide_title_screen.emit()
 
 
 func place_object(row: int, column: int, object_key: String):
@@ -67,6 +68,7 @@ func load_from_file(file:FileAccess):
 				GardenSignalBus.object_placed.emit(r,c,placed_objects[r][c])
 
 	$NotebookData.load_from_file(file)
+	GardenSignalBus.hide_title_screen.emit()
 
 
 func show_garden_details(placed_objects):
