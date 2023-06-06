@@ -5,10 +5,16 @@ var notes = {}  # A dictionary to store the notes. Keys are the note titles.
 signal notebook_update_requested(notebook_state:Dictionary)
 
 func _ready():
-	pass  # This function is called when the node and its children have entered the scene tree.
+	GardenSignalBus.notebook_updated.connect(on_notebook_updated)
 
 func on_notebook_updated(notebook_state):
 	self.notes = notebook_state
+	$NoteList.clear()
+	var index = -1
+	for note_title in self.notes:
+		index = $NoteList.add_item(note_title)
+	if index != -1:
+		$NoteList.select(index)
 
 # When Add Note button is pressed
 func on_add_note_button_pressed():
@@ -31,7 +37,7 @@ func on_delete_note_button_pressed():
 		var selected_note_index = $NoteList.get_selected_items()[0]
 		var selected_note_title = $NoteList.get_item_text(selected_note_index)
 		notes.erase(selected_note_title)
-		$NoteList.remove_item($NoteList.get_selected_id())
+		$NoteList.remove_item(selected_note_index)
 
 # When Save button is pressed
 func on_save_button_pressed():
