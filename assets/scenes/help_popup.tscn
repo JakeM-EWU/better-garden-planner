@@ -34,7 +34,7 @@ Label/font_sizes/font_size = 16
 [node name="help_popup" type="Window"]
 title = "Instructions and FAQ"
 position = Vector2i(300, 100)
-size = Vector2i(700, 500)
+size = Vector2i(850, 500)
 theme = SubResource("Theme_o8h8n")
 script = ExtResource("2_6bjuf")
 
@@ -58,7 +58,7 @@ theme = SubResource("Theme_grh5s")
 [node name="PanelContainer" type="Label" parent="ScrollContainer"]
 layout_mode = 2
 theme_override_colors/font_color = Color(0, 0, 0, 1)
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 25
 text = "**User Manual: Better Garden Planner**
 
 Thank you for choosing Better Garden Planner! 

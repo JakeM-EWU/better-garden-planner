@@ -1,22 +1,34 @@
-[gd_scene load_steps=3 format=3 uid="uid://bab60pp4rwsdn"]
+[gd_scene load_steps=6 format=3 uid="uid://bab60pp4rwsdn"]
 
 [ext_resource type="Script" path="res://assets/scripts/object_library.gd" id="1_dyppb"]
 [ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="2_7k2kq"]
 
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_ruynn"]
+bg_color = Color(0.152941, 0.690196, 0.615686, 0.670588)
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_sy32o"]
+bg_color = Color(0.152941, 0.690196, 0.615686, 0.670588)
+
+[sub_resource type="Theme" id="Theme_cs2j6"]
+ItemList/styles/panel = SubResource("StyleBoxFlat_ruynn")
+LineEdit/styles/normal = SubResource("StyleBoxFlat_sy32o")
+
 [node name="Object Library" type="Control"]
 layout_mode = 3
 anchors_preset = 0
+offset_top = 1.0
 offset_right = 40.0
-offset_bottom = 40.0
+offset_bottom = 41.0
+theme = SubResource("Theme_cs2j6")
 script = ExtResource("1_dyppb")
 
 [node name="Object List" type="ItemList" parent="."]
 top_level = true
 layout_mode = 0
-offset_left = 1.0
-offset_top = 103.0
-offset_right = 221.0
-offset_bottom = 715.0
+offset_top = 73.0
+offset_right = 220.0
+offset_bottom = 719.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_7k2kq")
 theme_override_font_sizes/font_size = 25
 
@@ -25,8 +37,17 @@ clip_contents = true
 layout_mode = 0
 offset_right = 220.0
 offset_bottom = 31.0
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_colors/font_selected_color = Color(0, 0, 0, 1)
+theme_override_colors/font_uneditable_color = Color(0, 0, 0, 1)
+theme_override_colors/font_placeholder_color = Color(0.0117647, 0.301961, 0.282353, 1)
+theme_override_colors/font_outline_color = Color(0, 0, 0, 1)
+theme_override_colors/caret_color = Color(0, 0, 0, 1)
+theme_override_colors/selection_color = Color(0, 0, 0, 1)
+theme_override_colors/clear_button_color = Color(0, 0, 0, 1)
+theme_override_colors/clear_button_color_pressed = Color(0, 0, 0, 1)
 theme_override_fonts/font = ExtResource("2_7k2kq")
-theme_override_font_sizes/font_size = 20
+theme_override_font_sizes/font_size = 30
 placeholder_text = "Search"
 
 [connection signal="item_selected" from="Object List" to="." method="_on_object_list_item_selected"]
