@@ -40,6 +40,10 @@ enum View_Menu_Option {
 	NOTES = 2
 }
 
+enum Help_Menu_Option {
+	USER_GUIDE = 0
+}
+
 const SaveFileDialogScene = preload("res://assets/scenes/save_file_dialog.tscn")
 const LoadFileDialogScene = preload("res://assets/scenes/load_file_dialog.tscn")
 const GardenCreationPopupScene = preload("res://assets/scenes/garden_creation_popup.tscn")
@@ -52,6 +56,7 @@ const GardenCreationPopupScene = preload("res://assets/scenes/garden_creation_po
 @onready var _garden_inventory_popup = $CanvasLayer/Menu/VBoxContainer/HBoxContainer/garden_inventory_popup
 @onready var _garden_schedule_popup = $CanvasLayer/Menu/VBoxContainer/HBoxContainer/garden_schedule_popup
 @onready var _title_screen = $CanvasLayer/Menu/title_screen
+@onready var _help_popup = $CanvasLayer/Menu/VBoxContainer/HBoxContainer/help_popup
 
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_cancel")):
@@ -150,6 +155,7 @@ func _reset_view():
 	$CanvasLayer/Menu/NotebookScene.close_notes()
 	_garden_inventory_popup.hide()
 	_garden_schedule_popup.hide()
+	_help_popup.hide()
 	_object_library.hide()
 	_action_state_label.text = ""
 	_garden_view.set_edit_state(Enums.Garden_Edit_State.NONE)
@@ -187,7 +193,7 @@ func _on_view_id_pressed(id):
 			$CanvasLayer/Menu/NotebookScene.open_notes()
 
 func _on_help_id_pressed(id):
-	pass # Replace with function body.
+	_help_popup.show()
 
 
 func _ready():
