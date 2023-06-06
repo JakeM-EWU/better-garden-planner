@@ -5,6 +5,7 @@ const MaxZoom: float = 1.5
 const ZoomIncrement: float = 0.1
 
 var _current_zoom: float = 1.0
+var mouse_in_menu: bool = false
 var x_bounds = 0.0
 var y_bounds = 0.0
 
@@ -20,7 +21,8 @@ func _input(event):
 			var y = clampf(new_position.y, -y_bounds, y_bounds)
 			position = Vector2(x, y)
 	if event is InputEventMouseButton:
-		if event.is_pressed():
+		print("Mouse in Menu: " + str(mouse_in_menu))
+		if event.is_pressed() and mouse_in_menu:
 			if event.button_index == MOUSE_BUTTON_WHEEL_DOWN:
 				_current_zoom = max(_current_zoom - ZoomIncrement, MinZoom)
 				self.zoom = _current_zoom * Vector2.ONE
@@ -33,3 +35,11 @@ func _input(event):
 func _on_size_set(rows: int, columns: int):
 	x_bounds = (columns / 2) * 32	
 	y_bounds = (rows / 2) * 32
+
+
+func _on_menu_mouse_entered():
+	mouse_in_menu = true
+
+
+func _on_menu_mouse_exited():
+	mouse_in_menu = false
