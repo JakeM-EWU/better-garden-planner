@@ -1,0 +1,217 @@
+[gd_scene load_steps=6 format=3 uid="uid://5giyy4hnvmx1"]
+
+[ext_resource type="FontFile" uid="uid://ldky2gttdxif" path="res://assets/fonts/Stardew_Valley.otf" id="1_1ps7y"]
+[ext_resource type="Script" path="res://assets/scripts/help_popup.gd" id="2_6bjuf"]
+
+[sub_resource type="StyleBoxFlat" id="StyleBoxFlat_pta2f"]
+bg_color = Color(0.109804, 0.14902, 0.231373, 1)
+border_width_left = 8
+border_width_top = 8
+border_width_right = 8
+border_width_bottom = 8
+border_color = Color(0.607843, 0.831373, 1, 1)
+border_blend = true
+corner_radius_top_left = 8
+corner_radius_top_right = 8
+corner_radius_bottom_right = 8
+corner_radius_bottom_left = 8
+expand_margin_left = 10.0
+expand_margin_top = 40.0
+expand_margin_right = 10.0
+expand_margin_bottom = 10.0
+
+[sub_resource type="Theme" id="Theme_o8h8n"]
+Window/colors/title_color = Color(0.745098, 0.960784, 0.960784, 1)
+Window/colors/title_outline_modulate = Color(0.0745098, 0.352941, 0.509804, 1)
+Window/font_sizes/title_font_size = 40
+Window/fonts/title_font = ExtResource("1_1ps7y")
+Window/styles/embedded_border = SubResource("StyleBoxFlat_pta2f")
+
+[sub_resource type="Theme" id="Theme_grh5s"]
+default_font_size = 20
+Label/font_sizes/font_size = 16
+
+[node name="help_popup" type="Window"]
+title = "Instructions and FAQ"
+position = Vector2i(300, 100)
+size = Vector2i(700, 500)
+theme = SubResource("Theme_o8h8n")
+script = ExtResource("2_6bjuf")
+
+[node name="ColorRect" type="ColorRect" parent="."]
+clip_contents = true
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+color = Color(0.67451, 0.8, 0.921569, 1)
+
+[node name="ScrollContainer" type="ScrollContainer" parent="."]
+anchors_preset = 15
+anchor_right = 1.0
+anchor_bottom = 1.0
+grow_horizontal = 2
+grow_vertical = 2
+theme = SubResource("Theme_grh5s")
+
+[node name="PanelContainer" type="Label" parent="ScrollContainer"]
+layout_mode = 2
+theme_override_colors/font_color = Color(0, 0, 0, 1)
+theme_override_font_sizes/font_size = 20
+text = "**User Manual: Better Garden Planner**
+
+Thank you for choosing Better Garden Planner! 
+This user manual will guide you through the features and functionality of the solution. 
+Please refer to the instructions below to make the most of the application.
+
+## Table of Contents
+
+1. Introduction
+2. System Requirements
+3. Installation
+4. User Interface Overview
+5. Creating a New Project
+6. Managing Your Garden
+7. Saving and Loading Projects
+8. Printing Your Garden Plan
+9. Exporting Your Garden Plan
+10. Troubleshooting
+11. Feedback and Support
+
+## 1. Introduction
+
+Better Garden Planner is a comprehensive garden planning tool designed to assist 
+gardeners in visualizing and organizing their garden layouts. 
+The solution provides a user-friendly interface with features such as drag-and-drop 
+functionality, object library, and note-taking capabilities. 
+With Better Garden Planner, you can create, manage, and save your garden plans 
+effortlessly.
+
+## 2. System Requirements
+
+- Operating System: Windows 10, macOS, or Linux
+- Processor: Dual-core processor or higher
+- RAM: 2GB or higher
+- Storage: 200MB of free disk space
+- Display: 1024x768 resolution or higher
+
+## 3. Installation
+
+To install Better Garden Planner, follow these steps:
+
+1. Visit the official website [www.bettergardenplanner.com]
+(www.bettergardenplanner.com) and navigate to the \"Downloads\" section.
+2. Choose the appropriate installer for your operating system.
+3. Run the installer and follow the on-screen instructions to complete the installation 
+process.
+4. Once the installation is complete, launch the application.
+
+## 4. User Interface Overview
+
+Upon launching Better Garden Planner, you will be presented with the main interface, 
+which consists of the following components:
+
+![User Interface](screenshots/ui_overview.png)
+
+1. **Menu Bar**: The menu bar contains various options for managing your projects, 
+accessing help documentation, and adjusting application settings.
+2. **Toolbar**: The toolbar provides quick access to frequently used tools and functions,
+such as creating new projects, saving, and printing.
+3. **Object Library**: The object library contains a collection of predefined garden 
+objects and plants that can be dragged and dropped onto the garden canvas.
+4. **Garden Canvas**: The garden canvas is the main area where you can design
+and arrange your garden layout. You can drag objects from the object library onto the 
+canvas and arrange them as per your requirements.
+5. **Notebook**: The notebook allows you to create and manage notes related to your 
+garden. You can add, edit, and delete notes to keep track of important information.
+6. **Status Bar**: The status bar displays useful information, such as the current 
+project name, zoom level, and any notifications or error messages.
+
+## 5. Creating a New Project
+
+To create a new project and start designing your garden, follow these steps:
+
+1. Click on the \"File\" menu in the menu bar and select \"New Project.\"
+2. Enter a name for your project and choose a location to save it.
+3. Click \"Create\" to create the new project.
+4. The garden canvas will be cleared, and you can start designing your garden layout.
+
+## 6. Managing Your Garden
+
+Better Garden Planner offers several features to help you manage your garden 
+effectively. Here are some key functions:
+
+- **Adding Objects**: To add an object to your garden, simply click on an object 
+from the object library and drag it onto the garden canvas. You can position and 
+resize the objects as needed.
+- **Arranging Objects**: Objects on the garden canvas can be moved by clicking and 
+dragging them to the desired location. You can also resize objects by clicking and 
+dragging the resize handles.
+- **
+
+Deleting Objects**: To remove an object from the garden canvas, select it and press the 
+\"Delete\" key or right-click on the object and choose \"Delete\" from the context menu.
+- **Note-Taking**: The notebook feature allows you to create and manage notes 
+related to your garden. Click on the notebook tab to access the note-taking interface. 
+You can add new notes, edit existing notes, and delete notes as needed.
+
+## 7. Saving and Loading Projects
+
+Better Garden Planner provides options to save and load your garden projects for 
+future reference. Follow these steps to save and load your projects:
+
+- **Saving a Project**:
+   1. Click on the \"File\" menu in the menu bar and select \"Save Project\" or use the
+shortcut Ctrl+S (Windows) or Command+S (macOS).
+   2. Choose a location to save your project and enter a name for the project file.
+   3. Click \"Save\" to save the project.
+
+- **Loading a Project**:
+   1. Click on the \"File\" menu in the menu bar and select \"Load Project.\"
+   2. Browse to the location where your project file is saved.
+   3. Select the project file and click \"Open\" to load the project.
+
+## 8. Printing Your Garden Plan
+
+Better Garden Planner allows you to print your garden plan for reference or sharing.
+ To print your garden plan, follow these steps:
+
+1. Click on the \"File\" menu in the menu bar and select \"Print\" or use the shortcut Ctrl+P 
+(Windows) or Command+P (macOS).
+2. Adjust the print settings, such as page orientation, margins, and scale, as desired.
+3. Click \"Print\" to print your garden plan.
+
+## 9. Exporting Your Garden Plan
+
+In addition to printing, Better Garden Planner enables you to export your garden plan as 
+an image file for digital sharing or further editing. To export your garden plan, follow 
+these steps:
+
+1. Click on the \"File\" menu in the menu bar and select \"Export\" or use the shortcut Ctrl+E 
+(Windows) or Command+E (macOS).
+2. Choose a location to save the exported image and enter a file name.
+3. Select the desired image format (e.g., PNG, JPEG) from the available options.
+4. Click \"Save\" to export your garden plan as an image file.
+
+## 10. Troubleshooting
+
+If you encounter any issues or have questions while using Better Garden Planner, 
+please refer to the following resources:
+
+- **Contact Us**: If you need further assistance, you can reach out to our support 
+team by emailing support@bettergardenplanner.com.
+
+## 11. Feedback and Support
+
+We value your feedback and are constantly working to improve Better Garden Planner. 
+If you have any suggestions, feature requests, or encounter any issues, please let us know. 
+You can provide feedback through the following channels:
+
+- Email: feedback@bettergardenplanner.com
+- Website: [www.bettergardenplanner.com/feedback]
+(www.bettergardenplanner.com/feedback)
+
+Thank you for using Better Garden Planner! Happy gardening!"
+
+[connection signal="close_requested" from="." to="." method="_on_close_requested"]

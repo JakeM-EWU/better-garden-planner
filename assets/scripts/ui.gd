@@ -51,7 +51,7 @@ const GardenCreationPopupScene = preload("res://assets/scenes/garden_creation_po
 @onready var _action_state_label: Label = $"CanvasLayer/Menu/VBoxContainer/MenuBarPanel/MenuBar/Action State Label"
 @onready var _garden_inventory_popup = $CanvasLayer/Menu/VBoxContainer/HBoxContainer/garden_inventory_popup
 @onready var _garden_schedule_popup = $CanvasLayer/Menu/VBoxContainer/HBoxContainer/garden_schedule_popup
-
+@onready var _title_screen = $CanvasLayer/Menu/title_screen
 
 func _process(delta):
 	if (Input.is_action_just_pressed("ui_cancel")):
@@ -189,3 +189,11 @@ func _on_view_id_pressed(id):
 func _on_help_id_pressed(id):
 	pass # Replace with function body.
 
+
+func _ready():
+	_title_screen.prompt_create_garden_reqeusted.connect(prompt_create_garden)
+	_title_screen.prompt_load_garden_reqeusted.connect(prompt_load_file)
+	GardenSignalBus.hide_title_screen.connect(_hide_title)
+
+func _hide_title():
+	_title_screen.hide()

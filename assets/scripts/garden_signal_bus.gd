@@ -6,3 +6,4 @@ signal size_set(rows:int, columns:int)
 signal cleared()
 signal get_placed_objects(placed_objects: Array)
 signal notebook_updated(notebook_state:Dictionary)
+signal hide_title_screen
