@@ -37,7 +37,6 @@ func connect_ui_signals():
 	_ui.exit_program_requested.connect(_on_exit_program_requested)
 	_ui.get_placed_objects_requested.connect(_on_placed_objects_requested)
 	_ui.notebook_update_requested.connect(_on_notebook_update_requested)
-	_ui.notebook_update_requested.connect(_on_notebook_update_requested)
 	_ui.create_garden_requested.connect(_on_create_garden_requested)
 	_ui.export_image_requested.connect(_on_export_image_requested)
 
