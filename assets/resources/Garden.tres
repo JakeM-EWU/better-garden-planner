@@ -247,7 +247,6 @@ texture = ExtResource("2_1cy6d")
 27:5/0 = 0
 28:5/0 = 0
 29:5/0 = 0
-30:5/0 = 0
 31:5/0 = 0
 32:5/0 = 0
 33:5/0 = 0
@@ -255,6 +254,7 @@ texture = ExtResource("2_1cy6d")
 35:5/0 = 0
 36:5/0 = 0
 37:5/0 = 0
+30:5/0 = 0
 
 [sub_resource type="TileSetAtlasSource" id="TileSetAtlasSource_pop3w"]
 resource_name = "Cabbage"
