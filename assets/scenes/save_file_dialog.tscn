@@ -6,7 +6,7 @@
 [node name="SaveProjectFileDialog" type="FileDialog"]
 title = "Save a Project"
 position = Vector2i(10, 34)
-size = Vector2i(1041, 300)
+size = Vector2i(545, 300)
 visible = true
 theme = ExtResource("1_masxq")
 mode_overrides_title = false
