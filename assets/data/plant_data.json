@@ -19,5 +19,313 @@
 	"SowingLocation": "Outdoors",
 	"Notes": "N/A",
 	"Sprite Source ID": "32767"
+  },
+  "Arugula": {
+	"PlantingDateRangeStart": "04-17",
+	"PlantingDateRangeEnd": "05-01",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Basil": {
+	"PlantingDateRangeStart": "03-05",
+	"PlantingDateRangeEnd": "03-20",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 05-01 to 05-22",
+	"Sprite Source ID": "999"
+  },
+  "Beets": {
+	"PlantingDateRangeStart": "04-17",
+	"PlantingDateRangeEnd": "05-08",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Bell Peppers": {
+	"PlantingDateRangeStart": "02-19",
+	"PlantingDateRangeEnd": "03-05",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 05-08 to 05-22",
+	"Sprite Source ID": "999"
+  },
+  "Bok Choy": {
+	"PlantingDateRangeStart": "03-20",
+	"PlantingDateRangeEnd": "04-03",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 05-08 to 05-22",
+	"Sprite Source ID": "999"
+  },
+  "Broccoli": {
+	"PlantingDateRangeStart": "03-05",
+	"PlantingDateRangeEnd": "03-20",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 04-03 to 04-24",
+	"Sprite Source ID": "999"
+  },
+  "Cantaloupes": {
+	"PlantingDateRangeStart": "04-03",
+	"PlantingDateRangeEnd": "04-10",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Carrots": {
+	"PlantingDateRangeStart": "03-27",
+	"PlantingDateRangeEnd": "04-10",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Cauliflower": {
+	"PlantingDateRangeStart": "03-05",
+	"PlantingDateRangeEnd": "03-20",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 04-03 to 04-24",
+	"Sprite Source ID": "3"
+  },
+  "Celery": {
+	"PlantingDateRangeStart": "02-19",
+	"PlantingDateRangeEnd": "03-05",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 05-08 to 05-22",
+	"Sprite Source ID": "999"
+  },
+  "Chives": {
+	"PlantingDateRangeStart": "04-03",
+	"PlantingDateRangeEnd": "04-10",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Cilantro (Coriander)": {
+	"PlantingDateRangeStart": "05-01",
+	"PlantingDateRangeEnd": "05-15",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Collards": {
+	"PlantingDateRangeStart": "04-03",
+	"PlantingDateRangeEnd": "04-17",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Corn": {
+	"PlantingDateRangeStart": "05-15",
+	"PlantingDateRangeEnd": "06-05",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "6"
+  },
+  "Cucumbers": {
+	"PlantingDateRangeStart": "04-03",
+	"PlantingDateRangeEnd": "04-10",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "7"
+  },
+  "Dill": {
+	"PlantingDateRangeStart": "05-01",
+	"PlantingDateRangeEnd": "06-05",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Eggplants": {
+	"PlantingDateRangeStart": "03-05",
+	"PlantingDateRangeEnd": "03-20",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 05-15 to 05-29",
+	"Sprite Source ID": "8"
+  },
+  "Fava Beans (Broad Beans)": {
+	"PlantingDateRangeStart": "02-05",
+	"PlantingDateRangeEnd": "02-19",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 03-13 to 04-03",
+	"Sprite Source ID": "999"
+  },
+  "Green Beans": {
+	"PlantingDateRangeStart": "05-08",
+	"PlantingDateRangeEnd": "05-29",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Jalapeño Peppers": {
+	"PlantingDateRangeStart": "02-19",
+	"PlantingDateRangeEnd": "03-05",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 05-08 to 05-22",
+	"Sprite Source ID": "999"
+  },
+  "Kale": {
+	"PlantingDateRangeStart": "03-05",
+	"PlantingDateRangeEnd": "03-20",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 04-03 to 04-24",
+	"Sprite Source ID": "999"
+  },
+  "Kohlrabi": {
+	"PlantingDateRangeStart": "03-20",
+	"PlantingDateRangeEnd": "04-03",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 04-10 to 04-17",
+	"Sprite Source ID": "999"
+  },
+  "Lettuce": {
+	"PlantingDateRangeStart": "03-20",
+	"PlantingDateRangeEnd": "04-03",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 04-17 to 05-15",
+	"Sprite Source ID": "999"
+  },
+  "Okra": {
+	"PlantingDateRangeStart": "05-15",
+	"PlantingDateRangeEnd": "05-29",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Onions": {
+	"PlantingDateRangeStart": "04-03",
+	"PlantingDateRangeEnd": "04-24",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "13"
+  },
+  "Oregano": {
+	"PlantingDateRangeStart": "02-19",
+	"PlantingDateRangeEnd": "03-20",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 05-01 to 05-22",
+	"Sprite Source ID": "999"
+  },
+  "Parsley": {
+	"PlantingDateRangeStart": "04-03",
+	"PlantingDateRangeEnd": "04-17",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Parsnips": {
+	"PlantingDateRangeStart": "04-10",
+	"PlantingDateRangeEnd": "05-01",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Peas": {
+	"PlantingDateRangeStart": "03-20",
+	"PlantingDateRangeEnd": "04-10",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Potatoes": {
+	"PlantingDateRangeStart": "04-03",
+	"PlantingDateRangeEnd": "04-17",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Pumpkins": {
+	"PlantingDateRangeStart": "04-10",
+	"PlantingDateRangeEnd": "04-24",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "19"
+  },
+  "Radishes": {
+	"PlantingDateRangeStart": "03-05",
+	"PlantingDateRangeEnd": "03-27",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Rosemary": {
+	"PlantingDateRangeStart": "02-19",
+	"PlantingDateRangeEnd": "03-05",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 05-08 to 05-29",
+	"Sprite Source ID": "999"
+  },
+  "Sage": {
+	"PlantingDateRangeStart": "03-05",
+	"PlantingDateRangeEnd": "03-20",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 05-01 to 05-15",
+	"Sprite Source ID": "999"
+  },
+  "Spinach": {
+	"PlantingDateRangeStart": "03-20",
+	"PlantingDateRangeEnd": "04-10",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Sweet Potatoes": {
+	"PlantingDateRangeStart": "05-22",
+	"PlantingDateRangeEnd": "06-05",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Swiss Chard": {
+	"PlantingDateRangeStart": "03-20",
+	"PlantingDateRangeEnd": "04-03",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 04-10 to 04-17",
+	"Sprite Source ID": "999"
+  },
+  "Thyme": {
+	"PlantingDateRangeStart": "02-19",
+	"PlantingDateRangeEnd": "03-20",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 05-01 to 05-22",
+	"Sprite Source ID": "999"
+  },
+  "Tomatillos": {
+	"PlantingDateRangeStart": "03-05",
+	"PlantingDateRangeEnd": "03-20",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 05-22 to 06-05",
+	"Sprite Source ID": "999"
+  },
+  "Tomatoes": {
+	"PlantingDateRangeStart": "03-05",
+	"PlantingDateRangeEnd": "03-20",
+	"SowingLocation": "Indoors",
+	"Notes": "Transplant seedlings outdoors 05-08 to 05-29",
+	"Sprite Source ID": "999"
+  },
+  "Turnips": {
+	"PlantingDateRangeStart": "04-03",
+	"PlantingDateRangeEnd": "04-24",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Watermelons": {
+	"PlantingDateRangeStart": "04-03",
+	"PlantingDateRangeEnd": "04-10",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "23"
+  },
+  "Winter Squash": {
+	"PlantingDateRangeStart": "05-15",
+	"PlantingDateRangeEnd": "06-12",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
+  },
+  "Zucchini and Summer Squash": {
+	"PlantingDateRangeStart": "05-15",
+	"PlantingDateRangeEnd": "06-12",
+	"SowingLocation": "Outdoors",
+	"Notes": "N/A",
+	"Sprite Source ID": "999"
   }
 }
