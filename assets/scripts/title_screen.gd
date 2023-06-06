@@ -2,7 +2,7 @@ extends Control
 
 
 signal prompt_create_garden_reqeusted
-signal prompt_load_garden_reqeusted
+signal load_garden_reqeusted
 
 # Called when the node enters the scene tree for the first time.
 func _ready():
@@ -18,4 +18,4 @@ func _on_new_button_pressed():
 	prompt_create_garden_reqeusted.emit()
 	
 func _on_load_button_pressed():
-	prompt_load_garden_reqeusted.emit()
+	load_garden_reqeusted.emit()

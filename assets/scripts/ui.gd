@@ -195,10 +195,12 @@ func _on_view_id_pressed(id):
 func _on_help_id_pressed(id):
 	_help_popup.show()
 
+func _on_title_screen_load_garden_reqeusted():
+	load_file_requested.emit()
 
 func _ready():
 	_title_screen.prompt_create_garden_reqeusted.connect(prompt_create_garden)
-	_title_screen.prompt_load_garden_reqeusted.connect(prompt_load_file)
+	_title_screen.load_garden_reqeusted.connect(_on_title_screen_load_garden_reqeusted)
 	GardenSignalBus.hide_title_screen.connect(_hide_title)
 
 func _hide_title():
