@@ -15,6 +15,7 @@ func on_notebook_updated(notebook_state):
 		index = $NoteList.add_item(note_title)
 	if index != -1:
 		$NoteList.select(index)
+		$NoteList.item_selected.emit(index)
 
 # When Add Note button is pressed
 func on_add_note_button_pressed():
@@ -72,6 +73,7 @@ func close_notes():
 	notebook_update_requested.emit(notes.duplicate())
 
 func _on_note_list_item_selected(index):
+	print("hello")
 	var note_title = $NoteList.get_item_text(index)
 	$NoteContentsEdit.text = notes[note_title]
 	$NoteTitleEdit.text = note_title
