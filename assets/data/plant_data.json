@@ -69,13 +69,6 @@
 	"Notes": "N/A",
 	"Sprite Source ID": "999"
   },
-  "Carrots": {
-	"PlantingDateRangeStart": "03-27",
-	"PlantingDateRangeEnd": "04-10",
-	"SowingLocation": "Outdoors",
-	"Notes": "N/A",
-	"Sprite Source ID": "999"
-  },
   "Cauliflower": {
 	"PlantingDateRangeStart": "03-05",
 	"PlantingDateRangeEnd": "03-20",
@@ -219,13 +212,6 @@
   "Peas": {
 	"PlantingDateRangeStart": "03-20",
 	"PlantingDateRangeEnd": "04-10",
-	"SowingLocation": "Outdoors",
-	"Notes": "N/A",
-	"Sprite Source ID": "999"
-  },
-  "Potatoes": {
-	"PlantingDateRangeStart": "04-03",
-	"PlantingDateRangeEnd": "04-17",
 	"SowingLocation": "Outdoors",
 	"Notes": "N/A",
 	"Sprite Source ID": "999"
