@@ -14,3 +14,5 @@ To set up the Better Garden Planner project in the Godot Engine editor, please f
 
 4. Click on "Import & Edit" to open the project in the editor.
 
+For additional information about working with the program, please see the [project wiki](https://github.com/jake-mcg/better-garden-planner/wiki).
+
