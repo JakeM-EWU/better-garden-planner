@@ -33,8 +33,8 @@ Label/font_sizes/font_size = 16
 
 [node name="help_popup" type="Window"]
 title = "Instructions and FAQ"
-position = Vector2i(300, 100)
-size = Vector2i(850, 500)
+position = Vector2i(150, 100)
+size = Vector2i(990, 500)
 theme = SubResource("Theme_o8h8n")
 script = ExtResource("2_6bjuf")
 
@@ -62,27 +62,48 @@ theme_override_font_sizes/font_size = 25
 text = "Better Garden Planner User Manual
 
 1. Introduction
-Welcome to the Better Garden Planner App, your comprehensive companion for garden planning and management. This application offers a user-friendly interface and a host of features to help you design your dream garden. This manual will guide you through the application's usage, explaining each feature in detail. The Better Garden Planner App is a free alternative to apps such as the Farmer's Almanac Vegetable Garden Planner, designed to make garden planning a breeze.
+Welcome to the Better Garden Planner App, your comprehensive 
+companion for garden planning and management. 
+
+This application offers a user-friendly interface and a host of 
+features to help you design your dream garden. 
+
+This manual will guide you through the application's usage, 
+explaining each feature in detail. 
+The Better Garden Planner App is a free alternative to apps such as 
+the Farmer's Almanac Vegetable Garden Planner, designed to make 
+garden planning a breeze.
+
 2. Getting Started
-Upon launching the Better Garden Planner App, you will encounter a beautifully designed title screen with two options: \"New Project\" and \"Load Project\".
+Upon launching the Better Garden Planner App, you will encounter a 
+beautifully designed title screen with two options: \"New Project\" 
+and \"Load Project\".
 
  \"New Project\" allows you to create a new garden plan from scratch.
  \"Load Project\" allows you to load a previously saved garden plan.
 
 
 3. Creating a New Project
-To create a new project, click on the \"New Project\" button. A dialog box will appear, prompting you to enter the dimensions (X, Y) of your garden. You can adjust these dimensions in three ways:
+To create a new project, click on the \"New Project\" button.
+A dialog box will appear, prompting you to enter the dimensions (X, Y) 
+of your garden. You can adjust these dimensions in three ways:
 
 Moving the slider
 Using the \"up\" and \"down\" arrows
 Directly entering the number in the box
 
-The dimensions cannot exceed 100 or be less than 1. We recommend starting with a manageable size that will fill the screen, such as 15 by 10. Once you have set your desired dimensions, click the \"Create\" button to proceed.
+The dimensions cannot exceed 100 or be less than 1. 
+We recommend starting with a manageable size that will fill the 
+screen, such as 15 by 10. Once you have set your desired dimensions, 
+click the \"Create\" button to proceed.
 
 4. Main Interface
-The main interface of the Better Garden Planner App is where you will design your garden. The interface is divided into two main sections:
+The main interface of the Better Garden Planner App is where you 
+will design your garden. The interface is divided into two main
+sections:
 
-Workspace: This is the area where you will design your garden. You can zoom in and out to view different parts of your garden.
+Workspace: This is the area where you will design your garden. 
+You can zoom in and out to view different parts of your garden.
 
 Menu Bar: Located at the top of the screen, 
 the menu bar provides access to various features of the application. 
@@ -90,54 +111,109 @@ It includes the following options: \"File\", \"Edit\", \"View\", and \"Help\".
 
 
 5. File Menu
-The \"File\" menu provides several options for managing your garden plan:
+The \"File\" menu provides several options for managing your 
+garden plan:
 
 Create Garden: This option allows you to start a new garden plan.
-Save as: This option allows you to save your current garden plan. You can choose a specific name for your plan.
+Save as: This option allows you to save your current garden plan. 
+You can choose a specific name for your plan.
 Load: This option allows you to load a previously saved garden plan.
 Exit: This option allows you to close the application.
-Export Image: This option allows you to save a PNG image of your current garden design.
+Export Image: This option allows you to save a PNG image of your 
+current garden design.
 
 6. Edit Menu
-The \"Edit\" menu provides several options for managing the objects in your garden:
+The \"Edit\" menu provides several options for managing the objects 
+in your garden:
 
-Place Object: This option opens a menu with a list of available plants. You can search for a specific plant using the search bar. To place a plant, select it from the list and click on your desired location in the workspace.
-Delete Object: This option allows you to delete objects from your garden. When selected, the application enters \"delete mode\". In this mode, you can click on an object to delete it.
-Move Object: This option allows you to move objects within your garden. When selected, the application enters \"move mode\". In this mode, you can click on an object to select it and then click a spot on the grid to move it to a new location.
+Place Object: This option opens a menu with a list of available plants. 
+You can search for a specific plant using the search bar. 
+To place a plant, select it from the list and click on your desired location 
+in the workspace.
+
+Delete Object: This option allows you to delete objects from your garden. 
+When selected, the application enters \"delete mode\". 
+In this mode, you can click on an object to delete it.
+
+Move Object: This option allows you to move objects within your garden. 
+When selected, the application enters \"move mode\". In this mode, 
+you can click on an object to select it and then click a spot on the grid 
+to move it to a new location.
 
 7. View Menu
-The \"View\" menu provides several options for viewing information about your garden:
-Inventory: This option displays a list of all the plants in your garden, along with their quantities.
-Schedule: This option displays a planting schedule for each unique plant in your garden. The schedule includes a start date and end date for planting, as well as notes about starting indoors or outdoors and transplanting.
-Notes: This option opens a notebook where you can record additional information about your garden. You can add, save, and delete notes as needed.
+The \"View\" menu provides several options for viewing information
+ about your garden:
+
+Inventory: This option displays a list of all the plants in your garden, 
+along with their quantities.
+
+Schedule: This option displays a planting schedule for each unique 
+plant in your garden. The schedule includes a start date and end 
+date for planting, as well as notes about starting indoors or 
+outdoors and transplanting.
+
+Notes: This option opens a notebook where you can record additional 
+information about your garden. You can add, save, and delete notes as needed.
 
 8. Help Menu
-The \"Help\" menu provides additional information and assistance for using the Better Garden Planner App:
+The \"Help\" menu provides additional information and assistance for using the 
+Better Garden Planner App:
 
-User Guide: This option opens the \"Instructions and FAQ\" page, which provides detailed instructions on how to use the application and answers to frequently asked questions.
+User Guide: This option opens the \"Instructions and FAQ\" page, which provides 
+detailed instructions on how to use the application and answers to 
+frequently asked questions.
 
 
 9. Designing Your Garden
-To design your garden, first, select the \"Place Object\" option from the \"Edit\" menu. This will open a menu with a list of available plants. You can search for a specific plant using the search bar. To place a plant, select it from the list and click on your desired location in the workspace. Hold down the right mouse button to drag the camera around the screen, and use the scroll wheel to zoom in and out as needed. 
+To design your garden, first, select the \"Place Object\" option from the \"Edit\" 
+menu. This will open a menu with a list of available plants. 
+You can search for a specific plant using the search bar. 
+To place a plant, select it from the list and click on your desired location in the 
+workspace. Hold down the right mouse button to drag the camera around the 
+screen, and use the scroll wheel to zoom in and out as needed. 
 
-The size of the plants in the workspace is not representative of their real-life size but serves as a visual marker for where to plant. You should space your plants based on the information provided on the seed packets or other research. It is recommended that you keep specific notes on varieties, planting information, and weather events in the notebook feature (see section 10).
+The size of the plants in the workspace is not representative of their real-life 
+size but serves as a visual marker for where to plant. You should space your 
+plants based on the information provided on the seed packets or other research. 
+It is recommended that you keep specific notes on varieties, planting information, 
+and weather events in the notebook feature (see section 10).
 
-If you wish to delete or move a plant, select the \"Delete Object\" or \"Move Object\" option from the \"Edit\" menu, respectively. This will put the application in \"delete mode\" or \"move mode\". In these modes, you can click on a plant to delete it or click and drag a plant to move it. Press the \"Esc\" key to exit either mode.
+If you wish to delete or move a plant, select the \"Delete Object\" or 
+\"Move Object\" option from the \"Edit\" menu, respectively. This will put the 
+application in \"delete mode\" or \"move mode\". In these modes, you can 
+click on a plant to delete it or click and drag a plant to move it. 
+Press the \"Esc\" key to exit either mode.
 
 
 10. Managing Your Garden
 The Better Garden Planner App provides several tools for managing your garden:
 
-Inventory: The inventory provides a count of each type of plant in your garden. This can help you keep track of what you have planted and plan for what you need to plant.
+Inventory: The inventory provides a count of each type of plant in your garden. 
+This can help you keep track of what you have planted and plan for what 
+you need to plant.
 
-Schedule: The schedule provides a timeline for when to plant each type of plant in your garden. This can help you plan your planting activities and ensure that each plant is planted at the optimal time.
+Schedule: The schedule provides a timeline for when to plant each type 
+of plant in your garden. This can help you plan your planting activities 
+and ensure that each plant is planted at the optimal time.
 
-Notes: The notes feature allows you to record additional information about your garden. This can be useful for recording details about specific plant varieties, frost dates, and other important information.
+Notes: The notes feature allows you to record additional information 
+about your garden. This can be useful for recording details about specific 
+plant varieties, frost dates, and other important information.
 
 11. Saving and Exporting Your Garden
-Once you are satisfied with your garden design, you can save it for future use by selecting the \"Save as\" option from the \"File\" menu. You can also export an image of your garden design by selecting the \"Export Image\" option from the \"File\" menu.
+Once you are satisfied with your garden design, you can save it for 
+future use by selecting the \"Save as\" option from the \"File\" menu. 
+You can also export an image of your garden design by selecting the 
+\"Export Image\" option from the \"File\" menu.
 
 12. Conclusion
-The Better Garden Planner App is a comprehensive tool for planning and managing your garden. With its user-friendly interface and wide array of features, it makes garden planning a breeze. We hope this user manual has provided you with a clear understanding of how to use the application. If you have any further questions, please refer to the \"Help\" menu or contact our support team. Happy gardening!"
+The Better Garden Planner App is a comprehensive tool for planning 
+and managing your garden. With its user-friendly interface and wide 
+array of features, it makes garden planning a breeze. We hope this user 
+manual has provided you with a clear understanding of how to use the 
+application. If you have any further questions, please refer to the \"Help\" 
+menu or contact our support team. 
+
+Happy gardening!"
 
 [connection signal="close_requested" from="." to="." method="_on_close_requested"]
