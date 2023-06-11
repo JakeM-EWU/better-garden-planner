@@ -1,6 +1,6 @@
 # Better Garden Planner
 
-The Better Garden Planner is a garden planning application developed using the Godot 4.0 Engine. It provides a fun and friendly interface for planning your garden. 
+The Better Garden Planner is a garden planning application developed using the Godot 4.0.2 Engine. It provides a fun and friendly interface for planning your garden. 
 
 ## Installation
 
